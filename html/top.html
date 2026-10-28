@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top 20 Books - BookNook</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/top.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+
+      </ul>
+    </div>  
+  </header>
+    <!-- Category Navigation -->
+<nav class="category-nav">
+  <ul class="category-list container">
+    <li class="genre-dropdown">
+      <a href="#" class="category-item">Genres <i class="fas fa-chevron-down"></i></a>
+      <div class="genre-panel">
+        <div class="genre-grid">
+          <div class="genre-section">
+            <h3>Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/fiction.html">Fiction Reads</a></li>
+            <li><a href="/Genres/Adventure.html">Adventure</a></li>
+            <li><a href="/Genres/Classic Novels.html">Classic Novels</a></li>
+            <li><a href="/Genres/Mystery .html">Mystery</a></li>
+            <li><a href="/Genres/romance.html">Romance</a></li>
+            <li><a href="/Genres/Science Fiction.html">Science Fiction</a></li>
+            <li><a href="/Genres/History.html">History</li></a>             
+            <li><a href="/Genres/horror.html">Horror</li></a>             
+          </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Non Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/biography.html">Biography</a></li>
+            <li><a href="/Genres/Selfhelp.html">Self Help</a></li>
+            <li><a href="/Genres/Philosophy.html">Philosophy</a></li>
+            <li><a href="/Genres/science.html">Science & Nature</a></li>
+            <li><a href="/Genres/travel.html">Travel</a></li>
+            <li><a href="/Genres/sports.html">Sports</li></a> 
+            <li><a href="/Genres/Stock Market.html">Stock Market</li></a> 
+            <li><a href="/Genres/Spiritual.html">Spirituality </li></a> 
+
+            
+            </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Showcase</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/historical.html">History</li></a> 
+              <li><a href="/Genres/sports.html">Sports</li></a> 
+              <li><a href="/Genres/flims.html">Flims & Animations</li></a> 
+              <li><a href="/Genres/travel.html">Travel & Culture</li></a> 
+              <li><a href="/Genres/culture.html">Culture</li></a> 
+              <li><a href="/Genres/health.html">Health</li></a> 
+            </ul>
+          </div>
+          
+          <div class="genre-section">
+            <h3>Comics</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/Indian Comics.html"> Indian Comics</a></li>
+              <li><a href="/Genres/American Comics.html">American Comics</a></li>
+              <li><a href="/Genres/Manga.html">Manga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="category-option"><a href="/html/trending.html" class="category-item">Trending</a></li>
+    <li class="category-option"><a href="/html/top.html" class="category-item">Top 20</a></li>
+    <li class="category-option"><a href="/html/kids.html" class="category-item">Kids Books</a></li>
+    <li class="category-option"><a href="/html/stationary.html" class="category-item">Stationery & Gifts</a></li>
+    <!-- <li class="category-option"><a href="/html/audio.html" class="category-item">Audio Books</a></li> -->
+    <li class="category-option"><a href="/html/exclusive_brands.html" class="category-item">Exclusive Brands</a></li>
+    <li class="category-option"><a href="/html/todays.html" class="category-item">Today's Deals</a></li>
+  </ul>
+</nav>
+
+
+      <div class="banner">
+        <h1>📚 Top 20 Must-Read Books 📚</h1>
+        <p>Discover literary masterpieces that will inspire, challenge, and transform you</p>
+        
+        <div class="book-icons">
+            <span class="book-icon">📖</span>
+            <span class="book-icon">📘</span>
+            <span class="book-icon">📕</span>
+        </div>
+        
+    </div>
+
+
+
+    <section class="book-container" id="top-books">
+      <!-- Book Card 1 -->
+            <!-- Book Card 1 -->
+      <div class="book-card" data-book-id="900" data-book-name="The Hunger Games" data-author="Suzanne Collins" data-price="399" data-stock="15" data-category="Top20">
+        <div class="book-image">
+          <img src="/assets/books/top20/top_1.jpg" alt="The Hunger Games" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Hunger Games</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Suzanne Collins</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹399</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Hunger Games', 'Suzanne Collins', 399, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 2 -->
+      <div class="book-card" data-book-id="901" data-book-name="The Fault in Our Stars" data-author="John Green" data-price="349" data-stock="15" data-category="Top20">
+        <div class="book-image">
+          <img src="/assets/books/top20/top_2.jpg" alt="The Fault in Our Stars" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Fault in Our Stars</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By John Green</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹349</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Fault in Our Stars', 'John Green', 349, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 3 -->
+      <div class="book-card" data-book-id="902" data-book-name="The Book Thief" data-author="Markus Zusak" data-price="449" data-stock="15" data-category="Top20">
+        <div class="book-image">
+          <img src="/assets/books/top20/top_3.jpg" alt="The Book Thief" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Book Thief</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Markus Zusak</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹449</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Book Thief', 'Markus Zusak', 449, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 4 -->
+      <div class="book-card" data-book-id="903" data-book-name="Daisy Jones & The Six" data-author="Taylor Jenkins Reid" data-price="499" data-stock="15" data-category="Top20">
+        <div class="book-image">
+          <img src="/assets/books/top20/top_4.jpg" alt="Daisy Jones & The Six" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Daisy Jones & The Six</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Taylor Jenkins Reid</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹499</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Daisy Jones & The Six', 'Taylor Jenkins Reid', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 5 -->
+      <div class="book-card" data-book-id="904" data-book-name="Ugly Love" data-author="Colleen Hoover" data-price="379" data-stock="15" data-category="Top20">
+        <div class="book-image">
+          <img src="/assets/books/top20/top_5.jpg" alt="Ugly Love" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Ugly Love</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Colleen Hoover</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹379</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Ugly Love', 'Colleen Hoover', 379, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+
+      <!-- Book Card 6 -->
+      <div class="book-card" data-book-id="905" data-book-name="The Diamond Eye" data-author="Kate Quinn" data-price="499" data-stock="15" data-category="Trending">
+        <div class="book-image">
+          <img src="../assets/trending/trend_6.jpg" alt="The Diamond Eye" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Diamond Eye</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Kate Quinn</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹499</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Diamond Eye', 'Kate Quinn', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 7 -->
+      <div class="book-card" data-book-id="906" data-book-name="Before We Were Strangers" data-author="Renée Carlino" data-price="379" data-stock="15" data-category="Trending">
+        <div class="book-image">
+          <img src="../assets/trending/trend_7.jpg" alt="Before We Were Strangers" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Before We Were Strangers</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Renée Carlino</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹379</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Before We Were Strangers', 'Renée Carlino', 379, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 8 -->
+      <div class="book-card" data-book-id="907" data-book-name="The Girl in Cabin 13" data-author="A.J. Rivers" data-price="369" data-stock="15" data-category="Trending">
+        <div class="book-image">
+          <img src="../assets/trending/trend_8.jpg" alt="The Girl in Cabin 13" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Girl in Cabin 13</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By A.J. Rivers</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹369</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Girl in Cabin 13', 'A.J. Rivers', 369, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 9 -->
+      <div class="book-card" data-book-id="908" data-book-name="The Night Swim" data-author="Megan Goldin" data-price="449" data-stock="15" data-category="Trending">
+        <div class="book-image">
+          <img src="../assets/trending/trend_9.jpg" alt="The Night Swim" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Night Swim</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Megan Goldin</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹449</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Night Swim', 'Megan Goldin', 449, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 10 -->
+      <div class="book-card" data-book-id="909" data-book-name="The Final Empire" data-author="Brandon Sanderson" data-price="559" data-stock="15" data-category="Trending">
+        <div class="book-image">
+          <img src="../assets/trending/trend_10.jpg" alt="The Final Empire" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Final Empire</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Brandon Sanderson</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹559</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Final Empire', 'Brandon Sanderson', 559, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 11 -->
+      <div class="book-card" data-book-id="910" data-book-name="Junie: A GMA Book Club Pick" data-author="Erin Crosby Eckstine" data-price="499" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/trending/trend_10.jpg" alt="Junie: A GMA Book Club Pick" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Junie: A GMA Book Club Pick</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Erin Crosby Eckstine</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹499</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Junie: A GMA Book Club Pick', 'Erin Crosby Eckstine', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 12 -->
+      <div class="book-card" data-book-id="911" data-book-name="Rich Dad Poor Dad" data-author="Robert Kiyosaki" data-price="350" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/non-fiction/nonf_4.webp" alt="Rich Dad Poor Dad" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Rich Dad Poor Dad</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Robert Kiyosaki</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹350</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Rich Dad Poor Dad', 'Robert Kiyosaki', 350, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 13 -->
+      <div class="book-card" data-book-id="912" data-book-name="The Lean Startup" data-author="Eric Ries" data-price="420" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/non-fiction/nonf_5.webp" alt="The Lean Startup" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Lean Startup</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Eric Ries</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹420</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Lean Startup', 'Eric Ries', 420, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 14 -->
+      <div class="book-card" data-book-id="913" data-book-name="Bhagavad Gita" data-author="Eknath Easwaran" data-price="299" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/non-fiction/nonf_7.webp" alt="Bhagavad Gita" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Bhagavad Gita</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Eknath Easwaran</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹299</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Bhagavad Gita', 'Eknath Easwaran', 299, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 15 -->
+      <div class="book-card" data-book-id="914" data-book-name="The Alchemist" data-author="Paulo Coelho" data-price="399" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/fictional/fic_2.jpg" alt="The Alchemist" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Alchemist</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Paulo Coelho</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹399</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Alchemist', 'Paulo Coelho', 399, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+
+      <!-- Book Card 16 -->
+      <div class="book-card" data-book-id="915" data-book-name="The Silent Patient" data-author="Alex Michaelides" data-price="599" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/fictional/fic_3.jpg" alt="The Silent Patient" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Silent Patient</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Alex Michaelides</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹599</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Silent Patient', 'Alex Michaelides', 599, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 17 -->
+      <div class="book-card" data-book-id="916" data-book-name="Becoming" data-author="Michelle Obama" data-price="599" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/non-fiction/nonf_1.webp" alt="Becoming" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Becoming</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Michelle Obama</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹599</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Becoming', 'Michelle Obama', 599, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 18 -->
+      <div class="book-card" data-book-id="917" data-book-name="Atomic Habits" data-author="James Clear" data-price="450" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/non-fiction/nonf_2.webp" alt="Atomic Habits" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Atomic Habits</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By James Clear</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹450</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Atomic Habits', 'James Clear', 450, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 19 -->
+      <div class="book-card" data-book-id="918" data-book-name="The Power of Now" data-author="Eckhart Tolle" data-price="399" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/non-fiction/nonf_3.webp" alt="The Power of Now" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Power of Now</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Eckhart Tolle</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹399</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Power of Now', 'Eckhart Tolle', 399, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book Card 20 -->
+      <div class="book-card" data-book-id="919" data-book-name="The Story of Civilization" data-author="Will Durant" data-price="899" data-stock="15">
+        <div class="book-image">
+          <img src="../assets/books/coffe/c_1.webp" alt="The Story of Civilization" />
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Story of Civilization</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Will Durant</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="15" />
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹899</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Story of Civilization', 'Will Durant', 899, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+    </section>
+<footer class="page-footer" style="background: #165A96; color: #fff;">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">BookNook</h3>
+            <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+            <div class="social-icons">
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Quick Links</h3>
+            <ul>
+              <li><a href="#" style="color: #fff;">About Us</a></li>
+              <li><a href="#" style="color: #fff;">Contact</a></li>
+              <li><a href="#" style="color: #fff;">Shipping Policy</a></li>
+              <li><a href="#" style="color: #fff;">Returns & Exchanges</a></li>
+              <li><a href="#" style="color: #fff;">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Customer Service</h3>
+            <ul>
+              <li><i class="fas fa-phone" style="color: #165A96;"></i> +91 9876543210</li>
+              <li><i class="fas fa-envelope" style="color: #165A96"></i> help@booknook.com</li>
+              <li><i class="fas fa-map-marker-alt" style="color: #165A96"></i> Mumbai, India</li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Newsletter</h3>
+            <p>Subscribe for updates and special offers!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" style="border-radius: 8px; border: none;">
+              <button type="submit" style="background: var(--secondary-brand-color); color: #165A96; border-radius: 8px; font-weight: bold;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-top: 1px solid var(--secondary-brand-color);">
+          <p>&copy; 2023 BookNook. All rights reserved.</p>
+        </div>
+      </footer> 
+    <script src="/wishlist.js"></script>
+  <script>
+        document.getElementById('exploreBtn').addEventListener('click', function() {
+            alert('Coming soon: Your curated Top 20 Books list!');
+            // Replace with actual action like:
+            // window.location.href = '#book-list';
+        });
+    </script>
+    <!-- JavaScript for interactivity -->
+    <script>
+  // ✅ Get quantity from book card
+  function getQuantity(button) {
+    const card = button.closest(".book-card");
+    const input = card.querySelector(".quantity-input");
+    return parseInt(input.value) || 1;
+  }
+
+  // ✅ Add to Cart with quantity
+  function addToCart(title, author, price, quantity = 1) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existing = cart.find(
+      (item) => item.title === title && item.author === author
+    );
+
+    if (existing) {
+      existing.quantity += quantity;
+    } else {
+      cart.push({ title, author, price, quantity });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${title} added to cart 🛒 (${quantity})`);
+  }
+
+  // ✅ Wishlist functionality
+  let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+  document.querySelectorAll(".wishlist-btn").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const icon = this.querySelector("i");
+      this.classList.toggle("active");
+
+      const bookCard = this.closest(".book-card");
+      const bookId = bookCard?.dataset.bookId;
+      const bookName = bookCard?.dataset.bookName || bookCard?.querySelector(".book-title")?.innerText;
+      const author = bookCard?.dataset.author || bookCard?.querySelector(".book-author")?.innerText.replace("By ", "");
+      const priceText = bookCard?.dataset.price || bookCard?.querySelector(".price")?.innerText;
+      const price = parseInt(priceText?.replace("₹", "")) || 0;
+
+      if (!bookId || !bookName || !author || isNaN(price)) {
+        console.warn("Invalid book data", { bookId, bookName, author, price });
+        return;
+      }
+
+      if (this.classList.contains("active")) {
+        icon.classList.remove("far");
+        icon.classList.add("fas");
+
+        if (!wishlist.some((b) => b.bookId === bookId)) {
+          wishlist.push({ bookId, bookName, author, price });
+        }
+      } else {
+        icon.classList.remove("fas");
+        icon.classList.add("far");
+        wishlist = wishlist.filter((b) => b.bookId !== bookId);
+      }
+
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+      const counter = document.querySelector(".wishlist-count");
+      if (counter) counter.textContent = wishlist.length;
+    });
+  });
+
+  // ✅ Quantity + / - buttons
+  document.querySelectorAll(".quantity-selector").forEach((selector) => {
+    const input = selector.querySelector(".quantity-input");
+    const plus = selector.querySelector(".quantity-plus");
+    const minus = selector.querySelector(".quantity-minus");
+
+    plus?.addEventListener("click", () => {
+      let current = parseInt(input.value) || 1;
+      const max = parseInt(input.max) || 99;
+      if (current < max) input.value = current + 1;
+    });
+
+    minus?.addEventListener("click", () => {
+      let current = parseInt(input.value) || 1;
+      if (current > 1) input.value = current - 1;
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener("load", function () {
+    const bannerContent = document.querySelector(".banner-content");
+    bannerContent.style.opacity = "1";
+    bannerContent.style.animation = "fadeSlideUp 1s ease-out forwards";
+  });
+</script>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusive Brands – BookNook</title>
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Montserrat:wght@400;500&display=swap"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- SwiperJS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Exclusive Brands CSS -->
+    <link rel="stylesheet" href="/css/exclusive.css" />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+
+      </ul>
+    </div>
+  </header>
+    <!-- Category Navigation -->
+<nav class="category-nav">
+  <ul class="category-list container">
+    <li class="genre-dropdown">
+      <a href="#" class="category-item">Genres <i class="fas fa-chevron-down"></i></a>
+      <div class="genre-panel">
+        <div class="genre-grid">
+          <div class="genre-section">
+            <h3>Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/fiction.html">Fiction Reads</a></li>
+            <li><a href="/Genres/Adventure.html">Adventure</a></li>
+            <li><a href="/Genres/Classic Novels.html">Classic Novels</a></li>
+            <li><a href="/Genres/Mystery .html">Mystery</a></li>
+            <li><a href="/Genres/romance.html">Romance</a></li>
+            <li><a href="/Genres/Science Fiction.html">Science Fiction</a></li>
+            <li><a href="/Genres/History.html">History</li></a>             
+            <li><a href="/Genres/horror.html">Horror</li></a>             
+          </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Non Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/biography.html">Biography</a></li>
+            <li><a href="/Genres/Selfhelp.html">Self Help</a></li>
+            <li><a href="/Genres/Philosophy.html">Philosophy</a></li>
+            <li><a href="/Genres/science.html">Science & Nature</a></li>
+            <li><a href="/Genres/travel.html">Travel</a></li>
+            <li><a href="/Genres/sports.html">Sports</li></a> 
+            <li><a href="/Genres/Stock Market.html">Stock Market</li></a> 
+            <li><a href="/Genres/Spiritual.html">Spirituality </li></a> 
+
+            
+            </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Showcase</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/historical.html">History</li></a> 
+              <li><a href="/Genres/sports.html">Sports</li></a> 
+              <li><a href="/Genres/flims.html">Flims & Animations</li></a> 
+              <li><a href="/Genres/travel.html">Travel & Culture</li></a> 
+              <li><a href="/Genres/culture.html">Culture</li></a> 
+              <li><a href="/Genres/health.html">Health</li></a> 
+            </ul>
+          </div>
+          
+          <div class="genre-section">
+            <h3>Comics</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/Indian Comics.html"> Indian Comics</a></li>
+              <li><a href="/Genres/American Comics.html">American Comics</a></li>
+              <li><a href="/Genres/Manga.html">Manga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="category-option"><a href="/html/trending.html" class="category-item">Trending</a></li>
+    <li class="category-option"><a href="/html/top.html" class="category-item">Top 20</a></li>
+    <li class="category-option"><a href="/html/kids.html" class="category-item">Kids Books</a></li>
+    <li class="category-option"><a href="/html/stationary.html" class="category-item">Stationery & Gifts</a></li>
+    <li class="category-option"><a href="/html/exclusive_brands.html" class="category-item">Exclusive Brands</a></li>
+    <li class="category-option"><a href="/html/todays.html" class="category-item">Today's Deals</a></li>
+  </ul>
+</nav>
+
+
+    <!-- Section Heading -->
+    <!-- Section Heading -->
+<section class="exclusive-brands">
+<div class="section-header">
+  <h2 class="exclusive-brands-heading">Top Exclusive Books</h2>
+</div>
+  <!-- Swiper Carousel -->
+  <div class="swiper movies">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive_1.jpg" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>A Parallel Universe</h3>
+              <p>By Michio Kaku</p>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('A Parallel Universe')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('A Parallel Universe', 'Book', 499, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 to 6: Time Masters -->
+      <!-- Use unique IDs or class if needed -->
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive_2.avif" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>Loard Of Rings</h3>
+              <p>By Lewis Shiner</p>
+            </div>
+            <div class="price">₹399</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('Loard Of Rings')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('Loard Of Rings', 'Book', 399, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive_3.avif" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>Game Of Thrones</h3>
+              <p>By Lewis Shiner</p>
+            </div>
+            <div class="price">₹599</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('Game Of Thrones')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('Game Of Throness', 'Book', 599, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive _4.jpg" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>Percy Jackson</h3>
+              <p>By Shiner</p>
+            </div>
+            <div class="price">₹999</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('Percy Jackson')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('Percy Jackson', 'Book', 999, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive _5jpg.webp" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>A Esparanga</h3>
+              <p>By john</p>
+            </div>
+            <div class="price">₹788</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('A Esparangas')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('A Esparanga', 'Book', 788, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive_7.jpg" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>Narnia</h3>
+              <p>By shawn</p>
+            </div>
+            <div class="price">₹999</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('Narnia')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('Narnia', 'Book',999, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive_8..png" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>War And The Wind</h3>
+              <p>By Tyler Krings</p>
+            </div>
+            <div class="price">₹449</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('War And The Wind')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('107', 'War And The Wind', 'Book', 449, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="swiper-slide">
+        <img src="/assets/books/exclusive/exclusive_9.jpg" />
+        <div class="info">
+          <div class="info-top">
+            <div class="info-left">
+              <h3>Ruins Of IVY</h3>
+              <p>By Aaron Ramsby</p>
+            </div>
+            <div class="price">₹479</div>
+          </div>
+          <div class="actions">
+            <i class="fas fa-heart" onclick="addToWishlist('Ruins Of IVY')" title="Add to Wishlist"></i>
+            <i class="fas fa-shopping-cart" onclick="addToCart('108', 'Ruins Of IVY', 'Book', 479, 1)" title="Add to Cart"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+
+
+
+    <section class="exclusive-brands-books-tascen">
+      <h2 class="exclusive-brands-heading">Exclusive Brands</h2>
+
+      <!-- ---------tascen ----------- -->
+     <div class="brand-block">
+        <h3 class="brand-name ">Taschen</h3>
+        <div class="book-row">
+                <!-- Book 1 -->
+      <div class="book-card" data-book-id="800" id="book-design-20th-century">
+        <img src="https://u-mercari-images.mercdn.net/photos/m30750609823_1.jpg" alt="Design of the 20th Century" />
+        <div class="book-details">
+          <p class="book-title">Design of the 20th</p>
+          <p class="book-author">By Charollete & Peter Fiell</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Design of the 20th Century', 'Charollete & Peter Fiell', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-card" data-book-id="801" id="book-miracles">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTES41KiqYCPvRab9OiZwkWvVQeAHUGAecRzQ&s" alt="The Book of Miracles" />
+        <div class="book-details">
+          <p class="book-title">The Book of Miracles</p>
+          <p class="book-author">By Till-Holger Borchert</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Book of Miracles', 'Till-Holger Borchert', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-card" data-book-id="802" id="book-mickey-mouse">
+        <img src="https://m.media-amazon.com/images/I/81ot9Ndwl3L._UF1000,1000_QL80_.jpg" alt="Mickey Mouse" />
+        <div class="book-details">
+          <p class="book-title">Mickey Mouse</p>
+          <p class="book-author">By Bobiger</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Mickey Mouse', 'Bobiger', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="book-card" data-book-id="803" id="book-van-gogh">
+        <img src="https://m.media-amazon.com/images/I/91mb6LIkDuL.jpg" alt="Van Gogh" />
+        <div class="book-details">
+          <p class="book-title">Van Gogh</p>
+          <p class="book-author">By Ingo Walther</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Van Gogh', 'Ingo Walther', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="book-card" data-book-id="804" id="book-chagall">
+        <img src="https://shop.theoldschoolhouse.org/cdn/shop/products/art_chagall_ba_gb_3d_49247_1510121103_id_1004841.png-960x1154.jpg?v=1617821342" alt="Chagall" />
+        <div class="book-details">
+          <p class="book-title">Chagall</p>
+          <p class="book-author">By Rainer Metzger</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Chagall', 'Rainer Metzger', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+
+      <!-- ---------- androil---------- -->
+      <div class="brand-block">
+        <h3 class="brand-name">Assouline</h3>
+        <div class="book-row">
+          <!-- Book 1 -->
+      <div class="book-card" data-book-id="820" id="book-mykonos-muse">
+        <img src="https://eu.assouline.com/cdn/shop/files/Mykonos_Spotify.jpg?v=1690297344&width=493" alt="Mykonos Muse" />
+        <div class="book-details">
+          <p class="book-title">Mykonos Muse</p>
+          <p class="book-author">By Lizy Manola</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹557</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Mykonos Muse', 'Lizy Manola', 557, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-card" data-book-id="821" id="book-new-york">
+        <img src="https://m.media-amazon.com/images/I/81-C6nLzk4L._UF1000,1000_QL80_.jpg" alt="New York by New York" />
+        <div class="book-details">
+          <p class="book-title">New York by New York</p>
+          <p class="book-author">By Assouline</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹534</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('New York by New York', 'Assouline', 534, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-card" data-book-id="822" id="book-ibiza-bohemia">
+        <img src="https://eu.assouline.com/cdn/shop/files/Ibizia_Spotify.jpg?v=1690297344&width=493" alt="Ibiza Bohemia" />
+        <div class="book-details">
+          <p class="book-title">Ibiza Bohemia</p>
+          <p class="book-author">By Renu Kashyap</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹459</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Ibiza Bohemia', 'Renu Kashyap', 459, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="book-card" data-book-id="823" id="book-tuscany-marvel">
+        <img src="https://cdn.koffietafelboeken.nl/wp-content/uploads/tuscany-marvel-assouline-cover-350x467.jpg" alt="Tuscany Marvel" />
+        <div class="book-details">
+          <p class="book-title">Tuscany Marvel</p>
+          <p class="book-author">By Cesare Cunaccia</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹499</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Tuscany Marvel', 'Cesare Cunaccia', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="book-card" data-book-id="824" id="book-marrakech-flair">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNlXupBw2TTVvAxC-2brZ4pJT_RgfZkyP2QA&s" alt="Marrakech Flair" />
+        <div class="book-details">
+          <p class="book-title">Marrakech Flair</p>
+          <p class="book-author">By Marisa Berenson</p>
+          <i class="fas fa-heart wishlist-icon"></i>
+          <div class="book-actions">
+            <div class="quantity">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <div class="price">₹599</div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Marrakech Flair', 'Marisa Berenson', 599, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+
+      <!-------------- easton press----------- -->
+
+      <div class="brand-block">
+        <h3 class="brand-name">Easton Press</h3>
+        <div class="book-row">
+          <!-- Book 1 -->
+          <div class="book-card" data-book-id="830" id="book-pride-prejudice">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2tFLvUj84qxUhINnX7AkEKwwb3VWTN4t__w&s" alt="Pride and Prejudice" />
+            <div class="book-details">
+              <p class="book-title">Pride and Prejudice</p>
+              <p class="book-author">By Jane Austen</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹4,999</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Pride and Prejudice', 'Jane Austen', 4999, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 2 -->
+          <div class="book-card" data-book-id="831" id="book-1984">
+            <img src="https://www.eastonpress.com/dw/image/v2/BDZH_PRD/on/demandware.static/-/Sites-full-catalog/default/dw0cc5ff9e/images/hi-res/Nineteen-Eighty-Four-3377-3.jpg" alt="1984 - Easton Press Edition" />
+            <div class="book-details">
+              <p class="book-title">1984</p>
+              <p class="book-author">By George Orwell</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹5,599</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('1984', 'George Orwell', 5599, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="book-card" data-book-id="832" id="book-moby-dick">
+            <img src="https://m.media-amazon.com/images/I/71firLtcjnL._UF1000,1000_QL80_.jpg" alt="Moby Dick" />
+            <div class="book-details">
+              <p class="book-title">Moby Dick</p>
+              <p class="book-author">By Herman Melville</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹5,299</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Moby Dick', 'Herman Melville', 5299, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 4 -->
+          <div class="book-card" data-book-id="833" id="book-divine-comedy">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4FQ-OnMlXUOedFiAKASL25zx00exd3NjhoA&s" alt="The Divine Comedy" />
+            <div class="book-details">
+              <p class="book-title">The Divine Comedy</p>
+              <p class="book-author">By Dante Alighieri</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹6,490</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('The Divine Comedy', 'Dante Alighieri', 6490, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 5 -->
+          <div class="book-card" data-book-id="834" id="book-hp-complete">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_E12C9c9YX7WdyXPg5zCpOHUnOYGN6Sj-Q&s" alt="Harry Potter Leather Set" />
+            <div class="book-details">
+              <p class="book-title">Harry Potter Set</p>
+              <p class="book-author">By J.K. Rowling</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹3,990</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Harry Potter Set', 'J.K. Rowling', 3990, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+          </div>
+      </div>
+
+
+      <!-- ----------- rizzoli -------- -->
+      <div class="brand-block">
+        <h3 class="brand-name">Rizzoli</h3>
+        <div class="book-row">
+          <!-- Book 1 -->
+          <div class="book-card" data-book-id="840" id="book-tom-ford">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStQrmbs-Dz_sWBGXDSqJn5cV2VT35Idiu_pA&s" alt="Tom Ford" />
+            <div class="book-details">
+              <p class="book-title">Tom Ford</p>
+              <p class="book-author">By Tom Ford</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹450</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Tom Ford', 'Tom Ford', 450, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 2 -->
+          <div class="book-card" data-book-id="841" id="book-vermeer">
+            <img src="https://m.media-amazon.com/images/I/51SN3ZPM64L._AC_UF1000,1000_QL80_.jpg" alt="Vermeer" />
+            <div class="book-details">
+              <p class="book-title">Vermeer</p>
+              <p class="book-author">By Norbert Schneider</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹379</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Vermeer', 'Norbert Schneider', 379, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="book-card" data-book-id="842" id="book-black-style">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQrTPd-hHcQ18g_A877jPpDVBn35QYU3kt7w&s" alt="Black Style" />
+            <div class="book-details">
+              <p class="book-title">Black Style</p>
+              <p class="book-author">By Rizzoli</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹399</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Black Style', 'Rizzoli', 399, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 4 -->
+          <div class="book-card" data-book-id="843" id="book-art-deco">
+            <img src="https://m.media-amazon.com/images/I/614gUg6qsJL._UF1000,1000_QL80_.jpg" alt="Art Deco" />
+            <div class="book-details">
+              <p class="book-title">Art Deco</p>
+              <p class="book-author">By Jared Goss</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹556</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Art Deco', 'Jared Goss', 556, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 5 -->
+          <div class="book-card" data-book-id="844" id="book-fashion-influence">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqkkDLANbgTrl9EADF187dzcQV3G_adnsFg&s" alt="Fashion Influence" />
+            <div class="book-details">
+              <p class="book-title">Fashion Influence</p>
+              <p class="book-author">By Rizzoli Editors</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹439</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Fashion Influence', 'Rizzoli Editors', 439, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ------ phaidon press---------- -->
+      <div class="brand-block">
+        <h3 class="brand-name">Phaidon Press</h3>
+        <div class="book-row">
+          <!-- Book 1 -->
+          <div class="book-card" data-book-id="850" id="book-great-women">
+            <img src="https://m.media-amazon.com/images/I/71gF4yGmLML._UF1000,1000_QL80_.jpg" alt="Great Women Artists" />
+            <div class="book-details">
+              <p class="book-title">Great Women</p>
+              <p class="book-author">By Phaidon Editors</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹499</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Great Women', 'Phaidon Editors', 499, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 2 -->
+          <div class="book-card" data-book-id="851" id="book-animal-kingdom">
+            <img src="https://m.media-amazon.com/images/I/81X-8z9Tu3L._UF1000,1000_QL80_.jpg" alt="Animal Kingdom" />
+            <div class="book-details">
+              <p class="book-title">Animal Kingdom</p>
+              <p class="book-author">By Phaidon Editors</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹379</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Animal Kingdom', 'Phaidon Editors', 379, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="book-card" data-book-id="852" id="book-art-is">
+            <img src="https://m.media-amazon.com/images/I/51IJ7mPWxLL._UF1000,1000_QL80_.jpg" alt="Art Is..." />
+            <div class="book-details">
+              <p class="book-title">The Art Book</p>
+              <p class="book-author">By Phaidon Press</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹399</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('The Art Book', 'Phaidon Press', 399, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 4 -->
+          <div class="book-card" data-book-id="853" id="book-dog">
+            <img src="https://m.media-amazon.com/images/I/7160OXLyMUL._UF1000,1000_QL80_.jpg" alt="Dog" />
+            <div class="book-details">
+              <p class="book-title">Dog</p>
+              <p class="book-author">By Phaidon Editors</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹249</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Dog', 'Phaidon Editors', 249, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 5 -->
+          <div class="book-card" data-book-id="854" id="book-garden-city">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXp-T3OqujKRYaSi5f47DFtJewRrO1a03f6g&s" alt="Garden City" />
+            <div class="book-details">
+              <p class="book-title">Garden City</p>
+              <p class="book-author">By Anna Yudina</p>
+              <i class="fas fa-heart wishlist-icon"></i>
+              <div class="book-actions">
+                <div class="quantity">
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <div class="price">₹329</div>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Garden City', 'Anna Yudina', 329, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+      <footer class="page-footer" style="background: #165A96; color: #fff;">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">BookNook</h3>
+            <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+            <div class="social-icons">
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Quick Links</h3>
+            <ul>
+              <li><a href="#" style="color: #fff;">About Us</a></li>
+              <li><a href="#" style="color: #fff;">Contact</a></li>
+              <li><a href="#" style="color: #fff;">Shipping Policy</a></li>
+              <li><a href="#" style="color: #fff;">Returns & Exchanges</a></li>
+              <li><a href="#" style="color: #fff;">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Customer Service</h3>
+            <ul>
+              <li><i class="fas fa-phone" style="color: #165A96;"></i> +91 9876543210</li>
+              <li><i class="fas fa-envelope" style="color: #165A96"></i> help@booknook.com</li>
+              <li><i class="fas fa-map-marker-alt" style="color: #165A96"></i> Mumbai, India</li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Newsletter</h3>
+            <p>Subscribe for updates and special offers!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" style="border-radius: 8px; border: none;">
+              <button type="submit" style="background: var(--secondary-brand-color); color: #165A96; border-radius: 8px; font-weight: bold;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-top: 1px solid var(--secondary-brand-color);">
+          <p>&copy; 2023 BookNook. All rights reserved.</p>
+        </div>
+      </footer>
+    
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+  const swiper = new Swiper(".movies", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 3.5,
+    loop: true,
+    coverflowEffect: {
+      rotate: 25,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      320: { slidesPerView: 1.2 },
+      640: { slidesPerView: 2.5 },
+      768: { slidesPerView: 3.5 },
+    },
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+  });
+
+      // Quantity selector helper
+      function getQuantity(buttonElement) {
+        const quantitySpan = buttonElement.closest(".book-card")?.querySelector(".quantity span");
+        return parseInt(quantitySpan?.textContent) || 1;
+      }
+
+      // Add to Cart handler
+      function addToCart(title, authorOrType, price, quantity = 1) {
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const author = typeof authorOrType === "string" ? authorOrType : "Exclusive Edition";
+        const numPrice = Number(price) || 0;
+        const numQty = Number(quantity) || 1;
+
+        const existing = cart.find(item => item.title === title);
+        if (existing) {
+          existing.quantity += numQty;
+        } else {
+          cart.push({
+            title: title,
+            author: author,
+            price: numPrice,
+            quantity: numQty,
+            type: "book"
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateBadges();
+        alert(`🛒 "${title}" added to cart! (${numQty})`);
+      }
+
+      // Wishlist toggle handler
+      function addToWishlist(title, author = "Exclusive Edition", price = 499) {
+        let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+        const exists = wishlist.some(item => (typeof item === "string" ? item === title : item.bookName === title || item.title === title));
+
+        if (!exists) {
+          wishlist.push({ bookName: title, title: title, author: author, price: price });
+          localStorage.setItem("wishlist", JSON.stringify(wishlist));
+          updateBadges();
+          alert(`💖 "${title}" has been added to your Wishlist!`);
+        } else {
+          alert(`⚠️ "${title}" is already in your Wishlist.`);
+        }
+      }
+
+      // Synchronize Cart and Wishlist header counts
+      function updateBadges() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+        
+        const cartCountEl = document.querySelector(".cart-count");
+        if (cartCountEl) {
+          const totalQty = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+          cartCountEl.textContent = totalQty;
+        }
+
+        const wishlistCountEl = document.querySelector(".wishlist-count");
+        if (wishlistCountEl) {
+          wishlistCountEl.textContent = wishlist.length;
+        }
+      }
+
+      // DOM Event Handlers
+      document.addEventListener("DOMContentLoaded", () => {
+        updateBadges();
+
+        // Quantity buttons (+ / -) handler
+        document.querySelectorAll(".quantity button").forEach((button) => {
+          button.addEventListener("click", () => {
+            const span = button.parentElement.querySelector("span");
+            let value = parseInt(span.textContent) || 1;
+            if (button.textContent.trim() === "+" && value < 99) {
+              value++;
+            } else if (button.textContent.trim() === "-" && value > 1) {
+              value--;
+            }
+            span.textContent = value;
+          });
+        });
+
+        // Wishlist heart clicks on cards
+        document.querySelectorAll(".wishlist-icon").forEach((icon) => {
+          icon.addEventListener("click", () => {
+            const card = icon.closest(".book-card");
+            const title = card?.querySelector(".book-title")?.innerText.trim() || "Untitled";
+            const author = card?.querySelector(".book-author")?.innerText.replace(/^By\s+/i, "").trim() || "Unknown";
+            const price = parseInt(card?.querySelector(".price")?.innerText.replace(/[^\d]/g, "")) || 0;
+            
+            icon.classList.toggle("active");
+            addToWishlist(title, author, price);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

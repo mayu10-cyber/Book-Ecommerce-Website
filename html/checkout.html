@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookNook - Secure Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e0f9ff;
+            --secondary-color: #4A5568;
+            --accent-color: #487a8a;
+            --text-dark: #2D3748;
+            --text-light: #718096;
+            --background-light: #FFFFFF;
+            --border-color: #E2E8F0;
+            --success-color: #48BB78;
+            --error-color: #E53E3E; 
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-header {
+            background-color: var(--background-light);
+            padding: 20px 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .main-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--accent-color);
+        }
+        
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .checkout-grid {
+                grid-template-columns: 4fr 3fr;
+            }
+        }
+
+        .checkout-form, .order-summary {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(192, 160, 128, 0.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(90deg, #4A5568, #2D3748);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(45, 55, 72, 0.4);
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-details {
+            flex-grow: 1;
+        }
+        
+        .item-title {
+            font-weight: 600;
+        }
+
+        .item-author {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .item-price {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        
+        .remove-btn:hover {
+            color: var(--error-color);
+        }
+
+        .order-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .empty-cart i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .empty-cart a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-flex">
+            <h1 class="site-title">BookNook</h1>
+            <ul class="main-menu">
+                <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+                <li><a href="/html/cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="/html/account.html"><i class="fas fa-user"></i> Account</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="checkout-grid">
+            <div class="checkout-form">
+                <h2 class="section-title"><i class="fas fa-shipping-fast"></i>Shipping & Payment</h2>
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Jane Doe" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="jane.doe@example.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="(123) 456-7890" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <textarea id="address" class="form-control" rows="3" placeholder="123 Bookworm Lane, Readington" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment">Payment Method</label>
+                        <select id="payment" class="form-control" required>
+                            <option value="">Select a payment method</option>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Net Banking">Net Banking</option>
+                            <option value="Cash on Delivery">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-lock"></i> Place Secure Order
+                    </button>
+                </form>
+            </div>
+
+            <div class="order-summary">
+                <h2 class="section-title"><i class="fas fa-shopping-bag"></i>Order Summary</h2>
+                <div id="cart-container">
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("ZfeNK8e_b-9Gb_B17"); // Replace with your EmailJS public key
+        })();
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [
+            // Sample data for design preview
+            { title: "The Midnight Library", author: "Matt Haig", price: 299.00, quantity: 1 },
+            { title: "A Man Called Ove", author: "Fredrik Backman", price: 249.50, quantity: 2 }
+        ];
+
+        function renderCart() {
+            const container = document.getElementById("cart-container");
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-book-reader"></i>
+                        <p>Your cart is looking for stories.</p>
+                        <a href="#">Explore Books</a>
+                    </div>`;
+                return;
+            }
+
+            let html = '';
+            let grandTotal = 0;
+
+            cart.forEach((item, index) => {
+                const total = item.price * item.quantity;
+                grandTotal += total;
+                html += `
+                    <div class="cart-item" data-index="${index}">
+                        <div class="item-details">
+                            <div class="item-title">${item.title}</div>
+                            <div class="item-author">${item.author}</div>
+                            <div class="item-price">₹${item.price.toFixed(2)} x ${item.quantity} = ₹${total.toFixed(2)}</div>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${index})">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            html += `
+                <div class="order-total">
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span>₹${grandTotal.toFixed(2)}</span>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function clearCart() {
+            localStorage.removeItem("cart");
+            cart = [];
+            renderCart();
+        }
+
+        async function generateInvoiceAndSend(data) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Invoice Header
+            doc.setFont( 'Lora', 'bold');
+            doc.setFontSize(26);
+            doc.setTextColor(45, 55, 72);
+            doc.text("BookNook - Order Invoice", 105, 22, { align: 'center' });
+
+            // Customer Info
+            doc.setFont('Inter', 'normal');
+            doc.setFontSize(12);
+            doc.setTextColor(74, 85, 104);
+            let y = 40;
+            doc.text(`Billed To: ${data.name}`, 20, y);
+            doc.text(`Email: ${data.email}`, 20, y + 8);
+            doc.text(`Address: ${data.address}`, 20, y + 16);
+            y += 30;
+
+            // Order Items Table Header
+            doc.setFont('Inter', 'bold');
+            doc.setFillColor(248, 245, 242);
+            doc.rect(20, y, 170, 10, 'F');
+            doc.text("Item", 25, y + 7);
+            doc.text("Qty", 130, y + 7);
+            doc.text("Total", 175, y + 7, { align: 'right' });
+            y += 10;
+            
+            doc.setFont('Inter', 'normal');
+            cart.forEach((item) => {
+                y += 10;
+                doc.text(`${item.title} by ${item.author}`, 25, y);
+                doc.text(item.quantity.toString(), 133, y);
+                doc.text(`₹${(item.price * item.quantity).toFixed(2)}`, 175, y, { align: 'right' });
+            });
+
+            // Order Total
+            const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+            y += 15;
+            doc.setDrawColor(226, 232, 240);
+            doc.line(20, y - 5, 190, y - 5);
+            doc.setFont('Inter', 'bold');
+            doc.setFontSize(14);
+            doc.text(`Grand Total: ₹${total.toFixed(2)}`, 190, y + 5, { align: 'right' });
+
+            // Footer
+            doc.setFont('Lora', 'italic');
+            doc.setFontSize(10);
+            doc.setTextColor(160, 174, 192);
+            doc.text("Thank you for your purchase from BookNook!", 105, 285, { align: 'center' });
+
+            const pdfBlob = doc.output("blob");
+
+            const reader = new FileReader();
+            reader.onloadend = async function() {
+                const base64PDF = reader.result.split(',')[1];
+                const emailParams = {
+                    to_name: data.name,
+                    to_email: data.email,
+                    message: `Thank you for your order! Attached is your invoice for ₹${total.toFixed(2)}.`,
+                    invoice: base64PDF
+                };
+
+                try {
+                    await emailjs.send("service_pj26pcr", "template_todvoya", emailParams); // Replace with your Service & Template ID
+                    doc.save(`BookNook_Invoice_${Date.now()}.pdf`);
+                    clearCart();
+                    alert("✅ Order placed successfully! Your invoice has been downloaded and sent to your email.");
+                    // window.location.href = "/html/order-confirmation.html"; // Uncomment to redirect
+                } catch (error) {
+                    console.error("EmailJS Error:", error);
+                    alert("❌ Order placed, but we couldn't send the invoice email. Please contact support.");
+                }
+            };
+            reader.readAsDataURL(pdfBlob);
+        }
+
+        document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const data = {
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                phone: document.getElementById("phone").value.trim(),
+                address: document.getElementById("address").value.trim(),
+                payment: document.getElementById("payment").value
+            };
+
+            if (!data.name || !data.email || !data.phone || !data.address || !data.payment) {
+                alert("Please fill out all the fields before placing your order.");
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add some books to continue.");
+                return;
+            }
+
+            generateInvoiceAndSend(data);
+        });
+
+        window.onload = renderCart;
+    </script>
+</body>
+</html>

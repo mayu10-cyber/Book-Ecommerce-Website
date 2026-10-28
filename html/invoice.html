@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BookNook Invoice</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: #fffefc;
+        padding: 30px;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #5c4033;
+        margin-bottom: 40px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2e4d6;
+        color: #5c4033;
+      }
+
+      .total {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: right;
+        margin-top: 10px;
+      }
+
+      .btn {
+        display: block;
+        width: max-content;
+        margin: 20px auto;
+        background: #b05226;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📚 BookNook Invoice Preview</h1>
+
+    <div id="invoice-table"></div>
+
+    <button class="btn" onclick="generateInvoice()">
+      🧾 Download Invoice PDF
+    </button>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      const { jsPDF } = window.jspdf;
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function renderInvoice() {
+        const container = document.getElementById("invoice-table");
+
+        if (cart.length === 0) {
+          container.innerHTML = "<p>Your cart is empty.</p>";
+          return;
+        }
+
+        let html =
+          "<table><tr><th>Title</th><th>Author</th><th>Price</th><th>Qty</th><th>Total</th></tr>";
+        let grandTotal = 0;
+
+        cart.forEach((item) => {
+          const total = item.price * item.quantity;
+          grandTotal += total;
+          html += `<tr>
+          <td>${item.title}</td>
+          <td>${item.author}</td>
+          <td>₹${item.price}</td>
+          <td>${item.quantity}</td>
+          <td>₹${total}</td>
+        </tr>`;
+        });
+
+        html += "</table>";
+        html += `<div class="total">Total: ₹${grandTotal}</div>`;
+        container.innerHTML = html;
+      }
+
+      function generateInvoice() {
+        const doc = new jsPDF();
+        doc.setFontSize(16);
+        doc.text("📚 BookNook - Invoice", 20, 20);
+        let y = 30;
+
+        cart.forEach((item, i) => {
+          doc.text(
+            `${i + 1}. ${item.title} by ${item.author} - ₹${item.price} x ${
+              item.quantity
+            }`,
+            20,
+            y
+          );
+          y += 10;
+        });
+
+        const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+        doc.text(`Total: ₹${total}`, 20, y + 10);
+        doc.save("BookNook_Invoice.pdf");
+        localStorage.removeItem("cart");
+        window.location.href = "index.html"; // redirect after download
+      }
+
+      renderInvoice();
+    </script>
+    <script>  
+  let isLoggedIn = false;
+
+  // Check if user is logged in
+  async function checkLoginStatus() {
+    try {
+      const res = await fetch("http://localhost:4000/auth/me", {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Not logged in");
+      const user = await res.json();
+      isLoggedIn = true;
+    } catch {
+      isLoggedIn = false;
+    }
+  }
+
+  checkLoginStatus();
+
+  // Add to Cart Handler
+  async function addToCart(title, author, price, quantity) {
+    if (!isLoggedIn) {
+      alert("⚠️ Please login to add books to your cart.");
+      window.location.href = "/html/account.html";
+      return;
+    }
+
+    const bookId = title.toLowerCase().replace(/\s+/g, "-"); // generate a simple bookId
+
+    const res = await fetch("http://localhost:4000/cart", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        bookId,
+        title,
+        author,
+        price,
+        quantity: quantity || 1,
+      }),
+    });
+
+    const data = await res.json();
+    if (data.message) {
+      alert("✅ " + data.message);
+    } else {
+      alert("❌ " + (data.error || "Something went wrong"));
+    }
+  }
+
+  // Auto prompt after 1 min to login
+  setTimeout(() => {
+    if (!isLoggedIn) {
+      alert("🕒 Please log in to continue using cart features.");
+      window.location.href = "/html/account.html";
+    }
+  }, 60000); // 60 seconds
+</script>
+
+
+    <script src="/wishlist.js"></script>
+  </body>
+</html>

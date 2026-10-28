@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trending Book Pill Cards</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Montserrat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    @font-face {
+      font-family: Title;
+      src: url(Angelos.ttf);
+    }
+
+
+    body::before {
+      display: none !important;
+    }
+    .pill-row {
+      display: flex;
+      flex-direction: row;
+      gap: 56px;
+      overflow-x: auto;
+      padding: 64px 0 64px 0;
+      width: 100vw;
+      justify-content: center;
+      align-items: flex-end;
+      scroll-snap-type: x mandatory;
+      position: relative;
+      z-index: 1;
+      min-height: 600px;
+    }
+    .pill-row::-webkit-scrollbar {
+      display: none;
+    }
+    .pill-card {
+      width: 120px;
+      height: 480px;
+      background: #fff;
+      border-radius: 80px;
+      box-shadow: 0 8px 32px 0 rgba(0,123,255,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.04), 0 16px 48px 0 #b3d8ff33;
+      /* Added a smooth drop-shadow for depth */
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      transition: all 0.45s cubic-bezier(.4,0,.2,1), box-shadow 0.4s;
+      position: relative;
+      cursor: pointer;
+      scroll-snap-align: center;
+      border: 3px solid transparent;
+    }
+    .pill-card:hover, .pill-card:focus-within {
+      width: 600px;
+      box-shadow: 0 0 24px 8px #007bff66, 0 0 0 6px #b3d8ff, 0 4px 32px 0 rgba(0,123,255,0.10);
+      border: 3px solid #007bff;
+      z-index: 2;
+    }
+    .pill-img {
+      flex: 0 0 120px;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 80px 0 0 80px;
+      background: #e3f0ff;
+      transition: border-radius 0.4s, flex-basis 0.45s cubic-bezier(.4,0,.2,1);
+    }
+    .pill-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      display: block;
+    }
+    .pill-card:hover .pill-img, .pill-card:focus-within .pill-img {
+      border-radius: 80px 0 0 80px;
+      flex: 0 0 220px;
+    }
+    .pill-content {
+      flex: 1 1 0;
+      opacity: 0;
+      padding: 0 36px 0 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.4s 0.1s, flex-basis 0.45s cubic-bezier(.4,0,.2,1), padding 0.45s cubic-bezier(.4,0,.2,1);
+    }
+    .pill-card:hover .pill-content, .pill-card:focus-within .pill-content {
+      opacity: 1;
+      pointer-events: auto;
+      transition-delay: 0.15s;
+      padding: 0 16px 0 16px;
+    }
+    .pill-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 0.2em;
+    }
+    .pill-author {
+      font-size: 1.08rem;
+      color: #0056b3;
+      font-weight: 500;
+      margin-bottom: 0.2em;
+    }
+    .pill-price {
+      font-size: 1.08rem;
+      color: #1a2a6c;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+    .pill-desc {
+      font-size: 1rem;
+      color: #3a3a4c;
+      margin-bottom: 1.2em;
+      line-height: 1.5;
+      max-width: 320px;
+    }
+    .pill-actions {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      margin-top: 0.5em;
+    }
+    .btn {
+      padding: 10px 24px;
+      border-radius: 32px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #007bff;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn:hover, .btn:focus {
+      background: #0056b3;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px rgba(0,86,179,0.13);
+    }
+    .btn.wishlist {
+      background: #fff;
+      color: #007bff;
+      border: 2px solid #007bff;
+    }
+    .btn.wishlist:hover, .btn.wishlist:focus {
+      background: #007bff;
+      color: #fff;
+    }
+    .hero-section {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+      overflow: visible;
+      background: #fff;
+      height: 480px;
+    }
+    .hero-section::before {
+      display: none;
+    }
+    .hero-title-group, .hero-title, .hero-subtitle {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-title-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 420px;
+      height: 180px;
+      background: radial-gradient(circle, #b3d8ff 0%, #e3f0ff 60%, transparent 100%);
+      opacity: 0.65;
+      filter: blur(32px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-title {
+      font-family: 'Title';
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      background: linear-gradient(90deg, #007bff 0%, #00e0ff 60%, #00bfae 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      text-align: center;
+      text-shadow: 0 2px 16px rgba(0,123,255,0.10), 0 1.5px 8px rgba(0,0,0,0.08);
+      max-width: 90vw;
+      padding: 0 16px;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      user-select: none;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      overflow: visible;
+      margin-bottom: 0.1em;
+      bottom: 90px;
+    }
+    .hero-subtitle {
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      color: #007bff;
+      text-align: center;
+      margin-top: 0.1em;
+      margin-bottom: 0.2em;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      z-index: 2;
+      user-select: none;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      background-clip: unset;
+      text-shadow: none;
+      padding: 0 12px;
+      bottom: 44px;
+    }
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: url('/assets/img/home.png') center center/cover no-repeat;
+      filter: blur(16px) brightness(0.95);
+      pointer-events: none;
+    }
+    .hero-banner-img {
+      width: 100vw;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      border-radius: 0;
+      box-shadow: 0 8px 32px 0 rgba(0,123,255,0.10);
+    }
+    .back-btn {
+      position: absolute;
+      top: 24px;
+      left: 32px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #e3f0ff 60%, #b3d8ff 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px 0 rgba(0,123,255,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.04);
+      border: 2px solid #e3f0ff;
+      transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.2s;
+      z-index: 2;
+      outline: none;
+      cursor: pointer;
+      color: #007bff;
+      padding: 0;
+    }
+    .back-btn svg {
+      width: 1.7em;
+      height: 1.7em;
+      display: block;
+      margin: auto;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: #007bff;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0,86,179,0.18);
+      transform: scale(1.10);
+      border: 2px solid #007bff;
+    }
+    .back-btn:hover svg, .back-btn:focus svg {
+      stroke: #fff;
+    }
+    @media (max-width: 1100px) {
+      .hero-banner {
+        max-width: 98vw;
+        min-height: 180px;
+      }
+      .hero-banner img {
+        width: 260px;
+        height: 200px;
+      }
+      .hero-text {
+        padding: 0 16px;
+      }
+      .pill-card {
+        height: 320px;
+        border-radius: 60px;
+      }
+      .pill-img, .pill-img img {
+        border-radius: 60px 0 0 60px;
+      }
+    }
+    @media (max-width: 900px) {
+      .hero-section {
+        height: 320px;
+      }
+      .hero-banner-img {
+        height: 320px;
+        border-radius: 0 0 18px 18px;
+      }
+      .hero-text {
+        padding: 0 16px;
+      }
+      .hero-text h1 {
+        font-size: 1.1rem;
+      }
+      .pill-row {
+        gap: 16px;
+        padding: 24px 0;
+      }
+      .pill-card {
+        height: 220px;
+        border-radius: 40px;
+      }
+      .pill-card:hover .pill-img, .pill-card:focus-within .pill-img {
+        flex: 0 0 90px;
+      }
+      .pill-img, .pill-img img {
+        border-radius: 40px 0 0 40px;
+      }
+      .pill-content {
+        padding: 0 8px 0 8px;
+      }
+      .pill-title {
+        font-size: 1rem;
+      }
+      .back-btn {
+        top: 12px;
+        left: 12px;
+        width: 38px;
+        height: 38px;
+      }
+      .back-btn svg {
+        width: 1.2em;
+        height: 1.2em;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-section {
+        height: 160px;
+      }
+      .hero-banner-img {
+        height: 160px;
+        border-radius: 0 0 10px 10px;
+      }
+      .pill-row {
+        gap: 8px;
+        padding: 12px 0;
+      }
+      .pill-card {
+        width: 60px;
+        height: 110px;
+        border-radius: 20px;
+      }
+      .pill-card:hover, .pill-card:focus-within {
+        width: 98vw;
+        min-width: 0;
+      }
+      .pill-img, .pill-img img {
+        border-radius: 20px 0 0 20px;
+      }
+      .pill-card:hover .pill-img, .pill-card:focus-within .pill-img {
+        flex: 0 0 40px;
+      }
+      .pill-content {
+        padding: 0 4px 0 4px;
+      }
+      .pill-title {
+        font-size: 0.9rem;
+      }
+      .pill-desc {
+        font-size: 0.85rem;
+        max-width: 120px;
+      }
+      .btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+      .back-btn {
+        top: 6px;
+        left: 6px;
+        width: 30px;
+        height: 30px;
+      }
+      .back-btn svg {
+        width: 1em;
+        height: 1em;
+      }
+    }
+    @media (max-width: 700px) {
+      .hero-title-glow {
+        width: 220px;
+        height: 90px;
+        filter: blur(18px);
+      }
+    }
+    /* --- NAVBAR COLOR UPDATE (from Selhelp.html) --- */
+    .page-header {
+      background: #165a96;
+      box-shadow: 0 4px 24px 0 #e3f0fa;
+      border-bottom: 2px solid #e3f0fa;
+    }
+    .logo, .logo-subtitle {
+      color: #fff;
+    }
+    .main-navigation .nav-link, .main-navigation .auth-btn {
+      color: #fff;
+      background: #165a96;
+      border-radius: 18px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .main-navigation .nav-link:hover, .main-navigation .auth-btn:hover {
+      background: #fff;
+      color: #165a96;
+    }
+
+    /* --- CART COUNT --- */
+    .cart-count {
+      background: #fff;
+      color: #7e92df ;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-left: 4px;
+      box-shadow: 0 1px 4px #e3f0fa;
+      border: 1.5px solid #165a96;
+      display: inline-block;
+      min-width: 22px;
+      text-align: center;
+    }
+
+    /* --- BUTTON GRADIENTS (from Selhelp.html) --- */
+    .btn {
+      background: #7e92df;
+      color: #fff;
+      border: none;
+      border-radius: 32px;
+      padding: 10px 24px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #e3f0fa;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn:hover, .btn:focus {
+      background: linear-gradient(90deg, #165a96 0%, #0e3c68 100%);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px #165a9644;
+    }
+    .btn.wishlist {
+      background: linear-gradient(90deg, #3a8dde 0%, #165a96 100%);
+      color: #fff;
+      border: 2px solid #165a96;
+    }
+    .btn.wishlist:hover, .btn.wishlist:focus {
+      background: linear-gradient(90deg, #165a96 0%, #0e3c68 100%);
+      color: #fff;
+    }
+    .back-button {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: rgba(44, 62, 80, 0.8);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 5px;
+      text-decoration: none !important;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+    .back-button:hover {
+      background: rgba(26, 37, 47, 0.9);
+    }
+  </style>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+.hero-section {
+  width: 100vw;
+  max-width: 100vw;
+  height: 360px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #181824 0%, #23234a 100%);
+  margin-bottom: 0;
+}
+@font-face {
+      font-family: Title;
+      src: url(Angelos.ttf);
+    }
+.hero-title {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  font-family: 'Title';
+  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  background: linear-gradient(90deg, #007bff 0%, #00e0ff 60%, #00bfae 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0,123,255,0.10), 0 1.5px 8px rgba(0,0,0,0.08);
+  max-width: 90vw;
+  padding: 0 16px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  z-index: 2;
+  user-select: none;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  overflow: visible;
+  bottom: 64px;
+}
+.hero-title, .hero-section {
+  overflow: visible;
+}
+.hero-subtitle {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -32px;
+  transform: translateX(-50%);
+  font-family: 'Title';
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(90deg, #007bff 0%, #00e0ff 60%, #00bfae 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0,123,255,0.10), 0 1.5px 8px rgba(0,0,0,0.08);
+  max-width: 90vw;
+  padding: 0 16px;
+  line-height: 1.3; /* or even 1.4 if needed */
+  letter-spacing: 0.01em;
+  z-index: 2;
+  user-select: none;
+  overflow: visible;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  bottom: 18px;
+}
+@media (max-width: 900px) {
+  .hero-subtitle {
+    bottom: -18px;
+    font-size: clamp(1.1rem, 5vw, 1.7rem);
+    padding: 0 10px;
+    max-width: 98vw;
+  }
+  .hero-title {
+    bottom: 204px;
+  }
+  .hero-subtitle {
+    bottom: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-subtitle {
+    bottom: -8px;
+    font-size: clamp(0.9rem, 6vw, 1.2rem);
+    padding: 0 6px;
+    max-width: 99vw;
+  }
+  .hero-title {
+    bottom: 28px;
+  }
+  .hero-subtitle {
+    bottom: 2px;
+  }
+}
+@media (max-width: 900px) {
+  .hero-section {
+    height: 110px;
+  }
+  .hero-title {
+    bottom: 18px;
+    font-size: clamp(2.2rem, 10vw, 4.2rem);
+    padding: 0 10px;
+    max-width: 98vw;
+  }
+}
+@media (max-width: 600px) {
+  .hero-section {
+    height: 70px;
+  }
+  .hero-title {
+    bottom: 8px;
+    font-size: clamp(1.7rem, 12vw, 2.7rem);
+    padding: 0 6px;
+    max-width: 99vw;
+  }
+}
+.hero-title {
+  bottom: 80px;
+}
+.hero-subtitle {
+  bottom: 40px;
+  font-size: clamp(3.2rem, 8vw, 4.2rem);
+}
+@media (max-width: 900px) {
+  .hero-title {
+    bottom: 60px;
+  }
+  .hero-subtitle {
+    bottom: 24px;
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+}
+@media (max-width: 600px) {
+  .hero-title {
+    bottom: 18px;
+  }
+  .hero-subtitle {
+    bottom: 2px;
+    font-size: clamp(1.3rem, 12vw, 2.2rem);
+  }
+}
+.hero-title {
+  font-size: clamp(5.2rem, 13vw, 9.2rem);
+}
+.hero-subtitle {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+}
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: clamp(3.6rem, 15vw, 6.2rem);
+  }
+}
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: clamp(2.2rem, 18vw, 3.7rem);
+  }
+}
+
+/* CSS */
+        .banner {
+background: radial-gradient(circle,rgb(235, 213, 255) 0%, rgb(201, 210, 255) 100%);
+            color: #004973;
+            margin-top: 10px;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
+            /* width: 2000px; */
+            /* margin: 1rem auto;   */
+            position: relative;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff8a00, #e52e71, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientBG 8s ease infinite;
+            opacity: 0.7;
+            border-radius: 12px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-icon {
+            font-size: 2rem;
+            margin: 0 5px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .btn {
+            background: #fff;
+            color: #2c3e50;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Delay animations for each book icon */
+        .book-icon:nth-child(1) { animation-delay: 0s; }
+        .book-icon:nth-child(2) { animation-delay: 0.3s; }
+        .book-icon:nth-child(3) { animation-delay: 0.6s; }
+
+
+
+</style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+
+      </ul>
+    </div>
+  </header>
+    <!-- Category Navigation -->
+<nav class="category-nav">
+  <ul class="category-list container">
+    <li class="genre-dropdown">
+      <a href="#" class="category-item">Genres <i class="fas fa-chevron-down"></i></a>
+      <div class="genre-panel">
+        <div class="genre-grid">
+          <div class="genre-section">
+            <h3>Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/fiction.html">Fiction Reads</a></li>
+            <li><a href="/Genres/Adventure.html">Adventure</a></li>
+            <li><a href="/Genres/Classic Novels.html">Classic Novels</a></li>
+            <li><a href="/Genres/Mystery .html">Mystery</a></li>
+            <li><a href="/Genres/romance.html">Romance</a></li>
+            <li><a href="/Genres/Science Fiction.html">Science Fiction</a></li>
+            <li><a href="/Genres/History.html">History</li></a>             
+            <li><a href="/Genres/horror.html">Horror</li></a>             
+          </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Non Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/biography.html">Biography</a></li>
+            <li><a href="/Genres/Selfhelp.html">Self Help</a></li>
+            <li><a href="/Genres/Philosophy.html">Philosophy</a></li>
+            <li><a href="/Genres/science.html">Science & Nature</a></li>
+            <li><a href="/Genres/travel.html">Travel</a></li>
+            <li><a href="/Genres/sports.html">Sports</li></a> 
+            <li><a href="/Genres/Stock Market.html">Stock Market</li></a> 
+            <li><a href="/Genres/Spiritual.html">Spirituality </li></a> 
+
+            
+            </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Showcase</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/historical.html">History</li></a> 
+              <li><a href="/Genres/sports.html">Sports</li></a> 
+              <li><a href="/Genres/flims.html">Flims & Animations</li></a> 
+              <li><a href="/Genres/travel.html">Travel & Culture</li></a> 
+              <li><a href="/Genres/culture.html">Culture</li></a> 
+              <li><a href="/Genres/health.html">Health</li></a> 
+            </ul>
+          </div>
+          
+          <div class="genre-section">
+            <h3>Comics</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/Indian Comics.html"> Indian Comics</a></li>
+              <li><a href="/Genres/American Comics.html">American Comics</a></li>
+              <li><a href="/Genres/Manga.html">Manga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="category-option"><a href="/html/trending.html" class="category-item">Trending</a></li>
+    <li class="category-option"><a href="/html/top.html" class="category-item">Top 20</a></li>
+    <li class="category-option"><a href="/html/kids.html" class="category-item">Kids Books</a></li>
+    <li class="category-option"><a href="/html/stationary.html" class="category-item">Stationery & Gifts</a></li>
+    <!-- <li class="category-option"><a href="/html/audio.html" class="category-item">Audio Books</a></li> -->
+    <li class="category-option"><a href="/html/exclusive_brands.html" class="category-item">Exclusive Brands</a></li>
+    <li class="category-option"><a href="/html/todays.html" class="category-item">Today's Deals</a></li>
+  </ul>
+</nav>
+
+  <!-- HERO SECTION START -->
+      <div class="banner">
+        <h1>Trending Books Right Now </h1>
+        <p>Find out what everyone’s reading and loving this week</p>
+        
+        <div class="book-icons">
+            <span class="book-icon">📖</span>
+            <span class="book-icon">📘</span>
+            <span class="book-icon">📕</span>
+        </div>
+    </div>
+<!-- HERO SECTION END -->
+
+
+  <div class="pill-row">
+      <div class="pill-card">
+  <div class="pill-img">
+    <img src="/assets/trending/trendingp_1.jpg" alt="The Alchemist cover" />
+  </div>
+  <div class="pill-content">
+    <div class="pill-title">The Alchemist</div>
+    <div class="pill-author">Paulo Coelho</div>
+    <div class="pill-price">₹699</div>
+    <div class="pill-desc">
+      A mystical story about Santiago, an Andalusian shepherd boy who dreams of finding a world treasure.
+    </div>
+    <div class="pill-actions">
+            <button class="btn add-to-cart" onclick="addToCart('A Beautiful Ugly', 'Alice Feeney', 799)">Add to Cart</button>
+
+      <button
+        class="btn wishlist"
+        onclick="addToWishlist('The Alchemist')"
+      >
+        Add to Wishlist
+      </button>
+    </div>
+  </div>
+</div>
+
+    <div class="pill-card" tabindex="0">
+  <div class="pill-img">
+    <img src="/assets/trending/trendingp_2.jpg" alt="A Beautiful Ugly cover" />
+  </div>
+  <div class="pill-content">
+    <div class="pill-title">A Beautiful Ugly</div>
+    <div class="pill-author">Alice Feeney</div>
+    <div class="pill-price">₹799</div>
+    <div class="pill-desc">
+      A chilling psychological thriller set on a remote Scottish island. A bestselling author returns after his wife vanishes—and meets someone who looks just like her. Twisty, haunting, and atmospheric.
+    </div>
+    <div class="pill-actions">
+      <button class="btn add-to-cart" onclick="addToCart('A Beautiful Ugly', 'Alice Feeney', 799)">Add to Cart</button>
+      <button class="btn wishlist" onclick="addToWishlist('A Beautiful Ugly')">Add to Wishlist</button>
+    </div>
+  </div>
+</div>
+
+<div class="pill-card" tabindex="0">
+  <div class="pill-img">
+    <img src="/assets/trending/trendingp_3.jpg" alt="Never Flinch cover" />
+  </div>
+  <div class="pill-content">
+    <div class="pill-title">Never Flinch</div>
+    <div class="pill-author">Stephen King</div>
+    <div class="pill-price">₹450</div>
+    <div class="pill-desc">
+      Holly Gibney returns in this pulse-pounding crime thriller. Amid grisly violence and extremist threats, King's gripping narrative centers on determination, humanity, and suspense.
+    </div>
+    <div class="pill-actions">
+      <button class="btn add-to-cart" onclick="addToCart('Never Flinch', 'Stephen King', 450)">Add to Cart</button>
+      <button class="btn wishlist" onclick="addToWishlist('Never Flinch')">Add to Wishlist</button>
+    </div>
+  </div>
+</div>
+
+<div class="pill-card" tabindex="0">
+  <div class="pill-img">
+    <img src="/assets/trending/trendingp_4.jpg" alt="Killer Potential cover" />
+  </div>
+  <div class="pill-content">
+    <div class="pill-title">Killer Potential</div>
+    <div class="pill-author">Hannah Deitch</div>
+    <div class="pill-price">₹650</div>
+    <div class="pill-desc">
+      Evoke a modern-day Thelma & Louise in this debut psychological thriller. Two women on the run after discovering a crime, bound by a thrilling survival journey.
+    </div>
+    <div class="pill-actions">
+      <button class="btn add-to-cart" onclick="addToCart('Killer Potential', 'Hannah Deitch', 650)">Add to Cart</button>
+      <button class="btn wishlist" onclick="addToWishlist('Killer Potential')">Add to Wishlist</button>
+    </div>
+  </div>
+</div>
+
+    <div class="pill-card" tabindex="0">
+  <div class="pill-img">
+    <img src="/assets/trending/trendingp_5.jpg" alt="The Watchmaker's Daughter cover" />
+  </div>
+  <div class="pill-content">
+    <div class="pill-title">The Watchmaker's Daughter</div>
+    <div class="pill-author">C.J. Archer</div>
+    <div class="pill-price">₹599</div>
+    <div class="pill-desc">
+      In Victorian London, India Steele, a skilled watchmaker's daughter, is left penniless when her father dies and her fiancé steals her inheritance. Hired by a mysterious American, Matthew Glass—who wields a magical rejuvenating watch—she becomes entangled in secrets, forbidden romance, and dangerous mysteries.
+    </div>
+    <div class="pill-actions">
+      <button class="btn add-to-cart" onclick="addToCart('The Watchmaker\'s Daughter', 'C.J. Archer', 599)">Add to Cart</button>
+      <button class="btn wishlist" onclick="addToWishlist('The Watchmaker\'s Daughter')">Add to Wishlist</button>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <!-- Footer -->
+      <footer class="page-footer" style="background: #165A96; color: #fff;">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">BookNook</h3>
+            <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+            <div class="social-icons">
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Quick Links</h3>
+            <ul>
+              <li><a href="#" style="color: #fff;">About Us</a></li>
+              <li><a href="#" style="color: #fff;">Contact</a></li>
+              <li><a href="#" style="color: #fff;">Shipping Policy</a></li>
+              <li><a href="#" style="color: #fff;">Returns & Exchanges</a></li>
+              <li><a href="#" style="color: #fff;">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Customer Service</h3>
+            <ul>
+              <li><i class="fas fa-phone" style="color: #165A96;"></i> +91 9876543210</li>
+              <li><i class="fas fa-envelope" style="color: #165A96"></i> help@booknook.com</li>
+              <li><i class="fas fa-map-marker-alt" style="color: #165A96"></i> Mumbai, India</li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Newsletter</h3>
+            <p>Subscribe for updates and special offers!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" style="border-radius: 8px; border: none;">
+              <button type="submit" style="background: var(--secondary-brand-color); color: #165A96; border-radius: 8px; font-weight: bold;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-top: 1px solid var(--secondary-brand-color);">
+          <p>&copy; 2023 BookNook. All rights reserved.</p>
+        </div>
+      </footer>
+<script>
+  let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+  function addToCart(title, author, price, quantity = 1) {
+    let found = cart.find(item => item.title === title && item.author === author);
+    if (found) {
+      found.quantity += quantity;
+    } else {
+      cart.push({ title, author, price, quantity });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`🛒 "${title}" added to cart!`);
+    updateCartCount();
+  }
+
+  function addToWishlist(title) {
+    let found = wishlist.find(item => item.title === title);
+    if (!found) {
+      wishlist.push({ title });
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      alert(`💖 "${title}" added to wishlist!`);
+      updateWishlistCount();
+    } else {
+      alert(`⚠️ "${title}" is already in your wishlist.`);
+    }
+  }
+
+  function updateCartCount() {
+    const cartCount = document.querySelector(".cart-count");
+    if (cartCount) cartCount.textContent = cart.length;
+  }
+
+  function updateWishlistCount() {
+    const wishlistCount = document.querySelector(".wishlist-count");
+    if (wishlistCount) wishlistCount.textContent = wishlist.length;
+  }
+
+  // Set initial counts on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    updateCartCount();
+    updateWishlistCount();
+  });
+</script>
+
+</body>
+</html>

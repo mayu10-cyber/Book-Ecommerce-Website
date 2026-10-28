@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookNook - Your Literary Haven</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Montserrat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+      body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    .hero {
+      background: url('https://cdna.artstation.com/p/assets/images/images/005/852/956/large/slotopaint-gamedesign-background.jpg?1494251902') center/cover no-repeat;
+      padding: 200px 20px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      min-height: 300px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-left: 50px;
+    }
+
+    .hero p {
+      font-size: 40px;
+      margin-left:50px;
+      margin-top: 40px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(44, 62, 80, 0.8);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 2;
+    }
+
+    .back-button:hover {
+      background: rgba(26, 37, 47, 0.9);
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="/html/index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Search -->
+      <!-- <form class="book-search">
+        <input type="text" placeholder="Search books, authors..." class="search-field" />
+        <button type="submit" class="search-btn" title="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form> -->
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart <span class="cart-total">0</span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <header class="hero">
+    <a href="/html/index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    <div class="hero-content">
+    <h1>Thrilling Adventure Books</h1>
+    <p>Embark on daring quests through uncharted lands and epic journeys</p>
+    </div>
+  </header>
+
+  <!-- --------------------Adventure Books ------------------------------------------ -->
+  <section class="fiction-books-section" id="fiction-reads">
+    <div class="section-header">
+      <h2 class="fiction-books-heading">Adventure Reads</h2>
+    </div>
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="carousel__content books-grid">
+        
+        <!-- Row 1 -->
+        <!-- Book Card 1 -->
+        <div class="book-card" data-book-id="15" data-book-name="The Lost Expedition" data-author="A.J. Rivers"
+        data-price="450" data-stock="12">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/I/914+uNfeQAL._UF1000,1000_QL80_.jpg" alt="The Lost Expedition - Adventure Novel">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Lost Expedition</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By A.J. Rivers</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="12">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹450</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Lost Expedition', 'By A.J. Rivers', 450, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 2 -->
+        <div class="book-card" data-book-id="16" data-book-name="The Jungle Compass" data-author="Ethan Cross"
+        data-price="380" data-stock="10">
+        <div class="book-image">
+            <img src="https://static.wixstatic.com/media/08b197_fd3644712484415a84f4ab1d4dfe1421~mv2.jpg/v1/fill/w_433,h_651,al_c,lg_1,q_80,enc_avif,quality_auto/08b197_fd3644712484415a84f4ab1d4dfe1421~mv2.jpg" alt="The Jungle Compass - Adventure Novel">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Jungle Compass</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Ethan Cross</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹380</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Jungle Compass', 'By Ethan Cross', 380, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 3 -->
+        <div class="book-card" data-book-id="18" data-book-name="The Magic of the Lost Temple " data-author="Daniel Kane"
+        data-price="490" data-stock="5">
+        <div class="book-image">
+            <img src="https://koolskoolbookstore.com/cdn/shop/files/711gZL2yHsL._SL1500_1200x1200.jpg?v=1703257885" alt="The Magic of the Lost Temple  - Adventure Novel">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Magic of the Lost Temple </h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Sudha Murty Kane</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹490</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Forgotten Temple', 'By Daniel Kane', 490, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 4 -->
+        <div class="book-card" data-book-id="19" data-book-name="Skybound Odyssey" data-author="Clara Rhodes"
+        data-price="530" data-stock="9">
+        <div class="book-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR84PRlVa1TJMUPUmWodOmxFoUS9g4f5IXvVA&s" alt="Skybound Odyssey - Adventure Novel">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">Skybound Odyssey</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Clara Rhodes</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="9">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹530</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('Skybound Odyssey', 'By Clara Rhodes', 530, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 5 -->
+        <div class="book-card" data-book-id="20" data-book-name="The Desert’s Secret" data-author="Rafael Soto"
+        data-price="460" data-stock="6">
+        <div class="book-image">
+            <img src="https://i.ytimg.com/vi/Z4YrkxDHDX0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDllCIMprU_4svbLDVTXd6NsD05pQ" alt="The Desert’s Secret - Adventure Novel">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Desert’s Secret</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Rafael Soto</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹460</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Desert’s Secret', 'By Rafael Soto', 460, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 6 -->
+        <div class="book-card" data-book-id="21" data-book-name="The Cursed Crown" data-author="Victoria Kane"
+        data-price="499" data-stock="8">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/I/619-kvMlp8S._UF1000,1000_QL80_.jpg" alt="The Cursed Crown - Treasure Hunt Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Cursed Crown</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Victoria Kane</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="8">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹499</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Cursed Crown', 'By Victoria Kane', 499, getQuantity(this))">Add to Cart</button>
+        </div>
+</div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <!-- Book Card 1 -->
+
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="carousel__content books-grid">
+        
+        <!-- Book Card 1 -->
+        <div class="book-card" data-book-id="22" data-book-name="Island of the Lost" data-author="Max Holloway"
+        data-price="429" data-stock="6">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/I/91W8IaQemKL.jpg" alt="Island of the Lost - Survival Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">Island of the Lost</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Max Holloway</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹429</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('Island of the Lost', 'By Max Holloway', 429, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 2 -->
+        <div class="book-card" data-book-id="23" data-book-name="The Clockwork Explorer" data-author="Felix Graves"
+        data-price="550" data-stock="4">
+        <div class="book-image">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51d7H-r7wWL._SY550_.jpg" alt="The Clockwork Explorer - Steampunk Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Clockwork Explorer</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Felix Graves</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="4">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹550</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Clockwork Explorer', 'By Felix Graves', 550, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+         <!-- Book Card 3 -->
+        <div class="book-card" data-book-id="24" data-book-name="Whispers of the Ancient Sea" data-author="Mara Linwood"
+        data-price="475" data-stock="7">
+        <div class="book-image">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f42fc408-e8da-4b53-a925-95199354a9c6/dgxvlr8-d36f89ff-0191-4a76-bdb2-d4f843472e40.jpg/v1/fill/w_1024,h_1360,q_75,strp/whispers_of_the_ancient_sea_by_oanarinaldi_dgxvlr8-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y0MmZjNDA4LWU4ZGEtNGI1My1hOTI1LTk1MTk5MzU0YTljNlwvZGd4dmxyOC1kMzZmODlmZi0wMTkxLTRhNzYtYmRiMi1kNGY4NDM0NzJlNDAuanBnIiwiaGVpZ2h0IjoiPD0xMzYwIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uud2F0ZXJtYXJrIl0sIndtayI6eyJwYXRoIjoiXC93bVwvZjQyZmM0MDgtZThkYS00YjUzLWE5MjUtOTUxOTkzNTRhOWM2XC9vYW5hcmluYWxkaS00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.iHo53AOAdhNs0aZLvOBcKmEEDqvRJzd0v0Q4LLPxIc4" alt="Whispers of the Ancient Sea - Mythical Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">Whispers of the Ancient Sea</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Mara Linwood</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="7">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹475</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('Whispers of the Ancient Sea', 'By Mara Linwood', 475, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+         <!-- Book Card 4 -->
+        <div class="book-card" data-book-id="25" data-book-name="The Frozen Expedition" data-author="Elias Frost"
+        data-price="510" data-stock="5">
+        <div class="book-image">
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/ca/FiT_Fate_of_Franklin_Expedition_book_cover.jpg" alt="The Frozen Expedition - Arctic Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Frozen Expedition</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Elias Frost</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹510</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Frozen Expedition', 'By Elias Frost', 510, getQuantity(this))">Add to Cart</button>
+        </div>
+</div>
+
+         <!-- Book Card 5 -->
+        <div class="book-card" data-book-id="26" data-book-name="The Shadow Ruins" data-author="Lila Carter"
+        data-price="480" data-stock="9">
+        <div class="book-image">
+            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1587589572i/53246292.jpg" alt="The Shadow Ruins - Dark Fantasy Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Shadow Ruins</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Lila Carter</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="9">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹480</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Shadow Ruins', 'By Lila Carter', 480, getQuantity(this))">Add to Cart</button>
+        </div>
+</div>
+
+         <!-- Book Card 6 -->
+        <div class="book-card" data-book-id="27" data-book-name="The Sky Pirate’s Revenge" data-author="Captain J. R. Hartley"
+        data-price="540" data-stock="6">
+        <div class="book-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShc6ucOC_vnMYa5-_-eC2zZhXq_Z4BEiIivw&s" alt="The Sky Pirate’s Revenge - Airship Adventure">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Sky Pirate’s Revenge</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Captain J. R. Hartley</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹540</span>
+            </div>
+            <button class="add-to-cart"
+            onclick="addToCart('The Sky Pirate’s Revenge', 'By Captain J. R. Hartley', 540, getQuantity(this))">Add to Cart</button>
+        </div>
+</div>
+        
+  </section>
+
+  <button id="chatbot-toggle" class="chatbot-toggle-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z"
+        fill="currentColor" />
+      <path d="M7 9H17V11H7V9ZM7 12H14V14H7V12Z" fill="currentColor" />
+    </svg>
+  </button>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header">
+      Bookheaven Assitant
+      <button id="chatbot-close" class="chatbot-close-btn">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <form class="chatbot-input-bar" id="chatbot-form">
+      <input type="text" id="chatbot-input" placeholder="Ask me about books, recommendations, or anything..."
+        autocomplete="off" required />
+      <button type="submit" id="chatbot-send">Send</button>
+    </form>
+  </div>
+
+ <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>BookNook</h3>
+        <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/html/aboutus.html">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><i class="fas fa-phone"></i> +91 9876543210</li>
+          <li><i class="fas fa-envelope"></i> help@booknook.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p>Subscribe for updates and special offers!</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2023 BookNook. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/wishlist.js"></script>
+
+  <script>
+    // Show offer after 3 seconds (simulate new offer)
+    window.addEventListener("load", () => {
+      document.getElementById("dealPopup").classList.add("show");
+    });
+
+    function closePopup() {
+      document.getElementById("dealPopup").classList.remove("show");
+    }
+  </script>
+
+  <script>
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const messages = document.getElementById('chatbot-messages');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+
+    // Chatbot toggle functionality
+    chatbotToggle.addEventListener('click', function () {
+      chatbotContainer.classList.add('open');
+      chatbotToggle.classList.add('hidden');
+      input.focus();
+    });
+
+    chatbotClose.addEventListener('click', function () {
+      chatbotContainer.classList.remove('open');
+      chatbotToggle.classList.remove('hidden');
+    });
+
+    // Close chatbot when clicking outside (optional)
+    document.addEventListener('click', function (e) {
+      if (!chatbotContainer.contains(e.target) &&
+        !chatbotToggle.contains(e.target) &&
+        chatbotContainer.classList.contains('open')) {
+        chatbotContainer.classList.remove('open');
+        chatbotToggle.classList.remove('hidden');
+      }
+    });
+
+    // Improved message creation with optional HTML content
+    function appendMessage(content, sender, isHTML = false) {
+      const div = document.createElement('div');
+      div.className = `chatbot-message ${sender}`;
+
+      if (isHTML) {
+        div.innerHTML = content.replace(/\n/g, '<br>'); // Convert newlines to <br>
+      } else {
+        div.textContent = content;
+      }
+
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+      return div; // Return reference for potential modifications
+    }
+
+    function removeLastBotMessage() {
+      const last = messages.querySelector('.chatbot-message.bot:last-child');
+      if (last && last.textContent === 'Thinking...') {
+        messages.removeChild(last);
+      }
+    }
+
+    // Enhanced submit handler with loading state
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+
+      // Disable input during processing
+      input.disabled = true;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+
+      appendMessage(userMsg, 'user');
+      input.value = '';
+      const thinkingMsg = appendMessage('Thinking...', 'bot');
+
+      try {
+        const res = await fetch('http://localhost:3001/chatbot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMsg })
+        });
+
+        if (!res.ok) {
+          throw new Error(`Server responded with ${res.status}`);
+        }
+
+        const data = await res.json();
+        removeLastBotMessage();
+
+        if (data.reply) {
+          // Handle bullet points and formatting from Gemini
+          appendMessage(data.reply, 'bot', true);
+        } else {
+          appendMessage("I didn't get a response. Please try again.", 'bot');
+        }
+      } catch (err) {
+        removeLastBotMessage();
+        appendMessage('Sorry, something went wrong. Please try again later.', 'bot');
+        console.error('Chatbot error:', err);
+      } finally {
+        // Re-enable input
+        input.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        input.focus();
+      }
+    });
+
+    // Optional: Add input validation or character limit
+    input.addEventListener('input', function () {
+      if (this.value.length > 500) {
+        this.value = this.value.substring(0, 500);
+        // Optionally show a warning
+      }
+    });
+  </script>
+
+  <script>
+    // Initialize wishlist and cart from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // // 1️⃣ Wishlist functionality
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    //     btn.addEventListener('click', function (e) {
+    //       e.preventDefault();
+    //       const icon = this.querySelector('i');
+    //       this.classList.toggle('active');
+
+    //       const card = this.closest('.book-card');
+    //       const bookId = card?.dataset.bookId;
+    //       const title = card.querySelector('.book-title')?.innerText || "Untitled";
+    //       const author = card.querySelector('.book-author')?.innerText || "Unknown";
+    //       const priceText = card.querySelector('.price')?.innerText || "₹0";
+    //       const price = parseInt(priceText.replace('₹', '')) || 0;
+
+    //       if (!bookId || !title || !author || isNaN(price)) {
+    //         console.warn("Invalid wishlist data", { bookId, title, author, price });
+    //         return;
+    //       }
+
+    //       if (this.classList.contains('active')) {
+    //         icon.classList.remove('far');
+    //         icon.classList.add('fas');
+    //         if (!wishlist.some(b => b.bookId === bookId)) {
+    //           wishlist.push({ bookId, title, author, price });
+    //         }
+    //       } else {
+    //         icon.classList.remove('fas');
+    //         icon.classList.add('far');
+    //         wishlist = wishlist.filter(b => b.bookId !== bookId);
+    //       }
+
+    //       localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    //       const counter = document.querySelector('.wishlist-count');
+    //       if (counter) counter.textContent = wishlist.length;
+    //     });
+    //   });
+    // });
+
+    // 2️⃣ Quantity + / - handlers
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.quantity-plus').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const input = this.previousElementSibling;
+          input.value = Math.min(10, parseInt(input.value) + 1);
+        });
+      });
+
+      document.querySelectorAll('.quantity-minus').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const input = this.nextElementSibling;
+          input.value = Math.max(1, parseInt(input.value) - 1);
+        });
+      });
+    });
+
+    // 3️⃣ Helper to get quantity
+    function getQuantity(button) {
+      const card = button.closest('.book-card');
+      const input = card.querySelector('.quantity-input');
+      return parseInt(input.value) || 1;
+    }
+
+    // 4️⃣ Add to cart with quantity
+    function addToCart(title, author, price, quantity = 1) {
+      let existing = cart.find(item => item.title === title && item.author === author);
+
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ title, author, price, quantity });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${title} added to cart! 🛒 (${quantity})`);
+
+      // Optional: update cart count
+      const counter = document.querySelector('.cart-count');
+      if (counter) counter.textContent = cart.length;
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        const icon = btn.querySelector('i');
+        const card = btn.closest('.book-card');
+        const bookId = card?.dataset.bookId;
+
+        // ✅ Set initial tick if in wishlist
+        if (wishlist.some(b => b.bookId === bookId)) {
+          btn.classList.add('active');
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          icon.innerHTML = '✔️'; // Tick mark
+        }
+
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const card = this.closest('.book-card');
+          const icon = this.querySelector('i');
+
+          const bookId = card?.dataset.bookId;
+          const title = card.querySelector('.book-title')?.innerText || "Untitled";
+          const author = card.querySelector('.book-author')?.innerText || "Unknown";
+          const priceText = card.querySelector('.price')?.innerText || "₹0";
+          const price = parseInt(priceText.replace('₹', '')) || 0;
+
+          if (!bookId || !title || !author || isNaN(price)) {
+            console.warn("Invalid wishlist data", { bookId, title, author, price });
+            return;
+          }
+
+          if (!this.classList.contains('active')) {
+            // ✅ Add to wishlist
+            this.classList.add('active');
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            icon.innerHTML = '✔️';
+
+            if (!wishlist.some(b => b.bookId === bookId)) {
+              wishlist.push({ bookId, title, author, price });
+            }
+
+          } else {
+            // ❌ Remove from wishlist
+            this.classList.remove('active');
+            icon.classList.remove('fas');
+            icon.classList.add('far');
+            icon.innerHTML = ''; // Remove tick
+            wishlist.splice(wishlist.findIndex(b => b.bookId === bookId), 1);
+          }
+
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+          const counter = document.querySelector('.wishlist-count');
+          if (counter) counter.textContent = wishlist.length;
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.book-card').forEach(card => {
+          if (filter === 'All' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    const authBtn = document.getElementById('authBtn');
+    const authText = document.getElementById('authText');
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userEmail = localStorage.getItem('loggedInUser');
+
+    if (isLoggedIn && userEmail) {
+      authText.textContent = 'LOG OUT';
+      authBtn.href = '#';
+
+      authBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('loggedInUser');
+        alert('You have been logged out.');
+        window.location.reload();
+      });
+    } else {
+      authText.textContent = 'LOG IN';
+      authBtn.href = '/html/account.html';
+    }
+  </script>
+
+  <script src="/publish.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!--------------- cart ------------------->
+
+
+  <!-- ---------------------------------- -->
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+</body>
+
+</html>

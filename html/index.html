@@ -1,0 +1,3484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookNook - Your Literary Haven</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Montserrat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+  <!-- Header Section -->
+  
+  <!-- Main Header -->
+
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+
+      </ul>
+    </div>
+  </header>
+    <!-- Category Navigation -->
+<nav class="category-nav">
+  <ul class="category-list container">
+    <li class="genre-dropdown">
+      <a href="#" class="category-item">Genres <i class="fas fa-chevron-down"></i></a>
+      <div class="genre-panel">
+        <div class="genre-grid">
+          <div class="genre-section">
+            <h3>Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/fiction.html">Fiction Reads</a></li>
+            <li><a href="/Genres/Adventure.html">Adventure</a></li>
+            <li><a href="/Genres/Classic Novels.html">Classic Novels</a></li>
+            <li><a href="/Genres/Mystery .html">Mystery</a></li>
+            <li><a href="/Genres/romance.html">Romance</a></li>
+            <li><a href="/Genres/Science Fiction.html">Science Fiction</a></li>
+            <li><a href="/Genres/History.html">History</li></a>             
+            <li><a href="/Genres/horror.html">Horror</li></a>             
+          </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Non Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/biography.html">Biography</a></li>
+            <li><a href="/Genres/Selfhelp.html">Self Help</a></li>
+            <li><a href="/Genres/Philosophy.html">Philosophy</a></li>
+            <li><a href="/Genres/science.html">Science & Nature</a></li>
+            <li><a href="/Genres/travel.html">Travel</a></li>
+            <li><a href="/Genres/sports.html">Sports</li></a> 
+            <li><a href="/Genres/Stock Market.html">Stock Market</li></a> 
+            <li><a href="/Genres/Spiritual.html">Spirituality </li></a> 
+
+            
+            </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Showcase</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/historical.html">History</li></a> 
+              <li><a href="/Genres/sports.html">Sports</li></a> 
+              <li><a href="/Genres/flims.html">Flims & Animations</li></a> 
+              <li><a href="/Genres/travel.html">Travel & Culture</li></a> 
+              <li><a href="/Genres/culture.html">Culture</li></a> 
+              <li><a href="/Genres/health.html">Health</li></a> 
+            </ul>
+          </div>
+         
+          <div class="genre-section">
+            <h3>Comics</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/Indian Comics.html"> Indian Comics</a></li>
+              <li><a href="/Genres/American Comics.html">American Comics</a></li>
+              <li><a href="/Genres/Manga.html">Manga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="category-option"><a href="/html/trending.html" class="category-item">Trending</a></li>
+    <li class="category-option"><a href="/html/top.html" class="category-item">Top 20</a></li>
+    <li class="category-option"><a href="/html/kids.html" class="category-item">Kids Books</a></li>
+    <li class="category-option"><a href="/html/stationary.html" class="category-item">Stationery & Gifts</a></li>
+    <!-- <li class="category-option"><a href="/html/audio.html" class="category-item">Audio Books</a></li> -->
+    <li class="category-option"><a href="/html/exclusive_brands.html" class="category-item">Exclusive Brands</a></li>
+    <li class="category-option"><a href="/html/todays.html" class="category-item">Today's Deals</a></li>
+  </ul>
+</nav>
+
+  </main>
+
+
+  <section class="carousel-hero-section">
+<div class="section-header">
+  <h2 class="carousel-heading animate-on-scroll">Trending Books</h2>
+</div>
+</section>
+
+    <div class="slider-container my-slider">
+      <div class="slide-wrapper"></div>
+
+      <div class="btn-group">
+        <button class="prev-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+          </svg>
+        </button>
+        <button class="next-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="captions"></div>
+    </div>
+  </section>
+
+
+  <!-- new published book -->
+
+  <section class="publishbooks" id="published-books-section">
+<div class="section-header">
+  <h2 class="carousel-heading animate-on-scroll">Recently Added</h2>
+</div>
+    <div class="publishbook-grid" id="published-books-grid">
+      <!-- Books will be dynamically inserted here by JavaScript -->
+    </div>
+  </section>
+
+
+
+
+
+  <!-- --------------------Fiction Books ------------------------------------------ -->
+<section id="section1" class="section"></section>
+<section id="fiction-reads" class="section fiction-books-section">
+  <div class="section-header">
+    <h2 class="fiction-books-heading animate-on-scroll">Fiction Reads</h2>
+  </div>
+
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="carousel__content books-grid">
+        <!-- Book Card 1 -->
+        <div class="book-card" data-book-id="1" data-book-name="The Midnight Library" data-author="Matt Haig"
+          data-price="499" data-stock="15">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_1.jpg" alt="The Midnight Library">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Midnight Library</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Matt Haig</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="15">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹499</span>
+            </div>
+            <button class="add-to-cart"
+                onclick="addToCart('The Midnight Library', 'By Matt Haig', 499, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 2 -->
+        <div class="book-card" data-book-id="2" data-book-name="The Alchemist" data-author="Paulo Coelho"
+          data-price="399" data-stock="22">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_2.jpg" alt="The Alchemist">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Alchemist</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Paulo Coelho</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="22">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹399</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Alchemisty', 'By Paulo Coelho', 399, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 3 -->
+        <div class="book-card" data-book-id="3" data-book-name="The Silent Patient" data-author="Alex Michaelides"
+          data-price="599" data-stock="8">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_3.jpg" alt="The Silent Patient">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Silent Patient</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Alex Michaelides</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="8">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹599</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Silent Patient', 'By Alex Michaelides', 599, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 4 -->
+        <div class="book-card" data-book-id="4" data-book-name="Where the Crawdads Sing" data-author="Delia Owens"
+          data-price="549" data-stock="12">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_4.jpg" alt="Where the Crawdads Sing">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Where the Crawdads Sing</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Delia Owens</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="12">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹549</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Where the Crawdads Sing', 'By Delia Owens', 549, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 5 -->
+        <div class="book-card" data-book-id="5" data-book-name="A Tree Grows in Brooklyn" data-author="Betty Smith"
+          data-price="400" data-stock="9">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_5.jpg" alt="A Tree Grows in Brooklyn">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">A Tree Grows in Brooklyn</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Betty Smith</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="9">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹400</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('A Tree Grows in Brooklyn', 'By Betty Smith', 400, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 6 -->
+        <div class="book-card" data-book-id="6" data-book-name="The Wind on the Haunted Hilln"
+          data-author="Ruskin Bond " data-price="250" data-stock="11">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_6.jpg" alt="The Wind on the Haunted Hill">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Wind on the Haunted Hill</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Ruskin Bond</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="9">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹250</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Wind on the Haunted Hill', 'By Ruskin Bond', 250, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 7 -->
+        <div class="book-card" data-book-id="7" data-book-name="To Kill A Mockingbird: 60th" data-author="Lee"
+          data-price="500" data-stock="2">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_7.jpg" alt="A Tree Grows in Brooklyn">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">To Kill A Mockingbird: 60th</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">by Dickens, Charles</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="9">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹500</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('To Kill A Mockingbird: 60th', 'by Dickens, Charles', 500, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Book Card 8 -->
+        <div class="book-card" data-book-id="8" data-book-name="A Tale of Two Cities: A Story of the French Revolution"
+          data-author="Dickens, Charles" data-price="470" data-stock="5">
+          <div class="book-image">
+            <img src="/assets/books/fictional/fic_8" alt="A Tale of Two Cities: A Story of the French Revolution">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">A Tale of Two Cities: A Story of the French Revolution</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">by Dickens, Charles</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="9">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹470</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('A Tale of Two Cities: A Story of the French Revolution', 'by Dickens, Charles', 470, getQuantity(this))">Add
+              to Cart</button>
+          </div>
+        </div>
+
+        <!-- Adventure Book -->
+        <div class="book-card" data-book-id="9" data-book-name="Journey to the Center of the Earth"
+          data-author="Jules Verne" data-price="420" data-stock="7">
+          <div class="book-image">
+            <img src="/assets/books/fictional/a_fic_9.jpg" alt="Journey to the Center of the Earth">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Journey to the Center of the Earth</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Jules Verne</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="7">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹420</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Journey to the Center of the Earth', 'By Jules Verne', 420, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Mystery Book -->
+        <div class="book-card" data-book-id="10" data-book-name="  " data-author="Arthur Conan Doyle" data-price="550"
+          data-stock="5">
+          <div class="book-image">
+            <img src="/assets/books/fictional/a_fic_10.jpg" alt="Sherlock Holmes: The Complete Novels">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Sherlock Holmes: The Complete Novels</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Arthur Conan Doyle</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹550</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Sherlock Holmes: The Complete Novels', 'By Arthur Conan Doyle', 550, getQuantity(this))">Add
+              to Cart</button>
+          </div>
+        </div>
+
+        <!-- Romance Book -->
+        <div class="book-card" data-book-id="111" data-book-name="Me Before You" data-author="Jojo Moyes"
+          data-price="390" data-stock="6">
+          <div class="book-image">
+            <img src="/assets/books/fictional/r_fic_11.jpg" alt="Me Before You">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Me Before You</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Jojo Moyes</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹390</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Me Before You', 'By Jojo Moyes', 390, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Historical Book -->
+        <div class="book-card" data-book-id="12" data-book-name="A History of Ancient and Early Medieval India "
+          data-author="Upinder Singh" data-price="390" data-stock="6">
+          <div class="book-image">
+            <img src="/assets/books/fictional/h_fic_12.webp" alt="A History of Ancient and Early Medieval India u">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">A History of Ancient and Early Medieval India </h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">by Upinder Singh</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹390</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('A History of Ancient and Early Medieval India', 'by Upinder Singh', 390, getQuantity(this))">Add
+              to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+  <!-- ------------------------ Non-Fiction Section ---------------------------- -->
+  <section id="section2" class="section">
+ <section id="nonfiction-reads" class="section nonfiction-books-section">
+  <div class="section-header">
+    <h2 class="animate-on-scroll">Non-Fiction Reads</h2>
+  </div>
+
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+
+      <div class="carousel__content books-grid">
+        <!-- All book-card items go inside this carousel__content -->
+
+        <!-- Biography -->
+        <div class="book-card" data-book-id="20" data-category="Biography">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_1.webp" alt="Becoming">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Becoming</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Michelle Obama</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹599</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Becoming', 'By Michelle Obama', 599, getQuantity(this))">Add
+              to Cart</button>
+          </div>
+        </div>
+
+        <!-- Self Help -->
+        <div class="book-card" data-book-id="21" data-category="Self Help">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_2.webp" alt="Atomic Habits">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Atomic Habits</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By James Clear</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="12">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹450</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Atomic Habits', 'By James Clear', 450, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="book-card" data-book-id="21" data-category="Business & Management">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_3.webp" alt="Rich Dad Poor Dad">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Power of Now</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Eckhart Tolle</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹350</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Power of Now', 'By Eckhart Tolle', 399, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+
+        <!-- Business & Management -->
+        <div class="book-card" data-book-id="22" data-category="Business & Management">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_4.webp" alt="Rich Dad Poor Dad">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Rich Dad Poor Dad</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Robert Kiyosaki</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹350</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Rich Dad Poor Dad', 'By Robert Kiyosakie', 350, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+
+        <div class="book-card" data-book-id="23" data-category="Business & Management">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_5.webp" alt="The Lean Startup">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Lean Startup</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Eric Ries</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="7">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹420</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Lean Startup', 'By Eric Ries', 420, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Health & Fitness -->
+        <div class="book-card" data-book-id="24" data-category="Health & Fitness">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_6.webp" alt="The Body">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Body</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Bill Bryson</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹499</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Body', 'By Bill Bryson', 499, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Spirituality -->
+        <div class="book-card" data-book-id="25" data-category="Spirituality">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_7.webp" alt="Bhagavad Gita">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Bhagavad Gita</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Eknath Easwaran</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="8">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹299</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Bhagavad Gita', 'By Eknath Easwaran', 299, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Philosophy -->
+        <div class="book-card" data-book-id="26" data-category="Philosophy">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_8.webp" alt="Sophie's World">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Sophie's World</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Jostein Gaarder</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹399</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Sophie World', 'By Jostein Gaarder', 399, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- History -->
+        <div class="book-card" data-book-id="27" data-category="History">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_9.webp" alt="Sapiens">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Sapiens</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Yuval Noah Harari</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="10">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹599</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Sapiens', 'By Yuval Noah Harari', 599, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Travel & Holiday -->
+        <div class="book-card" data-book-id="28" data-category="Travel & Holiday">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_10.webp" alt="Lonely Planet India">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Lonely Planet India</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Lonely Planet</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹799</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Lonely Planet India', 'By Lonely Planet', 799, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Science & Nature -->
+        <div class="book-card" data-book-id="29" data-category="Science & Nature">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_11.webp" alt="A Brief History of Time">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">A Brief History of Time</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Stephen Hawking</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="8">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹499</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('A Brief History of Time', 'By Stephen Hawkin', 499, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Sports -->
+        <div class="book-card" data-book-id="30" data-category="Sports">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_12.webp" alt="Playing It My Way">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Playing It My Way</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Sachin Tendulkar</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹599</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Playing It My Way', 'By Sachin Tendulkar', 599, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Dictionary & Reference -->
+        <div class="book-card" data-book-id="31" data-category="Dictionary & Reference">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_13.webp" alt="Oxford English Dictionary">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Oxford English Dictionary</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Oxford Languages</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="7">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹799</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Oxford English Dictionary', 'By Oxford Languages', 799, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Stock Market Books -->
+        <div class="book-card" data-book-id="32" data-category="Stock Market Books">
+          <div class="book-image">
+            <img src="/assets/books/non-fiction/nonf_14.webp" alt="The Intelligent Investor">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Intelligent Investor</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Benjamin Graham</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹650</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Intelligent Investor', 'By Benjamin Graham', 650, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+</section>
+
+
+  <!-- ---------------  --------- Coffee Table Section ---------------------------- -->
+<section id="section3" class="section">
+<section id="showcase" class="section coffee-table-section">
+  <div class="section-header">
+    <h2 class="animate-on-scroll">Showcase</h2>
+  </div>
+
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lt;</button>
+          <button class="carousel__arrow arrow-next">&gt;</button> <!-- ✅ move this here -->
+        </div>
+      </div>
+
+      <div class="carousel__content books-grid">
+        <!-- All book-card items go inside here -->
+
+        <!-- History Book -->
+        <div class="book-card coffee-history" data-book-id="40" data-category="History">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_1.webp" alt="The Story of Civilization">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Story of Civilization</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Will Durant</p>
+            <div class="book-meta">
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹899</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Story of Civilization', 'By Will Durant', 899, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+        <!-- Sports -->
+        <div class="book-card coffee-sports" data-book-id="41" data-category="Sports">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_2.webp" alt="The Sports Book">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Sports Book</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By DK</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Sports</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="7">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹750</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Sports Book', 'By DK', 750, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Food & Beverage -->
+        <div class="book-card coffee-food" data-book-id="42" data-category="Food & Beverage">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_3.webp" alt="The Art of the Cookbook">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Art of the Cookbook</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Various</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Food & Beverage</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹650</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Art of the Cookbook', 'By Various', 650, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Interior Designing -->
+        <div class="book-card coffee-interior" data-book-id="43" data-category="Interior Designing">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_4.webp" alt="Home: The Best of The New York Times Home Section">
+
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Home: The Best of NYT Home</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Various</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Interior Designing</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="4">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹200</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Home: The Best of NYT Home', 'By Various', 200, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Films & Animations -->
+        <div class="book-card coffee-films" data-book-id="44" data-category="Films & Animations">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_5.webp" alt="The Art of Pixar">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Art of Pixar</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Amid Amidi</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Films & Animations</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="3">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹450</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Art of Pixar', 'By Amid Amidi', 450, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Cars & Motorcycles -->
+        <div class="book-card coffee-cars" data-book-id="45" data-category="Cars & Motorcycles">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_6.webp" alt="The Complete Book of Classic Cars">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Complete Book of Classic Cars</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Richard Nichols</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Cars & Motorcycles</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹400</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Complete Book of Classic Cars', 'By Richard Nichols', 400, getQuantity(this))">Add
+              to Cart</button>
+          </div>
+        </div>
+
+        <!-- Travel & Culture -->
+        <div class="book-card coffee-travel" data-book-id="46" data-category="Travel & Culture">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_7.webp" alt="Destinations of a Lifetime">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Destinations of a Lifetime</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By National Geographic</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Travel & Culture</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹950</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Destinations of a Lifetim', 'By National Geographic', 950, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Wildlife & Nature -->
+        <div class="book-card coffee-wildlife" data-book-id="47" data-category="Wildlife & Nature">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_8.webp" alt="Planet Earth II">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Planet Earth II</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Stephen Moss</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Wildlife & Nature</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="4">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹850</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Planet Earth II', 'By Stephen Moss', 850, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Gardening -->
+        <div class="book-card coffee-gardening" data-book-id="48" data-category="Gardening">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_9.webp" alt="The Garden Book">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Garden Book</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Tim Richardson</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Gardening</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="3">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹700</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Garden Book', 'By Tim Richardson', 700, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Science -->
+        <div class="book-card coffee-science" data-book-id="49" data-category="Science">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_10.webp" alt="Science: The Definitive Visual Guide">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Science: The Definitive Visual Guide</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Adam Hart-Davis</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Science</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="5">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹550</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Science: The Definitive Visual Guide', 'By Adam Hart-Davis', 550, getQuantity(this))">Add
+              to Cart</button>
+          </div>
+        </div>
+
+        <!-- Lifestyle & Fashion -->
+        <div class="book-card coffee-lifestyle" data-book-id="50" data-category="Lifestyle & Fashion">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_11.webp" alt="Vogue: The Covers">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">Vogue: The Covers</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Dodie Kazanjian</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Lifestyle & Fashion</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="4">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹200</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('Vogue: The Covers', 'By Dodie Kazanjian', 200, getQuantity(this))">Add to
+              Cart</button>
+          </div>
+        </div>
+
+        <!-- Art, Painting & Music -->
+        <div class="book-card coffee-art" data-book-id="51" data-category="Art, Painting & Music">
+          <div class="book-image">
+            <img src="/assets/books/coffe/c_12.webp" alt="The Art Book">
+          </div>
+          <div class="book-details">
+            <div class="book-header">
+              <h3 class="book-title">The Art Book</h3>
+              <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Phaidon Editors</p>
+            <div class="book-meta">
+              <!-- <span class="book-type">Art, Painting & Music</span> -->
+              <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="6">
+                <button class="quantity-plus">+</button>
+              </div>
+              <span class="price">₹150</span>
+            </div>
+            <button class="add-to-cart"
+              onclick="addToCart('The Art Book', 'By Phaidon Editors', 150, getQuantity(this))">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</section>
+
+  <button id="chatbot-toggle" class="chatbot-toggle-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z"
+        fill="currentColor" />
+      <path d="M7 9H17V11H7V9ZM7 12H14V14H7V12Z" fill="currentColor" />
+    </svg>
+  </button>
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header">
+      Bookheaven Assitant
+      <button id="chatbot-close" class="chatbot-close-btn">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <form class="chatbot-input-bar" id="chatbot-form">
+      <input type="text" id="chatbot-input" placeholder="Ask me about books, recommendations, or anything..."
+        autocomplete="off" required />
+      <button type="submit" id="chatbot-send">Send</button>
+    </form>
+  </div>
+
+
+  <!--------------------------------- Books by Language Section ---------------------->
+  <section id="books-by-language" class="section language-books-section">
+  </div>
+    <section class="marathibooks">
+         <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+          <div class="section-header" class="animate-on-scroll">
+            <h2>Marathi Books</h2>
+          </div>
+      <div class="carousel__content books-grid">
+        <!-- Marathi Books Section -->
+          <!-- Book 1 -->
+          <div class="book-card" data-book-id="60" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_1.jpg" alt="Shyamchi Aai">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Shyamchi Aai</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Sane Guruji</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹120</span>
+              </div>
+                <button class="add-to-cart"
+                onclick="addToCart('Shyamchi Aai', 'By Sane Guruji', 120, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 2 -->
+          <div class="book-card" data-book-id="61" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_2.jpg" alt="Mrityunjay">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Mrityunjay</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Shivaji Sawant</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹299</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Mrityunjay', 'By Shivaji Sawant', 299, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="book-card" data-book-id="62" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_3.jpg" alt="Yayati">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Yayati</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By V. S. Khandekar</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹350</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Yayati', 'By V. S. Khandekar', 350, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+
+          <!-- Book 4 -->
+          <div class="book-card" data-book-id="63" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_4.jpg" alt="Panipat">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Panipat</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Vishwas Patil</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹275</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Panipat', 'By Vishwas Patil', 275, getQuantity(this))">Add
+                to Cart</button>
+            </div>
+          </div>
+
+
+          <!-- Book 5 -->
+          <div class="book-card" data-book-id="64" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_5.jpg" alt="Rau">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Rau</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By N. S. Inamdar</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹310</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Rau', 'By N. S. Inamdar', 310, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 6 -->
+          <div class="book-card" data-book-id="65" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_6.jpg" alt="Kosala">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Kosala</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Bhalchandra Nemade</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹200</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Kosala', 'By Bhalchandra Nemade', 200, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 7 -->
+          <div class="book-card" data-book-id="66" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_7.jpg" alt="Chhava">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Chhava</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Shivaji Sawant</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹760</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Chhava', 'By Shivaji Sawant', 760, getQuantity(this))">Add
+                to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 8 -->
+          <div class="book-card" data-book-id="67" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_8.avif" alt="Mee Nathuram Godse Boltoy">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Mee Nathuram Godse Boltoy</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Gopal Godse</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹480</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Mee Nathuram Godse Boltoy', 'By Gopal Godse', 480, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 9 -->
+          <div class="book-card" data-book-id="68" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_9.jpg" alt="Batatyachi Chal">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Batatyachi Chal</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By P. L. Deshpande</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹170</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Batatyachi Chal', 'By P. L. Deshpande', 170, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 10 -->
+          <div class="book-card" data-book-id="69" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_10.jpg" alt="Duniyadari">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Duniyadari</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Suhas Shirvalkar</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹220</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Duniyadari', 'By Suhas Shirvalkar', 220, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 11 -->
+          <div class="book-card" data-book-id="70" data-category="Marathi">
+            <div class="book-image">
+              <img src="/assets/books/other_language/marathi/mar_11.jpg" alt="Partner">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Partner</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By V. P. Kale</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="5">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹190</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Partner', 'By V. P. Kale', 190, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    </section>
+  </section>
+
+  <section id="section6" class="section">
+    <section class="hindibooks">
+        <!-- Hindi Books Carousel -->
+        <div class="carousel__wrapper">
+          <div class="carousel__header">
+            <div></div>
+            <div class="carousel__controls">
+              <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+              <button class="carousel__arrow arrow-next">&rsaquo;</button>
+            </div>
+          </div>
+          <div class="section-header" class="animate-on-scroll">
+            <h2>Hindi Books</h2>
+          </div>
+          <div class="carousel__content books-grid" id="hindi-books">
+            <!-- Book 1 -->
+            <div class="book-card" data-book-id="80" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_1.webp" alt="Godan">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Godan</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Munshi Premchand</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹399</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Godans', 'By Munshi Premchand', 399, getQuantity(this))">Add
+                  to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card" data-book-id="81" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_2.jpg" alt="Nirmala">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Nirmala</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Munshi Premchand</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹249</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Nirmala', 'By Munshi Premchan', 249, getQuantity(this))">Add
+                  to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card" data-book-id="82" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_3.jpg" alt="Gunahon Ka Devta">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Gunahon Ka Devta</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Dharamveer Bharti</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹320</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Gunahon Ka Devta', 'By Dharamveer Bharti', 320, getQuantity(this))">Add to
+                  Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card" data-book-id="83" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_4.jpg" alt="Maila Aanchal">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Maila Aanchal</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Phanishwar Nath Renu</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹280</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Maila Aanchal', 'By Phanishwar Nath Renu', 280, getQuantity(this))">Add to
+                  Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card" data-book-id="84" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_5.jpg" alt="Kamayani">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Kamayani</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Jaishankar Prasad</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹350</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Kamayani', 'By Jaishankar Prasad', 350, getQuantity(this))">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card" data-book-id="85" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_6.jpg" alt="Raag Darbari">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Raag Darbari</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Shrilal Shukla</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹310</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Raag Darbari', 'By Shrilal Shuklae', 310, getQuantity(this))">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="book-card" data-book-id="86" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_7.jpg" alt="Chandrakanta">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Chandrakanta</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Devaki Nandan Khatri</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹270</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Chandrakanta', 'By Devaki Nandan Khatri', 270, getQuantity(this))">Add to
+                  Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="book-card" data-book-id="87" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_8.webp" alt="Kashi Ka Assi">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Kashi Ka Assi</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Kashinath Singh</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹299</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Kashi Ka Assi', 'By Kashinath Singh', 299, getQuantity(this))">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="book-card" data-book-id="88" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_9.jpg" alt="Madhushala">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Madhushala</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Harivansh Rai Bachchan</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹260</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Madhushalas', 'By Harivansh Rai Bachchan', 260, getQuantity(this))">Add to
+                  Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 10 -->
+            <div class="book-card" data-book-id="89" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_10.jpg" alt="Gaban">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Gaban</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Munshi Premchand</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹299</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Gaban', 'By Munshi Premchand', 299, getQuantity(this))">Add
+                  to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 11 -->
+            <div class="book-card" data-book-id="90" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_11.jpg" alt="Prem Pachisi">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Prem Pachisi</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Munshi Premchand</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹250</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Prem Pachisi', 'By Munshi Premchand', 250, getQuantity(this))">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Book 12 -->
+            <div class="book-card" data-book-id="91" data-category="Hindi">
+              <div class="book-image">
+                <img src="/assets/books/other_language/hindi/hindi_12.jpg" alt="Do Bailon Ki Katha">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title">Do Bailon Ki Katha</h3>
+                  <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Munshi Premchand</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                  </div>
+                  <span class="price">₹199</span>
+                </div>
+                <button class="add-to-cart"
+                  onclick="addToCart('Do Bailon Ki Katha', 'By Munshi Premchand', 199, getQuantity(this))">Add to
+                  Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </section>
+
+  <section id="section7" class="section">
+      <section class="tamilbooks">
+      <!-- Tamil Books Carousel -->
+      <div class="carousel__wrapper">
+        <div class="carousel__header">
+          <div></div>
+          <div class="carousel__controls">
+            <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+            <button class="carousel__arrow arrow-next">&rsaquo;</button>
+          </div>
+        </div>
+        <div class="section-header"  >
+          <h2>Tamil Books</h2>
+        </div>
+        <div class="carousel__content books-grid">
+          <!-- Book 1 -->
+          <div class="book-card" data-book-id="100" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_1.jpg" alt="Ponniyin Selvan">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Ponniyin Selvan</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Kalki Krishnamurthy</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹499</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Ponniyin Selvan', 'Kalki Krishnamurthy', 499, getQuantity(this))">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 2 -->
+          <div class="book-card" data-book-id="101" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_2.jpg" alt="Sivagamiyin Sabatham">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Sivagamiyin Sabatham</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Kalki Krishnamurthy</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹430</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Sivagamiyin Sabatham', 'Kalki Krishnamurthy', 430, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 3 -->
+          <div class="book-card" data-book-id="102" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_3.jpg" alt="Parthiban Kanavu">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Parthiban Kanavu</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Kalki Krishnamurthy</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹390</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Parthiban Kanavu', 'Kalki Krishnamurthy', 390, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 4 -->
+          <div class="book-card" data-book-id="103" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_4.jpg" alt="Thirukkural">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Thirukkural</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Thiruvalluvar</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹299</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Thirukkural', 'Thiruvalluvar', 299, getQuantity(this))">Add
+                to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 5 -->
+          <div class="book-card" data-book-id="104" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_5.jpg" alt="Yavana Rani">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Yavana Rani</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Sandilyan</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹420</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Yavana Rani', 'Sandilyan', 420, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+          <!-- Book 6 -->
+          <div class="book-card" data-book-id="105" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_6.jpg" alt="Kadal Pura">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Kadal Pura</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Sandilyan</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹460</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Kadal Pura', 'Sandilyan', 460, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 7 -->
+          <div class="book-card" data-book-id="106" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_7.jpg" alt="Mullum Malarum">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Mullum Malarum</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Umachandran</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹380</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Mullum Malarum', 'Umachandran', 380, getQuantity(this))">Add
+                to Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 8 -->
+          <div class="book-card" data-book-id="107" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_8.jpg" alt="Ananda Vikatan Short Stories">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Ananda Vikatan Short Stories</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Various Authors</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹340</span>
+              </div>
+              <button class="add-to-cart"
+                onclick="addToCart('Ananda Vikatan Short Stories', 'Various Authors', 340, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 9 -->
+          <div class="book-card" data-book-id="108" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_9.jpg" alt="Velpari">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Velpari</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Su. Venkatesan</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹360</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Velpari', 'Su. Venkatesan', 360, getQuantity(this))">Add to
+                Cart</button>
+            </div>
+          </div>
+
+          <!-- Book 10 -->
+          <div class="book-card" data-book-id="109" data-category="Tamil">
+            <div class="book-image">
+              <img src="/assets/books/other_language/tamil/tamil_10.jpg" alt="Puthumai Penn">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">Puthumai Penn</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+              </div>
+              <p class="book-author">By Bharathiyar</p>
+              <div class="book-meta">
+                <div class="quantity-selector">
+                  <button class="quantity-minus">-</button>
+                  <input type="number" class="quantity-input" value="1" min="1" max="10">
+                  <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">₹280</span>
+              </div>
+              <button class="add-to-cart" onclick="addToCart('Puthumai Penn', 'Bharathiyar', 280, getQuantity(this) )">Add
+                to Cart</button>
+            </div>
+          </div>
+
+          <button class="carousel__arrow arrow-next">&gt;</button> <!-- ✅ move this here -->
+
+        </div>
+      </div>
+      </section>
+  </section>
+</section>
+
+</section>
+ <!-- Client Video Section -->
+  <section class="client-video-section">
+   
+  <div class="section-header">
+      <h2 class="carousel-heading animate-on-scroll">Unboxing Experience</h2>
+  </div>
+    <div class="client-video-grid">
+      <div class="video-wrapper">
+        <video class="client-video" autoplay loop muted playsinline>
+          <source src="/assets/book_unboxing_1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <!-- <button class="shop-now-overlay" data-book="1">Shop Now</button> -->
+      </div>
+
+      <div class="video-wrapper">
+        <video class="client-video" autoplay loop muted playsinline>
+          <source src="/assets/book_unboxing_2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <!-- <button class="shop-now-overlay" data-book="2">Shop Now</button> -->
+      </div>
+
+      <div class="video-wrapper">
+        <video class="client-video" autoplay loop muted playsinline>
+          <source src="/assets/book_unboxing_3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <!-- <button class="shop-now-overlay" data-book="3">Shop Now</button> -->
+      </div>
+
+      <div class="video-wrapper">
+        <video class="client-video" autoplay loop muted playsinline>
+          <source src="/assets/book_unboxing_4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <!-- <button class="shop-now-overlay" data-book="4">Shop Now</button> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading Challenge Section -->
+  <section class="challenge-section fade-in">
+    <div class="challenge-container">
+      <h2>Reading Challenge 2025</h2>
+      <div class="challenge-content">
+        <div class="challenge-image">
+          <img
+            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+            alt="Reading Challenge">
+        </div>
+        <div class="challenge-details">
+          <h3>Join our annual reading challenge!</h3>
+          <p>Set your goal and track your progress throughout the year.</p>
+          <div class="progress-container">
+            <div class="progress-info">
+              <span id="progress-text">0</span>
+              <span>/ 10 books</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" id="reading-progress"></div>
+            </div>
+          </div>
+          <button id="join-challenge" class="challenge-btn">Start Challenge</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genre Selection Modal -->
+  <div class="genre-modal" id="genre-modal">
+    <div class="genre-container">
+      <span class="close-btn" id="close-genre-btn">&times;</span>
+      <h2>Choose Your Reading Genres</h2>
+      <p>Select genres for your reading challenge (10 required)</p>
+      <div class="genre-grid" id="genre-grid">
+        <div class="genre-card" data-genre="romance">
+          <i class="fas fa-heart"></i>
+          <span>Romance</span>
+        </div>
+        <div class="genre-card" data-genre="thriller">
+          <i class="fas fa-mask"></i>
+          <span>Thriller</span>
+        </div>
+        <div class="genre-card" data-genre="fantasy">
+          <i class="fas fa-dragon"></i>
+          <span>Fantasy</span>
+        </div>
+        <div class="genre-card" data-genre="business">
+          <i class="fas fa-chart-line"></i>
+          <span>Business</span>
+        </div>
+        <div class="genre-card" data-genre="poetry">
+          <i class="fas fa-pen-fancy"></i>
+          <span>Poetry</span>
+        </div>
+        <div class="genre-card" data-genre="scifi">
+          <i class="fas fa-rocket"></i>
+          <span>Science Fiction</span>
+        </div>
+        <div class="genre-card" data-genre="biographies">
+          <i class="fas fa-user-tie"></i>
+          <span>Biographies</span>
+        </div>
+        <div class="genre-card" data-genre="youngadult">
+          <i class="fas fa-book-open"></i>
+          <span>Young Adult</span>
+        </div>
+        <div class="genre-card" data-genre="encyclopedia">
+          <i class="fas fa-book"></i>
+          <span>Encyclopedia</span>
+        </div>
+        <div class="genre-card" data-genre="manga">
+          <i class="fas fa-book-reader"></i>
+          <span>Manga</span>
+        </div>
+      </div>
+      <button id="start-reading" class="challenge-btn" disabled>Start Reading</button>
+    </div>
+  </div>
+
+  <!-- Story Reading Modal -->
+  <div class="story-modal" id="story-modal">
+    <div class="story-container">
+      <span class="close-btn" id="close-story-btn">&times;</span>
+      <h2 id="story-title">Romance Story</h2>
+      <div class="story-content" id="story-content">
+        <p>The sun was setting over the small coastal town as Emma walked along the beach, her bare feet leaving prints
+          in the wet sand. She had come here to escape the chaos of the city, to find solace in the rhythm of the waves.
+        </p>
+        <p>That's when she saw him - a tall figure silhouetted against the orange sky, his easel set up near the water's
+          edge. As she approached, she could see he was painting the very scene that had taken her breath away moments
+          before.</p>
+        <p>"Beautiful, isn't it?" he said without turning around, as if he'd sensed her presence. When he finally looked
+          up, Emma felt something shift inside her. His eyes held the same wonder she felt when watching the sunset.</p>
+        <p>They talked until the stars came out, about art, about life, about the mysterious way the universe brings
+          people together at just the right moment. As they parted ways, he handed her the painting - a perfect capture
+          of the sunset, with one addition: a small figure in the distance, watching the horizon.</p>
+        <p>"So you'll remember this moment," he said softly. Emma knew she would remember more than just the sunset.</p>
+      </div>
+      <div class="timer-container">
+        <p>Please read the story completely before proceeding</p>
+        <div class="timer" id="timer">01:00</div>
+      </div>
+      <button id="finished-reading" class="challenge-btn" disabled>I've Finished Reading</button>
+    </div>
+  </div>
+
+  <!-- Challenge Complete Modal -->
+  <div class="complete-modal" id="complete-modal">
+    <div class="complete-container">
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <h2>Challenge Complete! 🎉</h2>
+      <p>Congratulations! You've successfully completed the 2025 Reading Challenge.</p>
+      <div class="badge-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132779.png" alt="Badge">
+      </div>
+      <a href="spin.html">
+        <button id="claim-reward" class="challenge-btn">Claim Your Reward</button>
+      </a>
+      <button id="restart-challenge" class="challenge-btn secondary-btn">Start Challenge Again</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+      <footer class="page-footer" style="background: #165A96; color: #fff;">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">BookNook</h3>
+            <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+            <div class="social-icons">
+              <a href="#" style="background: var(--secondary-brand-color); color: #fdfeff;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #f9fbfd;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #ffffff;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #ffffff;"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Quick Links</h3>
+            <ul>
+              <li><a href="#" style="color: #fff;">About Us</a></li>
+              <li><a href="#" style="color: #fff;">Contact</a></li>
+              <li><a href="#" style="color: #fff;">Shipping Policy</a></li>
+              <li><a href="#" style="color: #fff;">Returns & Exchanges</a></li>
+              <li><a href="#" style="color: #fff;">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Customer Service</h3>
+            <ul>
+              <li><i class="fas fa-phone" style="color: #ffffff;"></i> +91 9876543210</li>
+              <li><i class="fas fa-envelope" style="color: #ffffff"></i> help@booknook.com</li>
+              <li><i class="fas fa-map-marker-alt" style="color: #f8f9fa"></i> Mumbai, India</li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Newsletter</h3>
+            <p>Subscribe for updates and special offers!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" style="border-radius: 8px; border: none;">
+              <button type="submit" style="background: var(--secondary-brand-color); color: #ffffff; border-radius: 8px; font-weight: bold;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-top: 1px solid var(--secondary-brand-color);">
+          <p>&copy; 2023 BookNook. All rights reserved.</p>
+        </div>
+      </footer>
+  <script src="/wishlist.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const headings = document.querySelectorAll('.animate-on-scroll');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  headings.forEach(heading => observer.observe(heading));
+});
+</script>
+<script>
+/* JavaScript needed for mobile */
+document.querySelectorAll('.genre-dropdown').forEach(dropdown => {
+  // Keep panel open when hovering over panel
+  const panel = dropdown.querySelector('.genre-panel');
+  panel.addEventListener('mouseenter', () => {
+    dropdown.classList.add('force-open');
+  });
+  panel.addEventListener('mouseleave', () => {
+    dropdown.classList.remove('force-open');
+  });
+  
+  // Mobile click handling
+  dropdown.querySelector('.category-item').addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      dropdown.classList.toggle('active');
+    }
+  });
+}); 
+
+  </script>
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find all elements that should be animated on scroll
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+
+            // Set up the Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // If the element is on the screen (intersecting)
+                    if (entry.isIntersecting) {
+                        // Add the .visible class to trigger the CSS transition
+                        entry.target.classList.add('visible');
+                        // Optional: stop observing it once it's visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the element is visible
+            });
+
+            // Tell the observer to watch each of the elements
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+  <script>
+    // Show offer after 3 seconds (simulate new offer)
+    window.addEventListener("load", () => {
+      document.getElementById("dealPopup").classList.add("show");
+    });
+
+    function closePopup() {
+      document.getElementById("dealPopup").classList.remove("show");
+    }
+  </script>
+
+  <script>
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const messages = document.getElementById('chatbot-messages');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+
+    // Chatbot toggle functionality
+    chatbotToggle.addEventListener('click', function () {
+      chatbotContainer.classList.add('open');
+      chatbotToggle.classList.add('hidden');
+      input.focus();
+    });
+
+    chatbotClose.addEventListener('click', function () {
+      chatbotContainer.classList.remove('open');
+      chatbotToggle.classList.remove('hidden');
+    });
+
+    // Close chatbot when clicking outside (optional)
+    document.addEventListener('click', function (e) {
+      if (!chatbotContainer.contains(e.target) &&
+        !chatbotToggle.contains(e.target) &&
+        chatbotContainer.classList.contains('open')) {
+        chatbotContainer.classList.remove('open');
+        chatbotToggle.classList.remove('hidden');
+      }
+    });
+
+    // Improved message creation with optional HTML content
+    function appendMessage(content, sender, isHTML = false) {
+      const div = document.createElement('div');
+      div.className = `chatbot-message ${sender}`;
+
+      if (isHTML) {
+        div.innerHTML = content.replace(/\n/g, '<br>'); // Convert newlines to <br>
+      } else {
+        div.textContent = content;
+      }
+
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+      return div; // Return reference for potential modifications
+    }
+
+    function removeLastBotMessage() {
+      const last = messages.querySelector('.chatbot-message.bot:last-child');
+      if (last && last.textContent === 'Thinking...') {
+        messages.removeChild(last);
+      }
+    }
+
+    // Enhanced submit handler with loading state
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+
+      // Disable input during processing
+      input.disabled = true;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+
+      appendMessage(userMsg, 'user');
+      input.value = '';
+      const thinkingMsg = appendMessage('Thinking...', 'bot');
+
+      try {
+        const res = await fetch('http://localhost:3001/chatbot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMsg })
+        });
+
+        if (!res.ok) {
+          throw new Error(`Server responded with ${res.status}`);
+        }
+
+        const data = await res.json();
+        removeLastBotMessage();
+
+        if (data.reply) {
+          // Handle bullet points and formatting from Gemini
+          appendMessage(data.reply, 'bot', true);
+        } else {
+          appendMessage("I didn't get a response. Please try again.", 'bot');
+        }
+      } catch (err) {
+        removeLastBotMessage();
+        appendMessage('Sorry, something went wrong. Please try again later.', 'bot');
+        console.error('Chatbot error:', err);
+      } finally {
+        // Re-enable input
+        input.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        input.focus();
+      }
+    });
+
+    // Optional: Add input validation or character limit
+    input.addEventListener('input', function () {
+      if (this.value.length > 500) {
+        this.value = this.value.substring(0, 500);
+        // Optionally show a warning
+      }
+    });
+  </script>
+
+  <script>
+    // ==================== READING CHALLENGE ====================
+    // ==================== READING CHALLENGE ====================
+    const joinChallengeBtn = document.getElementById('join-challenge');
+    const readingProgress = document.getElementById('reading-progress');
+    const progressText = document.getElementById('progress-text');
+
+    // Challenge Modals
+    const genreModal = document.getElementById('genre-modal');
+    const storyModal = document.getElementById('story-modal');
+    const completeModal = document.getElementById('complete-modal');
+    const closeGenreBtn = document.getElementById('close-genre-btn');
+    const closeStoryBtn = document.getElementById('close-story-btn');
+    const genreCards = document.querySelectorAll('.genre-card');
+    const startReadingBtn = document.getElementById('start-reading');
+    const finishedReadingBtn = document.getElementById('finished-reading');
+    const claimRewardBtn = document.getElementById('claim-reward');
+    const restartChallengeBtn = document.getElementById('restart-challenge');
+    const timerElement = document.getElementById('timer');
+    const storyContent = document.getElementById('story-content');
+    const storyTitle = document.getElementById('story-title');
+
+    let challengeJoined = false;
+    let booksRead = 0;
+    let selectedGenres = [];
+    let completedGenres = JSON.parse(localStorage.getItem('completedGenres')) || [];
+    let timerInterval;
+    let timeLeft = 120;// 2 minutes reading time
+
+    // Stories for each genre
+    const genreStories = {
+      romance: {
+        title: "A Sunset Encounter",
+        content: `<p>The sun was setting over the small coastal town as Emma walked along the beach, her bare feet leaving prints in the wet sand. She had come here to escape the chaos of the city, to find solace in the rhythm of the waves.</p>
+    <p>That's when she saw him - a tall figure silhouetted against the orange sky, his easel set up near the water's edge. As she approached, she could see he was painting the very scene that had taken her breath away moments before.</p>
+    <p>"Beautiful, isn't it?" he said without turning around, as if he'd sensed her presence. When he finally looked up, Emma felt something shift inside her. His eyes held the same wonder she felt when watching the sunset.</p>
+    <p>They talked until the stars came out, about art, about life, about the mysterious way the universe brings people together at just the right moment. As they parted ways, he handed her the painting - a perfect capture of the sunset, with one addition: a small figure in the distance, watching the horizon.</p>
+    <p>"So you'll remember this moment," he said softly. Emma knew she would remember more than just the sunset.</p>`
+      },
+      thriller: {
+        title: "The Last Train",
+        content: `<p>The 11:15 to Manchester was unusually empty for a Thursday night. Detective Sarah Mills took her usual seat by the window, the case files spread across the table in front of her. The flickering lights of the tunnel made the words dance on the page.</p>
+    <p>Then she saw him. The man from the surveillance photos. The one they'd been hunting for three weeks in connection with the museum heist. He sat perfectly still three rows ahead, reading a newspaper like any other commuter.</p>
+    <p>Sarah's hand moved slowly toward her radio, but before she could react, the train plunged into darkness. A power outage? No - too coincidental. She heard movement, then a whisper right beside her ear: "Looking for these, detective?"</p>
+    <p>The lights flickered back on. The seat across from her was now occupied by the thief, who placed a velvet bag on the table. Inside gleamed the missing diamonds. "I think we can help each other," he said with a smile that didn't reach his eyes.</p>`
+      },
+      fantasy: {
+        title: "The Dragon's Apprentice",
+        content: `<p>Kael had always been told the mountains were forbidden. That's exactly why he went there. The villagers spoke of a great beast that lived in the peaks, but Kael found only caves and silence.</p>
+    <p>Until the ground shook beneath him. Hot breath warmed his back as a voice like crumbling stone said, "You're smaller than the last one." Kael turned to face golden eyes the size of dinner plates.</p>
+    <p>The dragon stretched its massive wings. "Well? Are you here to slay me or worship me? Humans usually want one or the other."</p>
+    <p>"Neither," Kael said, holding up his tattered spellbook. "I was hoping you could teach me." The dragon blinked. Then it began to laugh, the sound echoing through the valley below.</p>
+    <p>"Five hundred years," it rumbled, "and finally, an interesting human." Smoke curled from its nostrils as it lowered its head. "Very well, little mage. Let's see what you can do."</p>`
+      },
+      business: {
+        title: "The Silicon Valley Gamble",
+        content: `<p>The boardroom was silent as Elena dropped the prototype on the table. "This will change everything," she said. The investors exchanged glances. Her CFO looked like he might be sick.</p>
+    <p>"You want to scrap our entire product line," said the lead investor slowly, "to pursue this... concept?" He gestured at the unassuming black box.</p>
+    <p>Elena activated the device. A holographic interface sprang to life above the conference table, displaying real-time data streams from their competitors. "While they're fighting over the smartphone market," she said, "we'll own the next computing paradigm."</p>
+    <p>Twelve months later, as the tech world scrambled to copy her company's breakthrough, Elena sat in the same boardroom - now worth 27 billion dollars more. The original prototype sat on the shelf behind her, a reminder that true innovation always looks impossible until someone does it.</p>`
+      },
+      poetry: {
+        title: "Whispers of the Willow",
+        content: `<p>The old willow by the brook<br>
+    Bends its boughs to take a look<br>
+    At its reflection, crisp and clear<br>
+    In the water's mirrored veneer</p>
+    
+    <p>Leaves like fingers trail so light<br>
+    Breaking stillness, circles bright<br>
+    Whispering secrets to the stream<br>
+    Of moonlit walks and lovers' dreams</p>
+    
+    <p>Time may weather, time may fade<br>
+    But the willow's song is never swayed<br>
+    For roots run deep and branches high<br>
+    Touching earth and brushing sky</p>`
+      },
+      scifi: {
+        title: "The Last Transmission",
+        content: `<p>Commander Veyra stared at the message on her screen. The words hadn't changed in the twelve hours since they'd been received. "This is Earth Central to all colonies. Do not return. Repeat: Do not return."</p>
+    <p>The ship's AI broke the silence. "Analysis complete. Message is authentic. Origin: Sol System. Encryption: Level Omega." Veyra's stomach tightened. Omega codes were only used for existential threats.</p>
+    <p>"Play the secondary package," she ordered. The video that appeared showed Earth's night side - but wrong. The continents glowed with unnatural light, patterns too geometric, too perfect. Cities? No. Something had built over them.</p>
+    <p>"Set course for Proxima Centauri," Veyra said softly. Behind her, the crew didn't celebrate their narrow escape. They all understood the truth now: humanity's home was no longer theirs.</p>`
+      },
+      biographies: {
+        title: "The Inventor's Notebook",
+        content: `<p>October 12, 1934: Another failure today. The oscillator still overheats after 37 minutes of operation. Mrs. Kowalski from downstairs complained about the noise again. Must find better insulation material.</p>
+    <p>November 3, 1934: Breakthrough! The ceramic coating from the cookware shop seems to work. Ran continuously for 6 hours before I turned it off. Now to solve the power fluctuation issue...</p>
+    <p>December 24, 1934: It works! The prototype held perfect frequency for 72 hours straight. Took it to Professor Henderson at the university today. He called it "the most significant advancement in radio technology since Marconi."</p>
+    <p>January 15, 1935: Signed the patent papers today. The lawyers say RCA wants to license it for $50,000. Enough to fund the next project. Maybe mother will finally believe I'm not wasting my time in that basement workshop.</p>`
+      },
+      youngadult: {
+        title: "The Summer We Disappeared",
+        content: `<p>Jesse's bike skidded to a stop in front of my house at exactly 3:17 AM. I knew because I'd been staring at my clock for two hours, waiting. "You ready?" he whispered through my open window.</p>
+    <p>Ten minutes later, we were breaking into the abandoned water park on the edge of town. The moonlight made the empty slides look like giant skeletons. "This is where they filmed that horror movie," Jesse said with a grin.</p>
+    <p>We weren't supposed to be there. We weren't supposed to do a lot of things that summer. But when your best friend is moving across the country in three days, rules stop mattering so much.</p>
+    <p>As dawn painted the sky pink, we sat on the highest platform, legs dangling over the edge. "Next summer," Jesse said, "we'll do this at Disneyland." I didn't point out that Disneyland was 2,000 miles from where he'd be living. Some promises don't need to make sense to be important.</p>`
+      },
+      encyclopedia: {
+        title: "The Curious Case of the Dodo",
+        content: `<p>Contrary to popular belief, the dodo (Raphus cucullatus) was not a stupid bird. Early sailors' accounts describe them as curious and unafraid - traits that unfortunately made them easy prey.</p>
+    <p>Native to Mauritius, these flightless birds evolved without natural predators. Their closest genetic relative is the Nicobar pigeon. Dodos played a crucial role in their ecosystem as seed dispersers for the island's native tambalacoque trees.</p>
+    <p>The last confirmed sighting was in 1662, though some reports suggest isolated populations may have survived until 1690. Modern DNA analysis suggests their extinction was caused not just by hunting, but by invasive species brought by humans that destroyed nests and competed for food.</p>
+    <p>Recent de-extinction projects have sparked debate about whether we should resurrect lost species. The dodo remains a powerful symbol of human-caused extinction and the fragility of island ecosystems.</p>`
+      },
+      manga: {
+        title: "The Ramen Master's Secret",
+        content: `<p>Takamura stared at the steaming bowl. The aroma alone made his mouth water - rich pork bone broth, perfectly springy noodles, chashu so tender it nearly melted. But something was off.</p>
+    <p>"This isn't your usual recipe," he accused. Old Man Sato just smiled, the wrinkles around his eyes deepening. "Good nose, kid. Special ingredient today."</p>
+    <p>Takamura took a sip and froze. The flavor exploded across his tongue, familiar yet impossible. "This... this tastes exactly like my grandfather's ramen. But he never shared his secret with anyone!"</p>
+    <p>Sato's grin widened as he pulled out a yellowed photo from behind the counter. There stood two young men in front of a tiny food stall, arms around each other's shoulders. "Never shared, eh? Your grandfather and I trained together in Hakata fifty years ago. That stubborn old fool took our master's secret recipe to his grave... almost."</p>`
+      }
+    };
+
+    // Initialize challenge status
+    function initChallengeStatus() {
+      const challengeActive = localStorage.getItem('readingChallenge') === 'true';
+      if (challengeActive) {
+        challengeJoined = true;
+        booksRead = parseInt(localStorage.getItem('booksRead')) || 0;
+        completedGenres = JSON.parse(localStorage.getItem('completedGenres')) || [];
+
+        updateChallengeProgress();
+        joinChallengeBtn.textContent = booksRead >= 10 ? 'Challenge Completed!' : `Continue Challenge (${booksRead}/10)`;
+        if (booksRead >= 10) {
+          joinChallengeBtn.style.backgroundColor = '#4CAF50';
+        }
+      }
+    }
+
+    // Toggle reading challenge
+    function toggleReadingChallenge(e) {
+      if (e) e.preventDefault();
+
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      if (!isLoggedIn) {
+        alert('Please sign in to join the reading challenge!');
+        return;
+      }
+
+      if (!challengeJoined) {
+        // Start new challenge
+        genreModal.style.display = 'flex';
+        selectedGenres = [];
+        genreCards.forEach(card => {
+          card.classList.remove('selected');
+          card.style.display = 'block';
+        });
+        startReadingBtn.disabled = true;
+        challengeJoined = true;
+        localStorage.setItem('readingChallenge', 'true');
+      } else if (booksRead >= 10) {
+        // Challenge complete
+        completeModal.style.display = 'flex';
+      } else {
+        // Continue challenge
+        genreModal.style.display = 'flex';
+        completedGenres.forEach(genre => {
+          const card = document.querySelector(`.genre-card[data-genre="${genre}"]`);
+          if (card) card.style.display = 'none';
+        });
+      }
+    }
+
+    function closeGenreModal() {
+      genreModal.style.display = 'none';
+    }
+
+    function closeStoryModal() {
+      storyModal.style.display = 'none';
+      clearInterval(timerInterval);
+      timeLeft = 120;
+      timerElement.textContent = "02:00";
+      finishedReadingBtn.disabled = true;
+    }
+
+    function closeCompleteModal() {
+      completeModal.style.display = 'none';
+    }
+
+    function startReading() {
+      if (selectedGenres.length === 0) {
+        alert('Please select a genre first');
+        return;
+      }
+
+      const selectedGenre = selectedGenres[0];
+      storyTitle.textContent = genreStories[selectedGenre].title;
+      storyContent.innerHTML = genreStories[selectedGenre].content;
+
+      timeLeft = 120;
+      updateTimerDisplay();
+      finishedReadingBtn.disabled = true;
+
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          finishedReadingBtn.disabled = false;
+        }
+      }, 1000);
+
+      storyModal.style.display = 'flex';
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function finishReading() {
+      booksRead++;
+      completedGenres.push(selectedGenres[0]);
+      localStorage.setItem('booksRead', booksRead.toString());
+      localStorage.setItem('completedGenres', JSON.stringify(completedGenres));
+
+      updateChallengeProgress();
+      closeStoryModal();
+
+      if (booksRead >= 10) {
+        completeModal.style.display = 'flex';
+        joinChallengeBtn.textContent = 'Challenge Completed!';
+        joinChallengeBtn.style.backgroundColor = '#4CAF50';
+      } else {
+        joinChallengeBtn.textContent = `Continue Challenge (${booksRead}/10)`;
+      }
+    }
+
+    function claimReward() {
+      alert('Congratulations! Your reward has been claimed. Check your email for your discount code.');
+      closeCompleteModal();
+    }
+
+    function restartChallenge() {
+      booksRead = 0;
+      challengeJoined = false;
+      selectedGenres = [];
+      completedGenres = [];
+
+      localStorage.removeItem('readingChallenge');
+      localStorage.removeItem('booksRead');
+      localStorage.removeItem('completedGenres');
+
+      updateChallengeProgress();
+      joinChallengeBtn.textContent = 'Start Challenge';
+      joinChallengeBtn.style.backgroundColor = '#ff5722';
+      genreCards.forEach(card => card.style.display = 'block');
+      closeCompleteModal();
+    }
+
+    function updateChallengeProgress() {
+      const progressPercentage = Math.min((booksRead / 10) * 100, 100);
+      readingProgress.style.width = `${progressPercentage}%`;
+      progressText.textContent = booksRead;
+    }
+
+    // Initialize challenge
+    initChallengeStatus();
+
+    // Event listeners
+    joinChallengeBtn.addEventListener('click', toggleReadingChallenge);
+    closeGenreBtn.addEventListener('click', closeGenreModal);
+    closeStoryBtn.addEventListener('click', closeStoryModal);
+    genreCards.forEach(card => {
+      card.addEventListener('click', () => {
+        genreCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedGenres = [card.dataset.genre];
+        startReadingBtn.disabled = false;
+      });
+    });
+    startReadingBtn.addEventListener('click', startReading);
+    finishedReadingBtn.addEventListener('click', finishReading);
+    claimRewardBtn.addEventListener('click', claimReward);
+    restartChallengeBtn.addEventListener('click', restartChallenge);
+  </script>
+
+  <script>
+    // Initialize wishlist and cart from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // 2️⃣ Quantity + / - handlers
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.quantity-plus').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const input = this.previousElementSibling;
+          input.value = Math.min(10, parseInt(input.value) + 1);
+        });
+      });
+
+      document.querySelectorAll('.quantity-minus').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const input = this.nextElementSibling;
+          input.value = Math.max(1, parseInt(input.value) - 1);
+        });
+      });
+    });
+
+    // 3️⃣ Helper to get quantity
+    function getQuantity(button) {
+      const card = button.closest('.book-card');
+      const input = card.querySelector('.quantity-input');
+      return parseInt(input.value) || 1;
+    }
+
+    // 4️⃣ Add to cart with quantity
+    function addToCart(title, author, price, quantity = 1) {
+      let existing = cart.find(item => item.title === title && item.author === author);
+
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ title, author, price, quantity });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${title} added to cart! 🛒 (${quantity})`);
+
+      // Optional: update cart count
+      const counter = document.querySelector('.cart-count');
+      if (counter) counter.textContent = cart.length;
+    }
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        const icon = btn.querySelector('i');
+        const card = btn.closest('.book-card');
+        const bookId = card?.dataset.bookId;
+
+        // ✅ Set initial tick if in wishlist
+        if (wishlist.some(b => b.bookId === bookId)) {
+          btn.classList.add('active');
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          icon.innerHTML = '✔️'; // Tick mark
+        }
+
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const card = this.closest('.book-card');
+          const icon = this.querySelector('i');
+
+          const bookId = card?.dataset.bookId;
+          const title = card.querySelector('.book-title')?.innerText || "Untitled";
+          const author = card.querySelector('.book-author')?.innerText || "Unknown";
+          const priceText = card.querySelector('.price')?.innerText || "₹0";
+          const price = parseInt(priceText.replace('₹', '')) || 0;
+
+          if (!bookId || !title || !author || isNaN(price)) {
+            console.warn("Invalid wishlist data", { bookId, title, author, price });
+            return;
+          }
+
+          if (!this.classList.contains('active')) {
+            // ✅ Add to wishlist
+            this.classList.add('active');
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            // icon.innerHTML = '✔️';
+
+            if (!wishlist.some(b => b.bookId === bookId)) {
+              wishlist.push({ bookId, title, author, price });
+            }
+
+          } else {
+            // ❌ Remove from wishlist
+            this.classList.remove('active');
+            icon.classList.remove('fas');
+            icon.classList.add('far');
+            icon.innerHTML = ''; // Remove tick
+            wishlist.splice(wishlist.findIndex(b => b.bookId === bookId), 1);
+          }
+
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+          const counter = document.querySelector('.wishlist-count');
+          if (counter) counter.textContent = wishlist.length;
+        });
+      });
+    });
+  </script>
+
+
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.book-card').forEach(card => {
+          if (filter === 'All' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+
+  <script>
+    const trendingBooks = [
+      {
+        id: 501,
+        title: "Onyx Storm",
+        author: "Rebecca Yarros",
+        price: "₹499",
+        img: "../assets/trending/trend_1.jpg",
+      },
+
+      {
+        id: 502,
+        title: "The Crash",
+        author: "Freida McFadden",
+        price: "₹399",
+        img: "../assets/trending/trend_2.jpg",
+      },
+      {
+        id: 503,
+        title: "Fearless",
+        author: "Lauren Roberts",
+        price: "₹450",
+        img: "../assets/trending/trend_3.jpg",
+      },
+      {
+        id: 504,
+        title: "Rebel Witch",
+        author: "Kristen Ciccarelli",
+        price: "₹599",
+        img: "../assets/trending/trend_4.jpg",
+      },
+      {
+        id: 505,
+        title: "Sunrise on the Reaping",
+        author: "Suzanne Collins",
+        price: "₹599",
+        img: "../assets/trending/trend_5.jpg",
+      },
+      {
+        id: 506,
+        title: "Beautiful Ugly",
+        author: "Alice Feeney",
+        price: "₹350",
+        img: "../assets/trending/trend_6.jpg",
+      },
+      {
+        id: 507,
+        title: "King of Ashes: A Novel",
+        author: "by S. A. Cosby",
+        price: "₹350",
+        img: "../assets/trending/trend_7.jpg",
+      },
+      {
+        id: 508,
+        title: "A Jack Swyteck Novel",
+        author: "James Grippando",
+        price: "₹350",
+        img: "../assets/trending/trend_8.jpg",
+      },
+      {
+        id: 509,
+        title: "Emilia del Valle",
+        author: "by Isabel Allende",
+        price: "₹350",
+        img: "../assets/trending/trend_9.jpg",
+      },
+      {
+        id: 510,
+        title: "A GMA Book Club Pick",
+        author: "By Erin Crosby Eckstine",
+        price: "₹350",
+        img: "../assets/trending/trend_10.jpg",
+      },
+    ];
+
+    const minScale = 0.8; // slightly smaller for sides
+    const scaleFactor = 1.5; // more pronounced scaling
+    const spacingFactor = 1.05; // keep visible gap
+    const sliderWrapper = document.querySelector(".slide-wrapper");
+
+    function lerp(start, end, t) {
+      return start + t * (end - start);
+    }
+
+    function getScale(distance, slidesLen) {
+      return Math.pow(
+        1 - (distance / slidesLen) * (1 - minScale),
+        scaleFactor
+      );
+    }
+
+function getLeft(slideIndex, currSlide, slideWidth, wrapperWidth, totalSlides) {
+  const diff = slideIndex - currSlide;
+  const half = Math.floor(totalSlides / 2);
+  let offset = diff;
+
+  // 🔁 Smooth infinite looping logic for carousel
+  if (diff > half) {
+    offset = diff - totalSlides;
+  } else if (diff < -half) {
+    offset = diff + totalSlides;
+  }
+
+  // 🔽 This creates the "V" spacing as slides move away from center
+  return (
+    offset * slideWidth * spacingFactor +
+    (wrapperWidth - slideWidth) / 2
+  );
+}
+
+
+    class Slider {
+      currSlide = 0;
+
+      constructor({
+        sliderContainer: selector,
+        animateProps,
+        initalSlide = 0,
+        duration = 200,
+        easing = "linear",
+        infinite = false,
+        touchControls = false,
+        snapThreshold = 0.4,
+      }) {
+        this.selector = selector;
+        this.animateProps = animateProps;
+        this.animationOpts = { duration, easing };
+        this.isInfinite = infinite;
+        this._initalSlide = initalSlide;
+        this._touchControls = touchControls;
+        this.snapThreshold = snapThreshold;
+      }
+
+      get sliderContainer() {
+        return document.querySelector(this.selector);
+      }
+
+      get slides() {
+        return Array.from(
+          this.slideWrapper.querySelectorAll(".slide-wrapper .slide")
+        );
+      }
+
+      get slideWrapper() {
+        return this.sliderContainer.querySelector(".slide-wrapper");
+      }
+
+      get slideWidth() {
+        return this.slides[0].offsetWidth;
+      }
+
+      get wrapperWidth() {
+        return this.slideWrapper.offsetWidth;
+      }
+
+      init() {
+        this.onInit?.();
+        window.addEventListener("resize", () =>
+          this.moveSlide(this.currSlide)
+        );
+        this.moveSlide(this._initalSlide, false);
+        if (this._touchControls) this.initTouchControls();
+      }
+
+      isWithinBounds(index) {
+        if (this.isInfinite) return true;
+        return index >= 0 && index < this.slides.length;
+      }
+
+      computeAnimateProps(targetSlide, slideIndex, slideElem, progress = 1) {
+        const props = {};
+        for (let key of Object.keys(this.animateProps)) {
+          props[key] = this.animateProps[key]({
+            currSlide: targetSlide,
+            prevSlide: this.currSlide,
+            currDistance: Math.abs(slideIndex - targetSlide),
+            prevDistance: Math.abs(slideIndex - this.currSlide),
+            slideElem,
+            slides: this.slides,
+            slideIndex,
+            progress,
+            slideWidth: this.slideWidth,
+            wrapperWidth: this.wrapperWidth,
+          });
+        }
+        return props;
+      }
+
+      moveSlide(targetSlide, animate = true) {
+  // Infinite loop logic (for looping back to first or last slide)
+  if (this.isInfinite) {
+    // Ensures targetSlide always stays within valid range
+    targetSlide = (targetSlide + this.slides.length) % this.slides.length;
+  } else {
+    // If not infinite, prevent going out of bounds
+    if (!this.isWithinBounds(targetSlide)) {
+      return this.moveSlide(this.currSlide);
+    }
+  }
+
+  // Animate each slide based on its new position
+  this.slides.forEach((slide, index) => {
+    const props = this.computeAnimateProps(targetSlide, index, slide);
+    if (animate) {
+      const anim = slide.animate(props, this.animationOpts);
+      anim.finished.then(() => Object.assign(slide.style, props));
+    } else {
+      Object.assign(slide.style, props);
+    }
+    // Add 'active' class to the center slide only
+    if (index === targetSlide) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
+  });
+
+  // Update current slide index
+  this.currSlide = targetSlide;
+
+  // Trigger onChange callback if it exists
+  this.onChange?.();
+}
+
+      nextSlide() {
+        this.moveSlide(this.currSlide + 1);
+        this.onNext?.();
+      }
+
+      prevSlide() {
+        this.moveSlide(this.currSlide - 1);
+        this.onPrev?.();
+      }
+
+      initTouchControls() {
+        this.slideWrapper.style.cursor = "grab";
+        this.slideWrapper.addEventListener("dragstart", (e) => {
+          e.preventDefault();
+        });
+        let originX,
+          raf = null;
+        const getDragVals = (e) => {
+          const currX = e.touches?.[0]?.clientX ?? e.clientX;
+          const deltaX = currX - originX;
+          return {
+            currX,
+            deltaX,
+            progress: deltaX / this.slideWidth,
+            dir: -Math.sign(deltaX),
+          };
+        };
+        const handleMouseDown = (e) => {
+          e.preventDefault();
+          if (e.type === "mousedown" && e.button !== 0) return;
+          this.slideWrapper.style.cursor = "grabbing";
+          originX = getDragVals(e).currX;
+          this.startSlide = this.currSlide;
+          this.onDragStart?.();
+          bindMoveListeners(true);
+        };
+        const handleMouseMove = (e) => {
+          e.preventDefault();
+          if (raf) cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(() => {
+            const { currX, progress, dir } = getDragVals(e);
+            const target = this.currSlide + dir;
+            this.slides.forEach((slide, i) => {
+              const props = this.computeAnimateProps(
+                target,
+                i,
+                slide,
+                Math.abs(progress)
+              );
+              Object.assign(slide.style, props);
+            });
+            if (Math.abs(progress) >= 1) {
+              this.currSlide += Math.floor(Math.abs(progress)) * dir;
+              originX = currX;
+            }
+            this.onDrag?.();
+          });
+        };
+        const handleMouseUp = (e) => {
+          e.preventDefault();
+          if (raf) cancelAnimationFrame(raf);
+          this.slideWrapper.style.cursor = "grab";
+          const { progress, dir } = getDragVals(e);
+          const shouldSnap = Math.abs(progress) > this.snapThreshold;
+          const target = shouldSnap ? this.currSlide + dir : this.currSlide;
+          this.moveSlide(target);
+          this.onDragEnd?.();
+          bindMoveListeners(false);
+        };
+        const bindMoveListeners = (enable) => {
+          const events = [
+            ["touchmove", handleMouseMove, { passive: false }],
+            ["mousemove", handleMouseMove],
+            ["touchend", handleMouseUp],
+            ["mouseup", handleMouseUp],
+            ["mouseleave", handleMouseUp],
+            ["touchcancel", handleMouseUp],
+          ];
+          events.forEach(([type, handler, options]) =>
+            document[enable ? "addEventListener" : "removeEventListener"](
+              type,
+              handler,
+              options
+            )
+          );
+        };
+        this.slideWrapper.addEventListener("mousedown", handleMouseDown);
+        this.slideWrapper.addEventListener("touchstart", handleMouseDown, {
+          passive: true,
+        });
+      }
+    }
+
+    function renderSlides(books) {
+      // Clear previous slides if any
+      sliderWrapper.innerHTML = "";
+      books.forEach((book, index) => {
+        const slide = document.createElement("div");
+        slide.className = "slide";
+        // Use the original .book-card structure
+        slide.innerHTML = `
+          <div class="book-card" data-book-id="${book.id}" data-book-name="${book.title}" data-author="${book.author}" data-price="${book.price}">
+            <div class="book-image">
+              <img src="${book.img}" alt="${book.title}">
+            </div>
+            <div class="book-details">
+              <div class="book-header">
+                <h3 class="book-title">${book.title}</h3>
+                <button class="wishlist-btn" title="Add to Wishlist" onclick="addToWishlist('${book.title.replace(/'/g, "\\'")}', '${book.author.replace(/'/g, "\\'")}', ${book.price.replace('₹', '')})">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <p class="book-author">By ${book.author}</p>
+              <div class="book-meta">
+                <span class="price">${book.price}</span>
+              </div>
+              <button class="add-to-cart-btn" title="Add to Cart" onclick="addToCart('${book.title.replace(/'/g, "\\'")}', '${book.author.replace(/'/g, "\\'")}', ${book.price.replace('₹', '')})">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        `;
+        sliderWrapper.appendChild(slide);
+      });
+    }
+
+    // Center the carousel on the middle book
+    const initialSlide = Math.floor(trendingBooks.length / 2);
+    renderSlides(trendingBooks);
+
+    const slider = new Slider({
+      sliderContainer: ".my-slider",
+      touchControls: true,
+      duration: 300,
+      easing: "ease",
+      infinite: true, // Enable infinite loop
+      initalSlide: initialSlide, // Start from the middle
+      animateProps: {
+        scale({ currDistance, prevDistance, progress, slides }) {
+          // All cards same size, no extra scale for center
+          const fromScale = getScale(prevDistance, slides.length);
+          const toScale = getScale(currDistance, slides.length);
+          return lerp(fromScale, toScale, progress);
+        },
+        left({
+          currSlide,
+          prevSlide,
+          slideIndex,
+          progress,
+          slideWidth,
+          wrapperWidth,
+          slides,
+        }) {
+          // Use the correct totalSlides for spacing
+          const totalSlides = slides.length;
+          const fromLeft = getLeft(
+            slideIndex,
+            prevSlide,
+            slideWidth,
+            wrapperWidth,
+            totalSlides
+          );
+          const toLeft = getLeft(
+            slideIndex,
+            currSlide,
+            slideWidth,
+            wrapperWidth,
+            totalSlides
+          );
+          return `${lerp(fromLeft, toLeft, progress)}px`;
+        },
+        zIndex: ({ currDistance }) => 100 - currDistance,
+      },
+    });
+
+    slider.onInit = () => {
+      // Initialize Buttons
+      document.querySelector(".btn-group .next-btn").onclick = () =>
+        slider.nextSlide();
+      document.querySelector(".btn-group .prev-btn").onclick = () =>
+        slider.prevSlide();
+    };
+
+    slider.onChange = () => {
+      // Update Captions only
+      slider.sliderContainer.querySelector(".captions").innerText =
+        trendingBooks[slider.currSlide].title +
+        " by " +
+        trendingBooks[slider.currSlide].author;
+    };
+
+    slider.init();
+
+// ✅ Keyboard navigation (once only)
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") slider.nextSlide();
+  if (e.key === "ArrowLeft") slider.prevSlide();
+});
+
+    slider.init();
+
+// Keyboard navigation
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") slider.nextSlide();
+  if (e.key === "ArrowLeft") slider.prevSlide();
+});
+
+slider.init();
+
+// Keyboard support
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") slider.nextSlide();
+  if (e.key === "ArrowLeft") slider.prevSlide();
+});
+
+// ✅ Auto Slide + Hover Pause
+let autoSlideInterval;
+
+function startAutoSlide() {
+  stopAutoSlide();
+  autoSlideInterval = setInterval(() => {
+    slider.nextSlide();
+  }, 2000);
+}
+
+function stopAutoSlide() {
+  if (autoSlideInterval) clearInterval(autoSlideInterval);
+}
+
+startAutoSlide();
+
+document.querySelector(".slider-container").addEventListener("mouseenter", stopAutoSlide);
+document.querySelector(".slider-container").addEventListener("mouseleave", startAutoSlide);
+useEffect(() => {
+  const interval = setInterval(() => {
+    moveSlide(currSlide + 1);
+  }, 2000);
+
+  return () => clearInterval(interval);
+}, [currSlide]);
+
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousels = document.querySelectorAll(".carousel__wrapper");
+
+      carousels.forEach((carousel) => {
+        const content = carousel.querySelector(".carousel__content");
+        const prevBtn = carousel.querySelector(".arrow-prev");
+        const nextBtn = carousel.querySelector(".arrow-next");
+
+        const scrollAmount = 320; // Adjust scroll per click
+
+        // Scroll Left
+        prevBtn.addEventListener("click", () => {
+          content.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth"
+          });
+        });
+
+        // Scroll Right
+        nextBtn.addEventListener("click", () => {
+          content.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth"
+          });
+        });
+
+        // Optional: Keyboard support
+        document.addEventListener("keydown", (e) => {
+          if (document.activeElement === document.body) {
+            if (e.key === "ArrowRight") {
+              nextBtn.click();
+            } else if (e.key === "ArrowLeft") {
+              prevBtn.click();
+            }
+          }
+        });
+      });
+    });
+
+
+  </script>
+
+  <script>
+    const authBtn = document.getElementById('authBtn');
+    const authText = document.getElementById('authText');
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userEmail = localStorage.getItem('loggedInUser');
+
+    if (isLoggedIn && userEmail) {
+      authText.textContent = 'LOG OUT';
+      authBtn.href = '#';
+
+      authBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('loggedInUser');
+        alert('You have been logged out.');
+        window.location.reload();
+      });
+    } else {
+      authText.textContent = 'LOG IN';
+      authBtn.href = '/html/account.html';
+    }
+  </script>
+
+  <script src="/publish.js"></script>
+  <script>
+    if (typeof displayPublishedBooks === 'undefined') {
+      const s = document.createElement('script');
+      s.src = '../publish.js';
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+// Intersection Observer for scroll animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Configure the intersection observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  // Get all sections with the .section class
+  const sections = document.querySelectorAll('.section');
+  
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Uncomment below if you want animation to happen only once
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe each section
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 20, // Adjust offset if you have a fixed header
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+</script>
+
+</body>
+
+</html>

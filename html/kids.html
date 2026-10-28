@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookNook - Your Literary Haven</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Montserrat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/kids.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+  /* Make popup book image smaller and popup not scrollable */
+  .book-popup .book-image img {
+    max-width: 120px;
+    max-height: 160px;
+    margin: 0 auto;
+    display: block;
+  }
+  .book-popup {
+    overflow-y: visible !important;
+    max-height: none !important;
+  }
+  /* Popup modern look, not circle */
+  .book-popup {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(22,90,150,0.12);
+    padding: 32px 20px 24px 20px;
+    max-width: 340px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+  .book-popup .book-image {
+    width: 160px;
+    height: 220px;
+    margin: 0 auto 18px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 12px var(--shadow-light);
+    background: var(--background-medium);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .book-popup .book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+  }
+  .book-popup .popup-title-inside {
+    display: none !important;
+  }
+  .book-popup .book-title {
+    color: var(--primary-brand-color);
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 10px 0 4px 0;
+    text-align: center;
+  }
+  .book-popup .book-author {
+    color: var(--primary-brand-color);
+    font-size: 0.98rem;
+    margin: 6px 0 4px 0;
+  }
+  .book-popup .price {
+    color: var(--primary-brand-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+  </style>
+
+</head>
+
+<body>
+<!-- Main Header -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+
+      </ul>
+    </div>
+  </header>
+    <!-- Category Navigation -->
+<nav class="category-nav">
+  <ul class="category-list container">
+    <li class="genre-dropdown">
+      <a href="#" class="category-item">Genres <i class="fas fa-chevron-down"></i></a>
+      <div class="genre-panel">
+        <div class="genre-grid">
+          <div class="genre-section">
+            <h3>Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/fiction.html">Fiction Reads</a></li>
+            <li><a href="/Genres/Adventure.html">Adventure</a></li>
+            <li><a href="/Genres/Classic Novels.html">Classic Novels</a></li>
+            <li><a href="/Genres/Mystery .html">Mystery</a></li>
+            <li><a href="/Genres/romance.html">Romance</a></li>
+            <li><a href="/Genres/Science Fiction.html">Science Fiction</a></li>
+            <li><a href="/Genres/History.html">History</li></a>             
+            <li><a href="/Genres/horror.html">Horror</li></a>             
+          </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Non Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/biography.html">Biography</a></li>
+            <li><a href="/Genres/Selfhelp.html">Self Help</a></li>
+            <li><a href="/Genres/Philosophy.html">Philosophy</a></li>
+            <li><a href="/Genres/science.html">Science & Nature</a></li>
+            <li><a href="/Genres/travel.html">Travel</a></li>
+            <li><a href="/Genres/sports.html">Sports</li></a> 
+            <li><a href="/Genres/Stock Market.html">Stock Market</li></a> 
+            <li><a href="/Genres/Spiritual.html">Spirituality </li></a> 
+
+            
+            </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Showcase</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/historical.html">History</li></a> 
+              <li><a href="/Genres/sports.html">Sports</li></a> 
+              <li><a href="/Genres/flims.html">Flims & Animations</li></a> 
+              <li><a href="/Genres/travel.html">Travel & Culture</li></a> 
+              <li><a href="/Genres/culture.html">Culture</li></a> 
+              <li><a href="/Genres/health.html">Health</li></a> 
+            </ul>
+          </div>
+         
+          <div class="genre-section">
+            <h3>Comics</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/Indian Comics.html"> Indian Comics</a></li>
+              <li><a href="/Genres/American Comics.html">American Comics</a></li>
+              <li><a href="/Genres/Manga.html">Manga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="category-option"><a href="/html/trending.html" class="category-item">Trending</a></li>
+    <li class="category-option"><a href="/html/top.html" class="category-item">Top 20</a></li>
+    <li class="category-option"><a href="/html/kids.html" class="category-item">Kids Books</a></li>
+    <li class="category-option"><a href="/html/stationary.html" class="category-item">Stationery & Gifts</a></li>
+    <!-- <li class="category-option"><a href="/html/audio.html" class="category-item">Audio Books</a></li> -->
+    <li class="category-option"><a href="/html/exclusive_brands.html" class="category-item">Exclusive Brands</a></li>
+    <li class="category-option"><a href="/html/todays.html" class="category-item">Today's Deals</a></li>
+  </ul>
+</nav>
+
+<section class="book-carousel-section">
+  <div class="kids-carousel-bg" id="kids-carousel-bg"></div>
+  <div class="header"></div>
+
+  <div class="carousel-container" id="carousel">
+    <div class="book" id="book-timeless-tales" data-index="0" onclick="scrollToBook('book-timeless-tales')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_1.jpg');">
+      Timeless Tales from the Vedas and Upanishad
+    </div>
+    <div class="book" id="book-harry-potter" data-index="1" onclick="scrollToBook('book-harry-potter')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_2.jpg');">
+      Harry Potter and the Philosopher's Stone
+    </div>
+    <div class="book active" id="book-sivamudra" data-index="2" onclick="scrollToBook('book-sivamudra')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_3.jpg');">
+      The Sivamudra Ghost Dance
+    </div>
+    <div class="book" id="book-adventurers" data-index="3" onclick="scrollToBook('book-adventurers')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_4.jpg');">
+      The Adventurers and the City of Secrets
+    </div>
+    <div class="book" id="book-silverborn" data-index="4" onclick="scrollToBook('book-silverborn')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_5.jpg');">
+      Silverborn: The Mystery of Morrigan Crow
+    </div>
+    <div class="book" id="book-wycherleys" data-index="5" onclick="scrollToBook('book-wycherleys')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_6.jpg');">
+      The Wycherleys
+    </div>
+    <div class="book" id="book-forest" data-index="6" onclick="scrollToBook('book-forest')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_7.jpg');">
+      The Forest in the Sky
+    </div>
+    <div class="book" id="book-enchantment" data-index="7" onclick="scrollToBook('book-enchantment')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_8.jpg');">
+      The Age of Enchantment
+    </div>
+    <div class="book" id="book-vanya" data-index="8" onclick="scrollToBook('book-vanya')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_9.jpg');">
+      Vanya and the Wild Hunt
+    </div>
+    <div class="book" id="book-afia" data-index="9" onclick="scrollToBook('book-afia')" style="background-image: url('/assets/books/kids/kidshomecar/kids-carousel_10.jpg');">
+      Afia in the Land of Wonders
+    </div>
+  </div>
+
+  <!-- <div class="recommended">Recommended</div> -->
+  <div class="title" id="selectedTitle">Goodnight Moon</div>
+</section>
+  </main>
+
+
+
+  <!-- Client Video Section -->
+   <section class="client-video-section">
+  <div class="video-text-wrapper">
+    <h2 class="video-heading">Unboxing Experience</h2>
+    <p class="video-subtitle">Delight in the joy of reading as our happy customers unbox their favorite books.</p>
+    <p class="video-subtitle">Discover genuine reactions, hear  twarming smiles, and the magic that each BookNook package brings.</p>
+  </div>
+
+
+  <div class="client-video-grid">
+    <div class="video-wrapper">
+      <video class="client-video" autoplay loop muted playsinline>
+        <source src="/assets/books/kids/kids customer/kids_c_1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+        <!-- <button class="shop-now-overlay" data-book="1">Shop Now</button> -->
+    </div>
+
+    <div class="video-wrapper">
+      <video class="client-video" autoplay loop muted playsinline>
+        <source src="/assets/books/kids/kids customer/kids_c_2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- <button class="shop-now-overlay" data-book="2">Shop Now</button> -->
+    </div>
+
+    <div class="video-wrapper">
+      <video class="client-video" autoplay loop muted playsinline>
+        <source src="/assets/books/kids/kids customer/kids_c_3.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- <button class="shop-now-overlay" data-book="3">Shop Now</button> -->
+    </div>
+
+    <div class="video-wrapper">
+      <video class="client-video" autoplay loop muted playsinline>
+        <source src="/assets/books/kids/kids customer/kids_c_4.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- <button class="shop-now-overlay" data-book="4">Shop Now</button> -->
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Kids Book Carousel using Unified Style -->
+
+<div id="bookPopup" class="book-popup-overlay" style="display: none;">
+  <div class="book-popup">
+    <button class="popup-close" onclick="closePopup()">✖</button>
+    <div id="popupContent"></div>
+  </div>
+</div>
+
+
+<section class="exclusive-kids-books-section">
+  <div class="kids-section-header">
+    <h1>Exclusive Kids Books</h1>
+    <p class="kids-section-subtitle">
+      Charming reads crafted for early readers aged 4–7. Let their imagination fly!
+    </p>
+  </div>
+
+  <div class="kids-carousel__wrapper">
+   <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+    <div class="kids-carousel__content">
+
+            <!-- Book 1 -->
+      <div class="book-card" id="book-timeless-tales" data-book-id="200">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_1.jpg" alt="Timeless Tales from the Vedas and Upanishad">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Timeless Tales from the Vedas and Upanishad</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Wisdom Kids</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹215</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Timeless Tales from the Vedas and Upanishad', 'Wisdom Kids', 215, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-card" id="book-harry-potter" data-book-id="201">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_2.jpg" alt="Harry Potter and the Philosopher's Stone">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Harry Potter and the Philosopher's Stone</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By J.K. Rowling</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹349</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart(`Harry Potter and the Philosopher's Stone`, 'J.K. Rowling', 349, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-card" id="book-sivamudra" data-book-id="202">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_3.jpg" alt="The Sivamudra Ghost Dance">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Sivamudra Ghost Dance</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Mystic Tales</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹225</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Sivamudra Ghost Dance', 'Mystic Tales', 225, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="book-card" id="book-adventurers" data-book-id="203">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_4.jpg" alt="The Adventurers and the City of Secrets">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Adventurers and the City of Secrets</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By City Explorers</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹260</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Adventurers and the City of Secrets', 'City Explorers', 260, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="book-card" id="book-silverborn" data-book-id="204">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_5.jpg" alt="Silverborn: The Mystery of Morrigan Crow">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Silverborn: The Mystery of Morrigan Crow</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Jessica Townsend</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹315</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Silverborn: The Mystery of Morrigan Crow', 'Jessica Townsend', 315, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+            <!-- Book 6 -->
+      <div class="book-card" id="book-wycherleys" data-book-id="205">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_6.jpg" alt="The Wycherleys">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Wycherleys</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Curious Chapters</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹235</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Wycherleys', 'Curious Chapters', 235, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 7 -->
+      <div class="book-card" id="book-forest" data-book-id="206">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_7.jpg" alt="The Forest in the Sky">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Forest in the Sky</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By NatureVerse</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹250</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Forest in the Sky', 'NatureVerse', 250, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 8 -->
+      <div class="book-card" id="book-enchantment" data-book-id="207">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_8.jpg" alt="The Age of Enchantment">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Age of Enchantment</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By WonderWords</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹245</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Age of Enchantment', 'WonderWords', 245, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 9 -->
+      <div class="book-card" id="book-vanya" data-book-id="208">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_9.jpg" alt="Vanya and the Wild Hunt">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Vanya and the Wild Hunt</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By StorySprout</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹275</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Vanya and the Wild Hunt', 'StorySprout', 275, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Book 10 -->
+      <div class="book-card" id="book-afia" data-book-id="209">
+        <div class="book-image">
+          <img src="/assets/books/kids/kidshomecar/kids-carousel_10.jpg" alt="Afia in the Land of Wonders">
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Afia in the Land of Wonders</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Imaginaria</p>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">₹220</span>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Afia in the Land of Wonders', 'Imaginaria', 220, getQuantity(this))">Add to Cart</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<section class="kids-books-section">
+<div class="kids-section-header">
+  <div class="header-decoration"><span></span></div>
+  <h1 class="animated-heading">Books for Ages 4-7</h1>
+  <p class="kids-section-subtitle"> Charming reads crafted for early readers aged 4–7. Let their imagination fly!
+</p>
+  <div class="header-decoration"></div>
+</div>
+
+  <div class="kids-carousel__wrapper">
+ <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+
+    <div class="kids-carousel__content">
+     <!-- Book 1 -->
+    <div class="book-card" data-book-id="300" data-category="Kids-4-7">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_1.jpg" alt="The Happy Hedgehog">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Happy Hedgehog</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Joyful Books</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="10">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹180</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('The Happy Hedgehog', 'Joyful Books', 180, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="book-card" data-book-id="301" data-category="Kids-4-7">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_2.jpg" alt="Bunny's Big Day">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Bunny's Big Day</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By FunTales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹210</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart(`Bunny's Big Day`, 'FunTales', 210, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="book-card" data-book-id="302" data-category="Kids-4-7">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_3.jpg" alt="The Curious Cloud">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Curious Cloud</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Little Minds Press</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹195</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('The Curious Cloud', 'Little Minds Press', 195, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 4 -->
+    <div class="book-card" data-book-id="303" data-category="Kids-4-7">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_4.jpg" alt="Ziggy the Zebra">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Ziggy the Zebra</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Happy Trails</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹205</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Ziggy the Zebra', 'Happy Trails', 205, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="book-card" data-book-id="304" data-category="Kids-4-7">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_5.jpg" alt="Rainbow Dreams">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Rainbow Dreams</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By WonderWorld</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹199</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Rainbow Dreams', 'WonderWorld', 199, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 6 -->
+    <div class="book-card" data-book-id="305">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_6.jpg" alt="Magic Paintbrush">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Magic Paintbrush</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By ColorPop</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹225</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Magic Paintbrush', 'ColorPop', 225, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 7 -->
+    <div class="book-card" data-book-id="306">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_7.jpg" alt="Giggle Garden">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Giggle Garden</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By SmileTales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹210</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Giggle Garden', 'SmileTales', 210, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 8 -->
+    <div class="book-card" data-book-id="307">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_8.jpg" alt="Little Chef Mia">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Little Chef Mia</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By YumYum Books</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹230</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Little Chef Mia', 'YumYum Books', 230, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 9 -->
+    <div class="book-card" data-book-id="308">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_9.jpg" alt="Adventures of Lilo">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Adventures of Lilo</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Lively Reads</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹240</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Adventures of Lilo', 'Lively Reads', 240, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 10 -->
+    <div class="book-card" data-book-id="309">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_10.jpg" alt="Tickle Town">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Tickle Town</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Jolly Pages</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹200</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Tickle Town', 'Jolly Pages', 200, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 11 -->
+    <div class="book-card" data-book-id="310">
+      <div class="book-image">
+        <img src="/assets/books/kids/4-7/4-7_11.jpg" alt="Sunny the Sunflower">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Sunny the Sunflower</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Bloom Tales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹215</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Sunny the Sunflower', 'Bloom Tales', 215, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="kids2-books-section">
+<div class="kids-section-header">
+  <div class="header-decoration"><span></span></div>
+  <h1 class="animated-heading">Books for Ages 8–10</h1>
+  <p class="kids-section-subtitle">Exciting stories for curious young readers</p>
+  <div class="header-decoration"></div>
+</div>
+
+  <div class="kids-carousel__wrapper">
+    <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+
+    <div class="kids-carousel__content">
+          <!-- Book 1 -->
+    <div class="book-card" data-book-id="400">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_1.webp" alt="The Time Travelers Club">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Time Travelers Club</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Max Mysterious</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹280</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('The Time Travelers Club', 'Max Mysterious', 280, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="book-card" data-book-id="401">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_2.jpg" alt="Maya's Magical Map">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Maya's Magical Map</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Dreamline Books</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹295</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Maya\'s Magical Map', 'Dreamline Books', 295, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="book-card" data-book-id="402">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_3.jpg" alt="Robo Adventures">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Robo Adventures</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By TechTales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹260</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Robo Adventures', 'TechTales', 260, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 4 -->
+    <div class="book-card" data-book-id="403">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_4.jpg" alt="The Jungle Detectives">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Jungle Detectives</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Wild Reads</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹275</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('The Jungle Detectives', 'Wild Reads', 275, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="book-card" data-book-id="404">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_5.jpg" alt="Planet Explorers">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Planet Explorers</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Galaxy Kids</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹290</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Planet Explorers', 'Galaxy Kids', 290, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Book 6 -->
+    <div class="book-card" data-book-id="506">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_6.png" alt="Milo's Puzzle Quest">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Milo's Puzzle Quest</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Clever Club</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹245</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Milo\'s Puzzle Quest', 'Clever Club', 245, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 7 -->
+    <div class="book-card" data-book-id="507">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_7.jpg" alt="Ella and the Enchanted Egg">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Ella and the Enchanted Egg</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Magic Moments</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹285</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Ella and the Enchanted Egg', 'Magic Moments', 285, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 8 -->
+    <div class="book-card" data-book-id="508">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_8.jpg" alt="The Secret of Pine Hill">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Secret of Pine Hill</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Curious Cats</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹275</span>
+        </div>
+        <button  class="add-to-cart" onclick="addToCart('The Secret of Pine Hill', 'Curious Cats', 275, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 9 -->
+    <div class="book-card" data-book-id="509">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_9.jpg" alt="Fiona's Fairy Tale Factory">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Fiona's Fairy Tale Factory</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By FairySpark</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹265</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Fiona\'s Fairy Tale Factory', 'FairySpark', 265, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 10 -->
+    <div class="book-card" data-book-id="510">
+      <div class="book-image">
+        <img src="/assets/books/kids/8-10/8-10_10.jpg" alt="Captain Comet's Mission">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Captain Comet's Mission</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By StarJump</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹300</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Captain Comet\'s Mission', 'StarJump', 300, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="kids3-books-section">
+  <div class="kids-section-header">
+  <div class="header-decoration"><span></span></div>
+  <h1 class="animated-heading">Books for Ages 10–13</h1>
+  <p class="kids-section-subtitle">Thrilling adventures and growing-up tales</p>
+  <div class="header-decoration"></div>
+</div>
+
+  <div class="kids-carousel__wrapper">
+    <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+
+    <div class="kids-carousel__content">
+          <!-- Book 1 -->
+    <div class="book-card" data-book-id="600">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_1.jpg" alt="Moonlight Mysteries">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Moonlight Mysteries</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Luna Night</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹310</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Moonlight Mysteries', 'Luna Night', 310, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="book-card" data-book-id="601">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_2.jpg" alt="The Secret Inventor">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Secret Inventor</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Gearheart Publishing</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹325</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('The Secret Inventor', 'Gearheart Publishing', 325, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="book-card" data-book-id="602">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_3.jpg" alt="Quest for the Hidden City">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Quest for the Hidden City</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Explorer Tales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹340</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Quest for the Hidden City', 'Explorer Tales', 340, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 4 -->
+    <div class="book-card" data-book-id="603">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_4.jpg" alt="Island of Giants">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Island of Giants</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Bigfoot Books</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹355</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Island of Giants', 'Bigfoot Books', 355, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="book-card" data-book-id="604">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_5.jpg" alt="Cyber Codebreakers">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Cyber Codebreakers</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By NetGuard Press</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹330</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Cyber Codebreakers', 'NetGuard Press', 330, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Book 6 -->
+    <div class="book-card" data-book-id="606">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_6.jpg" alt="The Phantom Orchestra">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">The Phantom Orchestra</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Symphony Stories</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹345</span>
+        </div>
+        <button onclick="addToCart('The Phantom Orchestra', 'Symphony Stories', 345, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 7 -->
+    <div class="book-card" data-book-id="607">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_7.jpg" alt="Sky Pirates of Zenith">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Sky Pirates of Zenith</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Aero Tales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹360</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Sky Pirates of Zenith', 'Aero Tales', 360, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 8 -->
+    <div class="book-card" data-book-id="608">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_8.jpg" alt="Enigma in the Attic">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Enigma in the Attic</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Mystery Makers</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹320</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Enigma in the Attic', 'Mystery Makers', 320, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 9 -->
+    <div class="book-card" data-book-id="609">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_9.jpg" alt="Legend of the Forest Guardians">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Legend of the Forest Guardians</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By Earth Tales</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹375</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Legend of the Forest Guardians', 'Earth Tales', 375, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Book 10 -->
+    <div class="book-card" data-book-id="610">
+      <div class="book-image">
+        <img src="/assets/books/kids/10-13/10-13_10.jpg" alt="Mystic River Rescue">
+      </div>
+      <div class="book-details">
+        <div class="book-header">
+          <h3 class="book-title">Mystic River Rescue</h3>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <p class="book-author">By RiverEdge Publishers</p>
+        <div class="book-meta">
+          <div class="quantity-selector">
+            <button class="quantity-minus">-</button>
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="quantity-plus">+</button>
+          </div>
+          <span class="price">₹365</span>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Mystic River Rescue', 'RiverEdge Publishers', 365, getQuantity(this))">Add to Cart</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+<a href="#" class="scroll-to-top-btn" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+</a>  
+
+<!-- Footer -->
+      <footer class="page-footer" style="background: #165A96; color: #fff;">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">BookNook</h3>
+            <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+            <div class="social-icons">
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Quick Links</h3>
+            <ul>
+              <li><a href="#" style="color: #fff;">About Us</a></li>
+              <li><a href="#" style="color: #fff;">Contact</a></li>
+              <li><a href="#" style="color: #fff;">Shipping Policy</a></li>
+              <li><a href="#" style="color: #fff;">Returns & Exchanges</a></li>
+              <li><a href="#" style="color: #fff;">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Customer Service</h3>
+            <ul>
+              <li><i class="fas fa-phone" style="color: #165A96;"></i> +91 9876543210</li>
+              <li><i class="fas fa-envelope" style="color: #165A96"></i> help@booknook.com</li>
+              <li><i class="fas fa-map-marker-alt" style="color: #165A96"></i> Mumbai, India</li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Newsletter</h3>
+            <p>Subscribe for updates and special offers!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" style="border-radius: 8px; border: none;">
+              <button type="submit" style="background: var(--secondary-brand-color); color: #165A96; border-radius: 8px; font-weight: bold;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-top: 1px solid var(--secondary-brand-color);">
+          <p>&copy; 2023 BookNook. All rights reserved.</p>
+        </div>
+      </footer>
+
+<script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+
+<script>
+  function getQuantity(button) {
+    const card = button.closest('.book-card');
+    const input = card.querySelector('.quantity-input');
+    return parseInt(input.value) || 1;
+  }
+
+  function addToCart(title, author, price, quantity = 1) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existing = cart.find(item => item.title === title && item.author === author);
+
+    if (existing) {
+      existing.quantity += quantity;
+    } else {
+      cart.push({ title, author, price, quantity });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${title} added to cart! 🛒 (${quantity})`);
+  }
+</script>
+
+
+
+  <script>
+    const books = [
+      {
+        img: "https://covers.openlibrary.org/b/id/10523338-L.jpg",
+        title: "Sample Book Title 1",
+        author: "By Author One",
+        price: "₹499",
+        rating: "★★★★☆ (4.2)",
+      },
+      {
+        img: "https://covers.openlibrary.org/b/id/10523339-L.jpg",
+        title: "Sample Book Title 2",
+        author: "By Author Two",
+        price: "₹599",
+        rating: "★★★★★ (4.8)",
+      },
+      {
+        img: "https://covers.openlibrary.org/b/id/10523340-L.jpg",
+        title: "Sample Book Title 3",
+        author: "By Author Three",
+        price: "₹399",
+        rating: "★★★☆☆ (3.9)",
+      },
+      {
+        img: "https://covers.openlibrary.org/b/id/10523341-L.jpg",
+        title: "Sample Book Title 4",
+        author: "By Author Four",
+        price: "₹299",
+        rating: "★★★★☆ (4.0)",
+      },
+    ];
+
+    document.querySelectorAll(".shop-now-overlay").forEach((button) =>
+      button.addEventListener("click", function () {
+        const bookId = this.getAttribute("data-book");
+        document.getElementById("bookReveal").innerHTML = `
+            <div class="book-card">
+              <img
+                class="book-cover"
+                src="https://covers.openlibrary.org/b/id/10523338-L.jpg"
+                alt="Sample Book Title cover"
+              />
+              <h3 class="book-title">Sample Book Title</h3>
+              <p class="book-author">By Author Name</p>
+              <div class="book-price">₹499</div>
+              <div class="book-rating">★★★★☆ (4.2)</div>
+            </div>
+          `;
+      })
+    );
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const offers = [
+        {
+          img: "/assets/carousel/carousel_1.jpg",
+          title: "Flat 30% Off",
+          desc: "On Bestsellers",
+          price: "₹499",
+          link: "book-details.html?id=1",
+        },
+        {
+          img: "/assets/carousel/carousel_2.webp",
+          title: "Buy 1 Get 1",
+          desc: "Selected Titles",
+          price: "₹399",
+          link: "book-details.html?id=2",
+        },
+        {
+          img: "/assets/carousel/carousel_3.png",
+          title: "New Arrival",
+          desc: "Trending Now",
+          price: "₹599",
+          link: "book-details.html?id=3",
+        },
+        {
+          img: "/assets/carousel/carousel_4.jpg",
+          title: "Summer Sale",
+          desc: "Up to 40% Off",
+          price: "₹299",
+          link: "book-details.html?id=4",
+        },
+        {
+          img: "/assets/carousel/carousel_5.webp",
+          title: "Exclusive Deal",
+          desc: "Members Only",
+          price: "₹699",
+          link: "book-details.html?id=5",
+        },
+        {
+          img: "/assets/carousel/carousel_8.jpg",
+          title: "Limited Time",
+          desc: "Extra 10% Off",
+          price: "₹549",
+          link: "book-details.html?id=6",
+        },
+      ];
+
+      let current = 0;
+      const slide = document.querySelector(".carousel-slide");
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+
+      function showOffer(idx) {
+        const offer = offers[idx];
+        slide.innerHTML = `
+            <a href="${offer.link}" class="carousel-img-link">
+              <img src="${offer.img}" alt="${offer.title}" class="about-img" />
+              <div class="carousel-caption">
+                <h3>${offer.title}</h3>
+                <p>${offer.desc}</p>
+                <div style="margin-top:8px;font-size:1.1rem;font-weight:600;">${offer.price}</div>
+              </div>
+            </a>
+          `;
+      }
+
+      function nextOffer() {
+        current = (current + 1) % offers.length;
+        showOffer(current);
+      }
+
+      function prevOffer() {
+        current = (current - 1 + offers.length) % offers.length;
+        showOffer(current);
+      }
+
+      prevBtn.onclick = prevOffer;
+      nextBtn.onclick = nextOffer;
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") prevOffer();
+        if (e.key === "ArrowRight") nextOffer();
+      });
+
+      let autoSlide = setInterval(nextOffer, 5000);
+      slide.addEventListener("mouseenter", () => clearInterval(autoSlide));
+      slide.addEventListener(
+        "mouseleave",
+        () => (autoSlide = setInterval(nextOffer, 5000))
+      );
+
+      showOffer(current);
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousel = document.getElementById('carousel');
+      const books = Array.from(carousel.querySelectorAll('.book'));
+      const titleElement = document.getElementById('selectedTitle');
+      let activeIndex = books.findIndex(b => b.classList.contains('active'));
+
+      // Get book titles from the elements
+      const bookTitles = books.map(book => book.textContent.trim());
+
+      function positionBooks() {
+        const angleStep = (2 * Math.PI) / books.length;
+        const radius = 380;
+        const centerX = carousel.offsetWidth / 2;
+        const centerY = carousel.offsetHeight / 2;
+        books.forEach((book, i) => {
+          const indexDiff = (i - activeIndex + books.length) % books.length;
+          const angle = angleStep * indexDiff - Math.PI / 2;
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
+          book.style.left = `${x - 100}px`;
+          book.style.top = `${y - 150}px`;
+          book.classList.remove('active');
+          if (i === activeIndex) {
+            book.classList.add('active');
+            titleElement.textContent = bookTitles[i];
+            book.style.transform = `scale(1.3) rotate(0deg)`;
+          } else {
+            const rotation = angle * (180 / Math.PI) + 90;
+            book.style.transform = `rotate(${rotation}deg)`;
+          }
+        });
+      }
+
+      // Add navigation arrows
+      let leftArrow = document.getElementById('carousel-left-arrow');
+      let rightArrow = document.getElementById('carousel-right-arrow');
+      if (!leftArrow) {
+        leftArrow = document.createElement('button');
+        leftArrow.id = 'carousel-left-arrow';
+        leftArrow.innerHTML = '&lt;';
+        leftArrow.style.position = 'absolute';
+        leftArrow.style.left = '10px';
+        leftArrow.style.top = '50%';
+        leftArrow.style.transform = 'translateY(-50%)';
+        leftArrow.style.zIndex = '10';
+        leftArrow.style.background = '#E6F0FA';
+        leftArrow.style.border = 'none';
+        leftArrow.style.borderRadius = '50%';
+        leftArrow.style.width = '40px';
+        leftArrow.style.height = '40px';
+        leftArrow.style.fontSize = '1.5rem';
+        leftArrow.style.cursor = 'pointer';
+        carousel.appendChild(leftArrow);
+      }
+      if (!rightArrow) {
+        rightArrow = document.createElement('button');
+        rightArrow.id = 'carousel-right-arrow';
+        rightArrow.innerHTML = '&gt;';
+        rightArrow.style.position = 'absolute';
+        rightArrow.style.right = '10px';
+        rightArrow.style.top = '50%';
+        rightArrow.style.transform = 'translateY(-50%)';
+        rightArrow.style.zIndex = '10';
+        rightArrow.style.background = '#E6F0FA';
+        rightArrow.style.border = 'none';
+        rightArrow.style.borderRadius = '50%';
+        rightArrow.style.width = '40px';
+        rightArrow.style.height = '40px';
+        rightArrow.style.fontSize = '1.5rem';
+        rightArrow.style.cursor = 'pointer';
+        carousel.appendChild(rightArrow);
+      }
+
+      function goLeft() {
+        activeIndex = (activeIndex - 1 + books.length) % books.length;
+        positionBooks();
+      }
+      function goRight() {
+        activeIndex = (activeIndex + 1) % books.length;
+        positionBooks();
+      }
+      leftArrow.onclick = goLeft;
+      rightArrow.onclick = goRight;
+
+      // Allow clicking on books to make them active or open details
+      books.forEach((book, i) => {
+        book.onclick = function(e) {
+          if (e.target === book) {
+            if (i === activeIndex) {
+              // Find the .book-card in the Exclusive Kids Books section with the same title
+              const bookTitle = book.textContent.trim();
+              const allCards = document.querySelectorAll('.exclusive-kids-books-section .book-card');
+              let foundCard = null;
+              allCards.forEach(card => {
+                const cardTitle = card.querySelector('.book-title')?.textContent?.trim();
+                if (cardTitle === bookTitle) foundCard = card;
+              });
+              if (foundCard) {
+                // Clone the card for popup display
+                const cloned = foundCard.cloneNode(true);
+                // Insert the title inside the image circle
+                const imgWrap = cloned.querySelector('.book-image');
+                if (imgWrap && bookTitle) {
+                  const titleDiv = document.createElement('div');
+                  titleDiv.className = 'popup-title-inside';
+                  titleDiv.textContent = bookTitle;
+                  imgWrap.appendChild(titleDiv);
+                }
+                cloned.classList.remove('book-card');
+                // Replace popup content with the cloned card
+                const popupContent = document.getElementById('popupContent');
+                popupContent.innerHTML = '';
+                popupContent.appendChild(cloned);
+                // Show the popup and disable background scroll
+                document.getElementById('bookPopup').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+              }
+            } else {
+              activeIndex = i;
+              positionBooks();
+            }
+          }
+        };
+      });
+
+      // Swipe support for touch devices
+      let startX = null;
+      carousel.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+        }
+      });
+      carousel.addEventListener('touchend', function(e) {
+        if (startX !== null && e.changedTouches.length === 1) {
+          const dx = e.changedTouches[0].clientX - startX;
+          if (dx > 40) goLeft();
+          else if (dx < -40) goRight();
+          startX = null;
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (document.activeElement === document.body) {
+          if (e.key === 'ArrowLeft') goLeft();
+          if (e.key === 'ArrowRight') goRight();
+        }
+      });
+
+      // Responsive: reposition on resize
+      window.addEventListener('resize', positionBooks);
+      positionBooks();
+    });
+  </script>
+
+  <script>
+  document.querySelectorAll('.quantity-minus').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const input = this.nextElementSibling;
+      input.value = Math.max(1, parseInt(input.value) - 1);
+    });
+  });
+
+  document.querySelectorAll('.quantity-plus').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const input = this.previousElementSibling;
+      input.value = Math.min(10, parseInt(input.value) + 1);
+    });
+  });
+</script>
+
+<script>
+  function scrollToBook(bookId) {
+    const bookCard = document.getElementById(bookId);
+    if (bookCard) {
+      // Clone the card for popup display
+      const cloned = bookCard.cloneNode(true);
+      cloned.classList.remove("book-card"); // Optional, to remove default styling
+
+      // Replace popup content with the cloned card
+      const popupContent = document.getElementById("popupContent");
+      popupContent.innerHTML = '';
+      popupContent.appendChild(cloned);
+
+      // Show the popup
+      document.getElementById("bookPopup").style.display = 'flex';
+
+      // Optional scroll to original book position (if you want both effects)
+      // bookCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  function closePopup() { 
+    document.getElementById("bookPopup").style.display = 'none';
+    document.body.style.overflow = '';
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // For each kids-carousel__wrapper, add scroll functionality
+  document.querySelectorAll('.kids-carousel__wrapper').forEach(wrapper => {
+    const content = wrapper.querySelector('.kids-carousel__content');
+    const prev = wrapper.querySelector('.arrow-prev');
+    const next = wrapper.querySelector('.arrow-next');
+    if (!content || !prev || !next) return;
+    const scrollAmount = 350; // px to scroll per click
+    prev.addEventListener('click', () => {
+      content.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      content.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  });
+});
+</script>
+
+<script>
+function updateKidsCarouselBg() {
+  const activeBook = document.querySelector('.carousel-container .book.active');
+  const bgDiv = document.getElementById('kids-carousel-bg');
+  if (activeBook && bgDiv) {
+    const bgImg = activeBook.style.backgroundImage;
+    if (bgImg) {
+      bgDiv.style.backgroundImage = bgImg;
+    }
+  }
+}
+// Initial set
+window.addEventListener('DOMContentLoaded', updateKidsCarouselBg);
+// MutationObserver to watch for .book.active changes
+window.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.carousel-container');
+  if (carousel) {
+    const observer = new MutationObserver(updateKidsCarouselBg);
+    observer.observe(carousel, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  }
+});
+</script>
+<script>
+  // Get quantity from the input field
+  function getQuantity(button) {
+    return parseInt(button.closest('.book-details').querySelector('.quantity-input').value);
+  }
+
+  // Add to Cart Function
+  function addToCart(title, author, price, quantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingIndex = cart.findIndex(item => item.title === title && item.author === author);
+
+    if (existingIndex > -1) {
+      cart[existingIndex].quantity += quantity;
+    } else {
+      cart.push({ title, author, price, quantity });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${title} has been added to your cart.`);
+  }
+
+  // Add to Wishlist Function
+  document.querySelectorAll('.wishlist-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      const card = this.closest('.book-card');
+      const title = card.querySelector('.book-title').innerText;
+      const author = card.querySelector('.book-author').innerText.replace('By ', '');
+      const img = card.querySelector('img').src;
+
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      const exists = wishlist.find(item => item.title === title && item.author === author);
+
+      if (!exists) {
+        wishlist.push({ title, author, img });
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        alert(`${title} added to your wishlist!`);
+      } else {
+        alert(`${title} is already in your wishlist.`);
+      }
+    });
+  });
+
+  // Quantity Buttons (+ / -)
+  document.querySelectorAll('.quantity-plus').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const input = this.previousElementSibling;
+      input.value = parseInt(input.value) + 1;
+    });
+  });
+
+  document.querySelectorAll('.quantity-minus').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const input = this.nextElementSibling;
+      input.value = Math.max(1, parseInt(input.value) - 1);
+    });
+  });
+</script>
+    <script src="/wishlist.js"></script>
+<script>
+  const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const container = document.getElementById("wishlistContainer");
+
+  if (wishlist.length === 0) {
+    container.innerHTML = "<p>Your wishlist is empty.</p>";
+  } else {
+    wishlist.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "book-card";
+      card.innerHTML = `
+        <img src="${item.img}" alt="Cover of ${item.title}">
+        <h3 class="book-title">${item.title}</h3>
+        <p class="book-author">By ${item.author}</p>
+      `;
+      container.appendChild(card);
+    });
+  }
+  
+</script>
+
+
+</body>
+
+</html>

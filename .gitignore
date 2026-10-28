@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables & secrets (CRITICAL FOR GITHUB)
+.env
+.env.local
+.env.*.local
+
+# Nested duplicate folder
+booke_commerce final/
+
+# Invoices & dynamic uploads
+invoices/*.pdf
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 101,
+    "title": "The Silent River",
+    "author": "Amitav Das",
+    "description": "A gripping mystery set along the banks of an ancient river.",
+    "genre": "mystery",
+    "language": "English",
+    "isbn": "9789389234001",
+    "price": 249,
+    "date_published": "2025-07-01",
+    "rating": 4.3,
+    "reviews": 45,
+    "image_url": "https://via.placeholder.com/150x220?text=The+Silent+River"
+  },
+  {
+    "id": 102,
+    "title": "Waves of Love",
+    "author": "Priya Mehta",
+    "description": "A romantic tale of two strangers finding each other during a monsoon.",
+    "genre": "romance",
+    "language": "Hindi",
+    "isbn": "9789389234002",
+    "price": 199,
+    "date_published": "2025-06-15",
+    "rating": 4.0,
+    "reviews": 30,
+    "image_url": "https://via.placeholder.com/150x220?text=Waves+of+Love"
+  },
+  {
+    "id": 103,
+    "title": "The Startup Hacker",
+    "author": "Rajveer Singh",
+    "description": "A business guide for young entrepreneurs on scaling startups.",
+    "genre": "business",
+    "language": "English",
+    "isbn": "9789389234003",
+    "price": 349,
+    "date_published": "2025-06-01",
+    "rating": 4.7,
+    "reviews": 88,
+    "image_url": "https://via.placeholder.com/150x220?text=Startup+Hacker"
+  },
+  {
+    "id": 104,
+    "title": "Stars & Shadows",
+    "author": "Kavya Nair",
+    "description": "An emotional journey through fantasy realms and self-discovery.",
+    "genre": "fantasy",
+    "language": "English",
+    "isbn": "9789389234004",
+    "price": 299,
+    "date_published": "2025-05-20",
+    "rating": 4.5,
+    "reviews": 60,
+    "image_url": "https://via.placeholder.com/150x220?text=Stars+%26+Shadows"
+  },
+  {
+    "id": 105,
+    "title": "Science Simplified",
+    "author": "Dr. Neha Joshi",
+    "description": "A beautifully illustrated science book for young minds.",
+    "genre": "science",
+    "language": "English",
+    "isbn": "9789389234005",
+    "price": 150,
+    "date_published": "2025-04-10",
+    "rating": 4.1,
+    "reviews": 25,
+    "image_url": "https://via.placeholder.com/150x220?text=Science+Simplified"
+  }
+]

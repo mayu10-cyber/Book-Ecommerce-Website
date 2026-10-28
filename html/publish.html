@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sell Your Book - BookNook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#6b84ff ; /* Deep purple */
+      --secondary: #6B84FF; /* Soft blue */
+      --accent: #FF69B4; /* Pink */
+      --light-bg: #f8f5ff; /* Very light purple */
+      --text: #1a1a1a;
+      --light-text: #414040;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle, rgba(218, 176, 255, 0.1) 0%, rgba(107, 132, 255, 0.1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(46, 16, 122, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      border-radius: 3px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: rgba(218, 176, 255, 0.05);
+      border: 1px solid rgba(107, 132, 255, 0.3);
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(107, 132, 255, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(46, 16, 122, 0.2);
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 16, 122, 0.3);
+      opacity: 0.95;
+    }
+
+    .home-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .home-link:hover {
+      color: var(--accent);
+    }
+
+    /* Image Upload Styles */
+    .image-upload-container {
+      margin-bottom: 1.5rem;
+    }
+    
+    .image-upload-wrapper {
+      border: 2px dashed rgba(107, 132, 255, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .image-upload-wrapper:hover {
+      border-color: var(--secondary);
+      background: rgba(218, 176, 255, 0.05);
+    }
+    
+    .image-upload-wrapper.dragover {
+      background: rgba(218, 176, 255, 0.1);
+      border-color: var(--secondary);
+    }
+    
+    .image-preview {
+      max-width: 100%;
+      max-height: 200px;
+      margin-top: 1rem;
+      border-radius: 8px;
+      display: none;
+    }
+    
+    .upload-icon {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .upload-text {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .upload-hint {
+      font-size: 0.85rem;
+      color: var(--light-text);
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(107, 132, 255, 0.05);
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      border: 1px solid rgba(107, 132, 255, 0.2);
+    }
+    
+    .success-message h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .success-message p {
+      color: var(--light-text);
+      margin-bottom: 1.5rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .action-buttons button {
+      flex: 1;
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(135deg, #6c757d, #495057) !important;
+      box-shadow: 0 4px 15px rgba(108, 117, 125, 0.2) !important;
+    }
+
+    /* Live Store-matching Preview Card */
+    .publish-preview-wrapper {
+      margin: 1.5rem auto;
+      max-width: 290px;
+      text-align: left;
+    }
+    .publish-preview-badge {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6b84ff;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .publish-preview-wrapper .book-card {
+      width: 290px;
+      height: 500px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e0e6f5;
+    }
+    .publish-preview-wrapper .book-image {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+    }
+    .publish-preview-wrapper .book-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .publish-preview-wrapper .book-details {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .publish-preview-wrapper .book-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .publish-preview-wrapper .book-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #3a2e26;
+      margin: 0;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .publish-preview-wrapper .book-author {
+      font-size: 0.95rem;
+      color: #7a6b62;
+      margin: 0;
+    }
+    .publish-preview-wrapper .book-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .publish-preview-wrapper .quantity-selector {
+      display: flex;
+      align-items: center;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .publish-preview-wrapper .quantity-minus,
+    .publish-preview-wrapper .quantity-plus {
+      background: #f7f7f7;
+      border: none;
+      width: 28px;
+      height: 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+    .publish-preview-wrapper .quantity-input {
+      width: 36px;
+      height: 28px;
+      border: none;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      background: transparent;
+      color: #333;
+    }
+    .publish-preview-wrapper .price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #3a2e26;
+    }
+    .publish-preview-wrapper .add-to-cart {
+      margin-top: 6px;
+      padding: 12px 0;
+      width: 100%;
+      background-color: #7e92df;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .publish-preview-wrapper .wishlist-btn {
+      background: none;
+      border: none;
+      color: #ff0062;
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding-left: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 30px 20px;
+      }
+      
+      .form-row {
+        gap: 1rem;
+      }
+      
+      .home-link {
+        position: static;
+        margin-bottom: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 25px 15px;
+      }
+      
+      .form-group {
+        min-width: 100%;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <a href="index.html" class="home-link">
+      ← Back to Home
+    </a>
+    
+    <h2>📚 Sell Your Book</h2>
+    <form id="bookForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="title">Book Name</label>
+          <input type="text" id="title" name="title" placeholder="Enter Book Title" required />
+        </div>
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input type="text" id="author" name="author" placeholder="Your Name" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="genre">Book Category</label>
+          <select id="genre" name="genre" required>
+            <option value="" disabled selected>Select a genre</option>
+            <option value="fiction">Fiction</option>
+            <option value="romance">Romance</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystery</option>
+            <option value="non-fiction">Non-Fiction</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="language">Language</label>
+          <input type="text" id="language" name="language" placeholder="e.g., English, Hindi" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="isbn">ISBN Number <span style="color: var(--light-text);">(optional)</span></label>
+          <input type="text" id="isbn" name="isbn" placeholder="ISBN Code" />
+        </div>
+        <div class="form-group">
+          <label for="price">Price (₹)</label>
+          <input type="number" id="price" name="price" placeholder="Enter Price" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="desc">Book Description</label>
+        <textarea id="desc" name="desc" rows="4" placeholder="Write a short description..." required></textarea>
+      </div>
+
+      <div class="form-group image-upload-container">
+        <label>Book Cover Image</label>
+        <div class="image-upload-wrapper" id="uploadWrapper">
+          <div class="upload-icon">📁</div>
+          <div class="upload-text">Drag & drop your image here or click to browse</div>
+          <div class="upload-hint">Supports JPG, PNG (Max 5MB)</div>
+          <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+          <img id="imagePreview" class="image-preview" alt="Preview" />
+        </div>
+        <input type="hidden" id="image_url" name="image_url" required />
+      </div>
+
+      <button type="submit">📤 Submit Book</button>
+    </form>
+    
+    <div class="success-message" id="successMessage">
+      <h3>🎉 Book Published Successfully!</h3>
+      <p>Thank you for listing with BookNook! Your book now matches the exact design and catalog features of existing books.</p>
+      
+      <!-- Live Catalog Card Preview -->
+      <div class="publish-preview-wrapper">
+        <span class="publish-preview-badge">✨ Live Catalog Card Preview</span>
+        <div id="publishPreviewCard"></div>
+      </div>
+
+      <div class="action-buttons">
+        <button type="button" id="publishAnother" class="btn-secondary">
+          📚 Publish Another Book
+        </button>
+        <button type="button" onclick="window.location.href='index.html'">
+          🏠 View in Store Catalog
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Image Upload Handling
+      const uploadWrapper = document.getElementById('uploadWrapper');
+      const imageUpload = document.getElementById('imageUpload');
+      const imagePreview = document.getElementById('imagePreview');
+      const imageUrlInput = document.getElementById('image_url');
+      
+      uploadWrapper.addEventListener('click', () => {
+        imageUpload.click();
+      });
+      
+      imageUpload.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+          const file = e.target.files[0];
+          if (file.size > 5 * 1024 * 1024) {
+            alert('File size should be less than 5MB');
+            return;
+          }
+          
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            imagePreview.src = event.target.result;
+            imagePreview.style.display = 'block';
+            imageUrlInput.value = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+      
+      // Drag and drop functionality
+      uploadWrapper.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadWrapper.classList.add('dragover');
+      });
+      
+      uploadWrapper.addEventListener('dragleave', () => {
+        uploadWrapper.classList.remove('dragover');
+      });
+      
+      uploadWrapper.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadWrapper.classList.remove('dragover');
+        
+        if (e.dataTransfer.files.length > 0) {
+          imageUpload.files = e.dataTransfer.files;
+          const event = new Event('change');
+          imageUpload.dispatchEvent(event);
+        }
+      });
+      
+      // Form submission
+      document.getElementById('bookForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const titleVal = document.getElementById('title').value.trim();
+        const authorVal = document.getElementById('author').value.trim();
+        const genreVal = document.getElementById('genre').value;
+        const languageVal = document.getElementById('language').value.trim();
+        const isbnVal = document.getElementById('isbn').value.trim();
+        const priceVal = parseFloat(document.getElementById('price').value) || 299;
+        const descVal = document.getElementById('desc').value.trim();
+        const imageVal = document.getElementById('image_url').value || '/assets/img/rafa.png';
+
+        const book = {
+          id: Date.now(),
+          title: titleVal,
+          author: authorVal,
+          genre: genreVal,
+          language: languageVal,
+          isbn: isbnVal,
+          price: priceVal,
+          desc: descVal,
+          image_url: imageVal,
+          date_published: new Date().toISOString()
+        };
+
+        // Save to localStorage
+        const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
+        existingBooks.push(book);
+        localStorage.setItem('books', JSON.stringify(existingBooks));
+
+        // Sync with backend API
+        fetch('/api/books', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(book)
+        }).catch(err => console.log('Backend sync notice:', err));
+
+        // Render matching live preview card
+        const previewContainer = document.getElementById('publishPreviewCard');
+        if (previewContainer) {
+          const rawAuthor = authorVal.replace(/^By\s+/i, '');
+          previewContainer.innerHTML = `
+            <div class="book-card">
+              <div class="book-image">
+                <img src="${imageVal}" alt="${titleVal}" onerror="this.onerror=null;this.src='/assets/img/rafa.png';">
+              </div>
+              <div class="book-details">
+                <div class="book-header">
+                  <h3 class="book-title" title="${titleVal}">${titleVal}</h3>
+                  <button class="wishlist-btn" type="button" title="Added to Wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+                <p class="book-author">By ${rawAuthor}</p>
+                <div class="book-meta">
+                  <div class="quantity-selector">
+                    <button class="quantity-minus" type="button">-</button>
+                    <input type="number" class="quantity-input" value="1" readonly>
+                    <button class="quantity-plus" type="button">+</button>
+                  </div>
+                  <span class="price">₹${priceVal}</span>
+                </div>
+                <button class="add-to-cart" type="button">Add to Cart</button>
+              </div>
+            </div>
+          `;
+        }
+
+        // Show success message
+        document.getElementById('bookForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      });
+      
+      // Publish another book button
+      document.getElementById('publishAnother').addEventListener('click', function() {
+        document.getElementById('bookForm').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
+        document.getElementById('bookForm').reset();
+        document.getElementById('title').focus();
+        imagePreview.style.display = 'none';
+        imagePreview.src = '';
+        imageUrlInput.value = '';
+      });
+    });
+  </script>
+</body>
+</html>

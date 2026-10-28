@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Wishlist - BookNook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #dab0ff;
+      --secondary-color: #2c3e50;
+      --accent-color: #dab0ff;
+      --text-color: #333;
+      --light-gray: #f5f5f5;
+      --white: #ffffff;                                                         
+      --discount-color: #e74c3c;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInHeader {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.3); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.3); }
+      70% { transform: scale(1); }
+    }
+
+    @keyframes cartAdd {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--white);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    header {
+background: radial-gradient(circle,#dab0ff 0%, #6b84ff 100%);
+      color: #2f175c;
+      padding: 25px 0;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      animation: slideInHeader 0.6s ease-out;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #a8b4ed;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.back-button:hover {
+  background-color: #b278e5;
+  transform: translateX(-5px);
+}
+
+header {
+  position: relative; /* Add this to make absolute positioning work relative to header */
+  padding: 25px 0; /* Adjust padding to accommodate the absolute button */
+}
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      animation: fadeIn 0.6s 0.3s both;
+    }
+
+    .wishlist-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeIn 0.6s 0.5s forwards;
+    }
+
+    .wishlist-table th {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 16px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .wishlist-table td {
+      padding: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .wishlist-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .wishlist-table tr {
+      transition: var(--transition);
+    }
+
+    .wishlist-table tr:hover {
+      background-color: rgba(226, 239, 247, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .wishlist-remove {
+      color: #2f175c;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-left: 15px;
+    }
+
+    .wishlist-remove:hover {
+      transform: rotate(90deg) scale(1.2);
+      background-color: rgba(231, 76, 60, 0.1);
+    }
+
+    .wishlist-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 30px;
+      gap: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s 0.7s forwards;
+    }
+
+    .wishlist-total {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+    }
+
+    .wishlist-buy-btn {
+      background: var(--accent-color);
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 6px;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wishlist-buy-btn:hover {
+      background: #dab0ff ;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(41, 128, 185, 0.3);
+    }
+
+    .empty-wishlist {
+      text-align: center;
+      padding: 60px;
+      font-size: 1.2rem;
+      color: #666;
+      animation: fadeIn 0.6s both;
+    }
+
+    .empty-wishlist i {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      display: block;
+      animation: heartBeat 1.5s infinite, float 4s ease-in-out infinite;
+    }
+
+    .add-to-cart-btn {
+      background-color: #dab0ff ;
+      color: rgb(6, 5, 5);
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #a563e0 ;
+      transform: translateY(-2px);
+    }
+
+    .add-to-cart-btn.added {
+      animation: cartAdd 0.6s;
+      background-color: var(--accent-color);
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification i {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .wishlist-table {
+        display: block;
+        overflow-x: auto;
+      }
+      
+      .wishlist-footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-end;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wishlist-table td {
+        padding: 12px 8px;
+      }
+      
+      .wishlist-table th {
+        padding: 12px 8px;
+      }
+      
+      .add-to-cart-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .wishlist-remove {
+        margin-left: 8px;
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Wishlist</h1>
+    <a href="index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </header>
+  <main>
+    <table class="wishlist-table">
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="wishlist-body"></tbody>
+    </table>
+    <div class="wishlist-footer" id="wishlist-footer">
+      <div class="wishlist-total" id="wishlist-total"></div>
+      <button class="wishlist-buy-btn" id="wishlist-buy-btn">
+        <i class="fas fa-shopping-cart"></i> Buy All
+      </button>
+    </div>
+  </main>
+
+  <div class="notification" id="notification">
+    <i class="fas fa-check-circle"></i>
+    <span id="notification-message"></span>
+  </div>
+
+  <script>
+    const tbody = document.getElementById("wishlist-body");
+    const totalDiv = document.getElementById("wishlist-total");
+    const footer = document.getElementById("wishlist-footer");
+    const notification = document.getElementById("notification");
+    const notificationMessage = document.getElementById("notification-message");
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+    function escapeHtml(str) {
+      return String(str).replace(
+        /[&<>"']/g,
+        (s) =>
+          ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;",
+          }[s])
+      );
+    }
+
+    function showNotification(message) {
+      notificationMessage.textContent = message;
+      notification.classList.add("show");
+      
+      setTimeout(() => {
+        notification.classList.remove("show");
+      }, 3000);
+    }
+
+    function renderWishlist() {
+      tbody.innerHTML = "";
+      let total = 0;
+
+      if (wishlist.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="4">
+              <div class="empty-wishlist">
+                <i class="far fa-heart"></i>
+                <p>Your wishlist is empty</p>
+                <p>Start adding books you love!</p>
+              </div>
+            </td>
+          </tr>`;
+        footer.style.display = "none";
+        return;
+      }
+
+      wishlist.forEach((book, idx) => {
+        const title = escapeHtml(
+          book.bookName || book.bookname || book.title || "Untitled"
+        );
+        const author = escapeHtml(book.author || "Unknown");
+        const price = parseInt(book.price) || 0;
+        total += price;
+
+        tbody.innerHTML += `
+        <tr>
+          <td>${title}</td>
+          <td>${author}</td>
+          <td>₹${price}</td>
+          <td>
+            <button class="add-to-cart-btn" onclick="addToCart(this, '${title}', '${author}', ${price}, 1, true)">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <span class="wishlist-remove" data-idx="${idx}" title="Remove">&times;</span>
+          </td>
+        </tr>`;
+      });
+
+      totalDiv.textContent = `Total: ₹${total}`;
+      footer.style.display = "flex";
+    }
+
+    function addToCart(button, title, author, price, quantity = 1, redirect = false) {
+      button.classList.add("added");
+      setTimeout(() => button.classList.remove("added"), 600);
+      
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const existing = cart.find(
+        (item) => item.title === title && item.author === author
+      );
+      
+      if (existing) {
+        existing.quantity += quantity;
+        showNotification(`Increased quantity for "${title}" in cart`);
+      } else {
+        cart.push({ title, author, price, quantity });
+        showNotification(`"${title}" added to cart`);
+      }
+      
+      localStorage.setItem("cart", JSON.stringify(cart));
+      
+      if (redirect) {
+        setTimeout(() => {
+          window.location.href = "cart.html";
+        }, 1000);
+      }
+    }
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("wishlist-remove")) {
+        const idx = e.target.getAttribute("data-idx");
+        const removedBook = wishlist[idx];
+        wishlist.splice(idx, 1);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        
+        showNotification(`Removed "${removedBook.title || removedBook.bookName}" from wishlist`);
+        
+        renderWishlist();
+      }
+    });
+
+    document.getElementById("wishlist-buy-btn").addEventListener("click", function() {
+      if (wishlist.length === 0) return;
+      
+      wishlist.forEach((book) =>
+        addToCart(
+          this,
+          book.bookName || book.bookname || book.title,
+          book.author,
+          parseInt(book.price),
+          1
+        )
+      );
+      
+      localStorage.removeItem("wishlist");
+      
+      setTimeout(() => {
+        window.location.href = "cart.html";
+      }, 1500);
+    });
+
+    renderWishlist();
+  </script>
+</body>
+</html>

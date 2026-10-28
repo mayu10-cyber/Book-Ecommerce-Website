@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Account – BookNook</title>
+  <style>
+    :root {
+      --primary-color: #2E107A; /* Deep purple */
+      --secondary-color: #6B84FF; /* Soft blue */
+      --accent-color: #FF69B4; /* Pink */
+      --light-bg: #f8f5ff; /* Very light purple */
+      --text-color: #1a1a1a;
+      --light-text: #414040;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: radial-gradient(circle, rgba(218, 176, 255, 0.2) 0%, rgba(107, 132, 255, 0.1) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .auth-box {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(46, 16, 122, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background: rgba(218, 176, 255, 0.05);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(107, 132, 255, 0.2);
+    }
+
+    button {
+background: radial-gradient(circle,rgb(187, 110, 255) 0%, rgba(107, 132, 255, 1) 100%);
+      color: white;
+      padding: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 4px 12px rgba(46, 16, 122, 0.15);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(46, 16, 122, 0.2);
+      opacity: 0.9;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--light-text);
+    }
+
+    .form-footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .form-footer a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    .form-footer a:hover::after {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .auth-box {
+        padding: 30px 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      input, button {
+        padding: 12px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+    <h2 id="formTitle">Customer Sign Up</h2>
+
+    <!-- Sign Up -->
+    <form id="customerSignup">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="text" name="referral" placeholder="Referral Code (Optional)" />
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- Sign In -->
+    <form id="customerSignin" class="hidden">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+
+    <div class="form-footer">
+      <p id="toggleText">
+        Already have an account? <a href="#" onclick="toggleForm()">Sign In</a>
+      </p>
+      <p>Are you a vendor? <a href="./vendor.html">Switch to Vendor</a></p>
+    </div>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById('customerSignup');
+    const signinForm = document.getElementById('customerSignin');
+    const formTitle = document.getElementById('formTitle');
+    const toggleText = document.getElementById('toggleText');
+
+    // Toggle between signup and signin
+    function toggleForm() {
+      signupForm.classList.toggle('hidden');
+      signinForm.classList.toggle('hidden');
+
+      const isSignup = !signupForm.classList.contains('hidden');
+      formTitle.textContent = isSignup ? 'Customer Sign Up' : 'Customer Sign In';
+      toggleText.innerHTML = isSignup
+        ? `Already have an account? <a href="#" onclick="toggleForm()">Sign In</a>`
+        : `Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a>`;
+    }
+
+    // Signup
+    signupForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = signupForm.name.value.trim();
+      const email = signupForm.email.value.trim();
+      const password = signupForm.password.value;
+      const referral = signupForm.referral.value.trim();
+
+      if (!name || !email || !password) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      const userData = { name, email, password, referral };
+      localStorage.setItem(`user_${email}`, JSON.stringify(userData));
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('loggedInUser', email);
+
+      alert('Signup successful!');
+      window.location.href = 'choice.html';
+    });
+
+    // Signin
+    signinForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = signinForm.email.value.trim();
+      const password = signinForm.password.value;
+
+      const user = localStorage.getItem(`user_${email}`);
+      if (!user) {
+        alert('No account found with that email.');
+        return;
+      }
+
+      const parsedUser = JSON.parse(user);
+      if (parsedUser.password !== password) {
+        alert('Incorrect password.');
+        return;
+      }
+
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('loggedInUser', email);
+
+      alert(`Welcome back, ${parsedUser.name}!`);
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

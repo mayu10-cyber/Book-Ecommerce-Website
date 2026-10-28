@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore Chatbot</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    :root {
+      --bg: #f6eee3;
+      --text: #6b4f2c;
+      --card-bg: #eee7d7;
+      --card-border: #e5decf;
+      --card-active: #e5cbba;
+      --input-bg: #f6eee3;
+      --input-border: #e5decf;
+      --btn-bg: #e5cbba;
+      --btn-text: #6b4f2c;
+      --btn-hover: #d9bda5;
+    }
+
+    body.dark {
+      --bg: #181a1b;
+      --text: #f7f7fa;
+      --card-bg: #23272f;
+      --card-border: #333;
+      --card-active: #90cdf4;
+      --input-bg: #23272f;
+      --input-border: #444;
+      --btn-bg: #2563eb;
+      --btn-text: #fff;
+      --btn-hover: #1e40af;
+    }
+
+    .onboarding-container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 1.5rem;
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+      max-width: 420px;
+      margin: 5.5rem auto 2.5rem auto;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    #theme-toggle:active {
+      transform: scale(0.9);
+    }
+
+    .genres-section h2,
+    .authors-section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+
+    .genres-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .genre-card {
+      background: var(--input-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 1.2rem;
+      padding: 0.7rem 1.3rem;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s, border 0.2s, transform 0.15s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+      outline: none;
+    }
+
+    .genre-card:hover {
+      background: #e8f0fe;
+      border-color: var(--card-active);
+      transform: scale(1.06);
+    }
+
+    body.dark .genre-card:hover {
+      background: #22304a;
+    }
+
+    .genre-card.active {
+      background: var(--card-active);
+      color: #fff;
+      border-color: var(--card-active);
+      transform: scale(1.08);
+      box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+    }
+
+    .authors-section input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      border: 1.5px solid var(--input-border);
+      background: var(--input-bg);
+      font-size: 1rem;
+      margin-top: 0.2rem;
+      transition: border 0.2s, background 0.2s;
+    }
+
+    .authors-section input:focus {
+      border-color: var(--card-active);
+      outline: none;
+      background: #e8f0fe;
+    }
+
+    body.dark .authors-section input:focus {
+      background: #22304a;
+    }
+
+    .continue-btn {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 1.2rem;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(79, 140, 255, 0.10);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .continue-btn:hover {
+      background: var(--btn-hover);
+      transform: scale(1.03);
+    }
+
+    .continue-btn:active {
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 600px) {
+      .onboarding-container {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+        border-radius: 1rem;
+        margin: 3rem auto 1rem auto;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .genre-card {
+        font-size: 0.97rem;
+        padding: 0.6rem 1rem;
+      }
+
+      .continue-btn {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+      }
+    }
+
+    /* --- Login & Signup Styles --- */
+    body,
+    html {
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    .login-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .login-container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 1.3rem;
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 0.8rem;
+      border: 1.5px solid var(--input-border);
+      background: var(--input-bg);
+      font-size: 1rem;
+      transition: border 0.2s, background 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: var(--card-active);
+      outline: none;
+      background: #e8f0fe;
+    }
+
+    body.dark .input-group input:focus {
+      background: #22304a;
+    }
+
+    .input-error {
+      color: #ef4444;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .login-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 1rem 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 1rem;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(79, 140, 255, 0.10);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .login-btn:hover {
+      background: var(--btn-hover);
+      transform: scale(1.03);
+    }
+
+    .login-btn:active {
+      transform: scale(0.97);
+    }
+
+    .signup-link {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text);
+      opacity: 0.8;
+    }
+
+    .signup-link a,
+    .muted-link {
+      color: var(--card-active);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-link a:hover,
+    .muted-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .login-card {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+
+      .login-card h2 {
+        font-size: 1.5rem;
+      }
+
+      .login-btn {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+      }
+    }
+
+    /* --- Chatbot Styles --- */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      z-index: 1000;
+    }
+
+    .chatbot-container.open {
+      display: flex;
+    }
+
+    /* Chatbot Toggle Button */
+    .chatbot-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(79, 140, 255, 0.3);
+      transition: all 0.3s ease;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-toggle-btn:hover {
+      background: var(--btn-hover);
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(79, 140, 255, 0.4);
+    }
+
+    .chatbot-toggle-btn.hidden {
+      display: none;
+    }
+
+    /* Chatbot Close Button */
+    .chatbot-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--btn-text);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+
+    .chatbot-close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .chatbot-header {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 15px 20px;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chatbot-message {
+      padding: 10px 15px;
+      border-radius: 15px;
+      max-width: 80%;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+
+    .chatbot-message.user {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      align-self: flex-end;
+      border-bottom-right-radius: 5px;
+    }
+
+    .chatbot-message.bot {
+      background: var(--input-bg);
+      color: var(--text);
+      align-self: flex-start;
+      border-bottom-left-radius: 5px;
+    }
+
+    .chatbot-input-bar {
+      padding: 15px 20px;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      gap: 10px;
+    }
+
+    #chatbot-input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid var(--input-border);
+      border-radius: 20px;
+      background: var(--input-bg);
+      color: var(--text);
+    }
+
+    #chatbot-input:focus {
+      outline: none;
+      border-color: var(--card-active);
+    }
+
+    #chatbot-send {
+      padding: 10px 20px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    #chatbot-send:hover {
+      background: var(--btn-hover);
+    }
+
+    @media (max-width: 600px) {
+      .chatbot-container {
+        width: calc(100vw - 40px);
+        height: 60vh;
+        bottom: 10px;
+        right: 20px;
+      }
+
+      .chatbot-header {
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+
+      .chatbot-messages {
+        padding: 15px;
+      }
+
+      .chatbot-input-bar {
+        padding: 12px 15px;
+      }
+    }
+
+    /* --- Animated Background --- */
+    #animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-book {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: linear-gradient(45deg, #4f8cff, #90cdf4);
+      border-radius: 8px;
+      opacity: 0.1;
+      animation: floatBook 15s infinite linear;
+    }
+
+    @keyframes floatBook {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.1;
+      }
+
+      90% {
+        opacity: 0.1;
+      }
+
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Adjust scrollbar for vintage look */
+    .chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+      background: #eee7d7;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-thumb {
+      background: #e5cbba;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Chatbot Toggle Button -->
+  <button id="chatbot-toggle" class="chatbot-toggle-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z"
+        fill="currentColor" />
+      <path d="M7 9H17V11H7V9ZM7 12H14V14H7V12Z" fill="currentColor" />
+    </svg>
+  </button>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header">
+      Bookheaven Assitant
+      <button id="chatbot-close" class="chatbot-close-btn">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <form class="chatbot-input-bar" id="chatbot-form">
+      <input type="text" id="chatbot-input" placeholder="Ask me about books, recommendations, or anything..."
+        autocomplete="off" required />
+      <button type="submit" id="chatbot-send">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const messages = document.getElementById('chatbot-messages');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+
+    // Chatbot toggle functionality
+    chatbotToggle.addEventListener('click', function () {
+      chatbotContainer.classList.add('open');
+      chatbotToggle.classList.add('hidden');
+      input.focus();
+    });
+
+    chatbotClose.addEventListener('click', function () {
+      chatbotContainer.classList.remove('open');
+      chatbotToggle.classList.remove('hidden');
+    });
+
+    // Close chatbot when clicking outside (optional)
+    document.addEventListener('click', function (e) {
+      if (!chatbotContainer.contains(e.target) &&
+        !chatbotToggle.contains(e.target) &&
+        chatbotContainer.classList.contains('open')) {
+        chatbotContainer.classList.remove('open');
+        chatbotToggle.classList.remove('hidden');
+      }
+    });
+
+    // Improved message creation with optional HTML content
+    function appendMessage(content, sender, isHTML = false) {
+      const div = document.createElement('div');
+      div.className = `chatbot-message ${sender}`;
+
+      if (isHTML) {
+        div.innerHTML = content.replace(/\n/g, '<br>'); // Convert newlines to <br>
+      } else {
+        div.textContent = content;
+      }
+
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+      return div; // Return reference for potential modifications
+    }
+
+    function removeLastBotMessage() {
+      const last = messages.querySelector('.chatbot-message.bot:last-child');
+      if (last && last.textContent === 'Thinking...') {
+        messages.removeChild(last);
+      }
+    }
+
+    // Enhanced submit handler with loading state
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+
+      // Disable input during processing
+      input.disabled = true;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+
+      appendMessage(userMsg, 'user');
+      input.value = '';
+      const thinkingMsg = appendMessage('Thinking...', 'bot');
+
+      try {
+        const res = await fetch('http://localhost:3001/chatbot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMsg })
+        });
+
+        if (!res.ok) {
+          throw new Error(`Server responded with ${res.status}`);
+        }
+
+        const data = await res.json();
+        removeLastBotMessage();
+
+        if (data.reply) {
+          // Handle bullet points and formatting from Gemini
+          appendMessage(data.reply, 'bot', true);
+        } else {
+          appendMessage("I didn't get a response. Please try again.", 'bot');
+        }
+      } catch (err) {
+        removeLastBotMessage();
+        appendMessage('Sorry, something went wrong. Please try again later.', 'bot');
+        console.error('Chatbot error:', err);
+      } finally {
+        // Re-enable input
+        input.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        input.focus();
+      }
+    });
+
+    // Optional: Add input validation or character limit
+    input.addEventListener('input', function () {
+      if (this.value.length > 500) {
+        this.value = this.value.substring(0, 500);
+        // Optionally show a warning
+      }
+    });
+  </script>
+</body>
+
+</html>

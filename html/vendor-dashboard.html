@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Dashboard – BookNook</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f5f6fa;
+        margin: 0;
+      }
+
+      .navbar {
+        background: #673ab7;
+        color: #fff;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .navbar button {
+        background: #fff;
+        color: #673ab7;
+        border: none;
+        padding: 8px 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .dashboard {
+        padding: 30px;
+      }
+
+      .dashboard h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .actions {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .actions button {
+        padding: 12px 20px;
+        background: #512da8;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .actions button:hover {
+        background: #4527a0;
+      }
+
+      .book-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .book-card {
+        background: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .book-card h3 {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .book-card p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>📚 Vendor Dashboard</h1>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="dashboard">
+      <h2>Welcome, Vendor!</h2>
+      <div class="actions">
+        <button onclick="addBook()">➕ Add Book</button>
+        <button onclick="fetchBooks()">📦 My Listings</button>
+      </div>
+
+      <div class="book-list" id="bookList">
+        <!-- Book cards will appear here dynamically -->
+      </div>
+    </div>
+
+    <script>
+      function logout() {
+        fetch("http://localhost:4000/vendor/logout", {
+          method: "POST",
+          credentials: "include",
+        }).then(() => {
+          window.location.href = "vendor.html";
+        });
+      }
+
+      function addBook() {
+        alert("Add Book Modal coming soon...");
+        // Future: Show modal form to POST book to backend
+      }
+
+      async function fetchBooks() {
+        const res = await fetch("http://localhost:4000/vendor/books", {
+          credentials: "include",
+        });
+        const data = await res.json();
+
+        const bookList = document.getElementById("bookList");
+        bookList.innerHTML = "";
+
+        if (data.books && data.books.length) {
+          data.books.forEach((book) => {
+            const card = document.createElement("div");
+            card.className = "book-card";
+            card.innerHTML = `
+            <h3>${book.title}</h3>
+            <p>Author: ${book.author}</p>
+            <p>Price: ₹${book.price}</p>
+          `;
+            bookList.appendChild(card);
+          });
+        } else {
+          bookList.innerHTML = "<p>No books listed yet.</p>";
+        }
+      }
+
+      // Auto-fetch on load
+      fetchBooks();
+      function logout() {
+        fetch("http://localhost:4000/vendor/logout", {
+          method: "POST",
+          credentials: "include",
+        }).then(() => {
+          window.location.href = "vendor.html"; // redirect to vendor login
+        });
+      }
+    </script>
+    <script src="/wishlist.js"></script>
+  </body>
+</html>

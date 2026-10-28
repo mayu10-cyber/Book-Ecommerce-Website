@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore Onboarding</title>
+  <style>
+
+    :root {
+      --bg: #f7f7fa;
+      --text: #222;
+      --card-bg: #fff;
+      --card-border: #e0e0e0;
+      --card-active: #4f8cff;
+      --input-bg: #f0f2f5;
+      --input-border: #d0d0d0;
+      --btn-bg: #4f8cff;
+      --btn-text: #fff;
+      --btn-hover: #2563eb;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.onboarding-page {
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .login-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .centered-form-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+    .onboarding-container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 1.5rem;
+      border: 1.5px solid rgba(255,255,255,0.28);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+      max-width: 420px;
+      margin: 5.5rem auto 2.5rem auto;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+    .genres-section h2, .authors-section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .genres-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .genre-card {
+      background: var(--input-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 1.2rem;
+      padding: 0.7rem 1.3rem;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s, border 0.2s, transform 0.15s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      outline: none;
+    }
+    .genre-card:hover {
+      background: #e8f0fe;
+      border-color: var(--card-active);
+      transform: scale(1.06);
+    }
+    .genre-card.active {
+      background: var(--card-active);
+      color: #fff;
+      border-color: var(--card-active);
+      transform: scale(1.08);
+      box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+    }
+    .authors-section input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      border: 1.5px solid var(--input-border);
+      background: var(--input-bg);
+      font-size: 1rem;
+      margin-top: 0.2rem;
+      transition: border 0.2s, background 0.2s;
+    }
+    .authors-section input:focus {
+      border-color: var(--card-active);
+      outline: none;
+      background: #e8f0fe;
+    }
+    .continue-btn {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 1.2rem;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(79,140,255,0.10);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .continue-btn:hover {
+      background: var(--btn-hover);
+      transform: scale(1.03);
+    }
+    .continue-btn:active {
+      transform: scale(0.97);
+    }
+    @media (max-width: 600px) {
+      .onboarding-container {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+        border-radius: 1rem;
+        margin: 3rem auto 1rem auto;
+      }
+      header h1 {
+        font-size: 1.2rem;
+      }
+      .genre-card {
+        font-size: 0.97rem;
+        padding: 0.6rem 1rem;
+      }
+      .continue-btn {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+      }
+    }
+
+</style>
+</head>
+<body class="onboarding-page">
+  <div class="login-bg" style="background: url('images/onboardingbk.png') center center/cover no-repeat;"></div>
+  <main class="centered-form-wrapper">
+    <div class="onboarding-container glass">
+      <header>
+        <h1>Welcome to BookStore</h1>
+      </header>
+      <form id="onboarding-form">
+        <section class="genres-section">
+          <h2>Select your favorite genres</h2>
+          <div class="genres-list">
+            <div class="genre-card" data-genre="Horror">Horror</div>
+            <div class="genre-card" data-genre="Romance">Romance</div>
+            <div class="genre-card" data-genre="Sci-Fi">Sci-Fi</div>
+            <div class="genre-card" data-genre="Comedy">Comedy</div>
+            <div class="genre-card" data-genre="Mystery">Mystery</div>
+          </div>
+        </section>
+        <section class="authors-section">
+          <h2>Your favorite authors</h2>
+          <input type="text" id="authors-input" name="authors" placeholder="e.g. Agatha Christie, J.K. Rowling" autocomplete="off" />
+        </section>
+        <button type="submit" class="continue-btn">Continue</button>
+      </form>
+    </div>
+  </main>
+  <script>
+
+    // Genre card selection
+const genreCards = document.querySelectorAll('.genre-card');
+const form = document.getElementById('onboarding-form');
+const authorsInput = document.getElementById('authors-input');
+
+// Toggle genre selection
+genreCards.forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('active');
+  });
+});
+
+// Form submission
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Get selected genres
+  const selectedGenres = Array.from(document.querySelectorAll('.genre-card.active'))
+    .map(card => card.dataset.genre);
+  // Get authors (comma-separated, trimmed)
+  const authors = authorsInput.value
+    .split(',')
+    .map(a => a.trim())
+    .filter(a => a.length > 0);
+  // Store in localStorage
+  localStorage.setItem('onboarding', JSON.stringify({ genres: selectedGenres, authors }));
+
+  // Get user info from signup process
+  const userPreferences = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+  const firstName = userPreferences.name || '';
+  localStorage.setItem('userFirstName', firstName);
+
+  // Redirect to Home page
+  window.location.href = "index.html";
+});
+
+  </script>
+</body>
+</html> 

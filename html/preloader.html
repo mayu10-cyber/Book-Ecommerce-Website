@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Animation</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(245, 239, 225), rgb(228, 238, 247));
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book {
+            position: relative;
+            width: 18.5rem;
+            height: 12.5rem;
+            perspective: 70rem;
+        }
+
+        .cover {
+            background-color: #36354e;
+            transform: rotateY(0deg);
+            width: 9.25rem;
+            height: 12.5rem;
+        }
+
+        .page {
+            top: 0.25rem;
+            left: 0.25rem;
+            background-color: #ffffff;
+            transform: rotateY(0deg);
+            width: 9rem;
+            height: 12rem;
+            text-align: right;
+            font-size: 8px;
+            color: #777;
+            font-family: monospace;
+        }
+
+        .page::before,
+        .page::after {
+            display: block;
+            border-top: 1px dashed rgba(0, 0, 0, 0.3);
+            content: "";
+            padding-bottom: 1rem;
+        }
+
+        .cover,
+        .page {
+            position: absolute;
+            padding: 1rem;
+            transform-origin: 100% 0;
+            border-radius: 5px 0 0 5px;
+            box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2),
+                0px 0px 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .cover-title {
+            font-family: 'Georgia', serif;
+            color: white;
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .cover.turn {
+            animation: bookCover 3s forwards;
+        }
+
+        .page.turn {
+            animation: bookOpen 3s forwards;
+        }
+
+        .page:nth-of-type(1) {
+            animation-delay: 0.05s;
+        }
+
+        .page:nth-of-type(2) {
+            animation-delay: 0.33s
+        }
+
+        .page:nth-of-type(3) {
+            animation-delay: 0.66s;
+        }
+
+        .page:nth-of-type(4) {
+            animation: bookOpen150deg 3s forwards;
+            animation-delay: 0.99s;
+        }
+
+        .page:nth-of-type(5) {
+            animation: bookOpen55deg 3s forwards;
+            animation-delay: 1.2s;
+        }
+
+        .page:nth-of-type(6) {
+            animation: bookOpen30deg 3s forwards;
+            animation-delay: 1.25s;
+        }
+
+        @keyframes bookOpen {
+            30% { z-index: 999 }
+            100% {
+                transform: rotateY(180deg);
+                z-index: 999;
+            }
+        }
+
+        @keyframes bookCover {
+            30% { z-index: 999 }
+            100% {
+                transform: rotateY(180deg);
+                z-index: 1;
+            }
+        }
+
+        @keyframes bookOpen150deg {
+            30% { z-index: 999 }
+            100% {
+                transform: rotateY(150deg);
+                z-index: 999;
+            }
+        }
+
+        @keyframes bookOpen55deg {
+            0% { z-index: 999 }
+            100% {
+                transform: rotateY(180deg);
+                z-index: 999;
+            }
+        }
+
+        @keyframes bookOpen30deg {
+            30% { z-index: 999 }
+            100% {
+                transform: rotateY(30deg);
+                z-index: 999;
+            }
+        }
+
+        #slogan {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #4F4E68;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #slogan.show {
+            opacity: 1;
+        }
+        
+        /* Loader Styles */
+        .loader {
+            width: 250px;
+            height: 3px;
+            background-color: #e0d5c3;
+            margin-top: 40px;
+            border-radius: 3px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 3s forwards;
+        }
+
+        .loader-bar {
+            width: 0;
+            height: 100%;
+            background-color: #5D4037;
+            transition: width 2.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hide {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book" id="book">
+        <span class="page turn"></span>
+        <span class="page turn"></span>
+        <span class="page turn"></span>
+        <span class="page turn"></span>
+        <span class="page turn"></span>
+        <span class="page turn">
+            <h3>"Every book is a new beginning..."</h3>
+        </span>
+        <span class="cover">
+            <div class="cover-title">
+                <h1></h1>
+            </div>
+        </span>
+        <span class="page"></span>
+        <span class="cover turn"></span>
+    </div>
+    <div id="slogan">Start your next chapter today!</div>
+
+    <div class="loader">
+        <div class="loader-bar" id="loaderBar"></div>
+    </div>
+
+    <script>
+        // Show slogan
+        setTimeout(() => {
+            document.getElementById("slogan").classList.add("show");
+        }, 3500);
+
+        // Animate loader
+        setTimeout(() => {
+            document.getElementById('loaderBar').style.width = '100%';
+        }, 3200);
+
+        // Hide animation and redirect
+        setTimeout(() => {
+            document.getElementById("book").classList.add("hide");
+            document.getElementById("slogan").classList.add("hide");
+            document.querySelector(".loader").classList.add("hide");
+            
+            // Redirect after fade-out
+            setTimeout(() => {
+                window.location.href = "index.html"; // Redirect to your homepage
+            }, 1000); 
+        }, 6500);
+    </script>
+</body>
+</html>

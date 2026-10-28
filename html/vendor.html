@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Account – BookNook</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #e3eeff, #f3e7e9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .auth-box {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input {
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      button {
+        background-color: #673ab7;
+        color: white;
+        padding: 12px;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #5e35b1;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
+      p a {
+        color: #673ab7;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      p a:hover {
+        text-decoration: underline;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-box">
+      <h2 id="formTitle">Vendor Sign Up</h2>
+
+      <!-- Sign Up -->
+      <form id="vendorSignup">
+        <input type="text" name="name" placeholder="Vendor Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="text"
+          name="referral"
+          placeholder="Referral Code (Optional)"
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <!-- Sign In -->
+      <form id="vendorSignin" class="hidden">
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Sign In</button>
+      </form>
+
+      <p id="toggleText">
+        Already have an account? <a href="#" onclick="toggleForm()">Sign In</a>
+      </p>
+      <p>Are you a customer? <a href="./account.html">Switch to Customer</a></p>
+    </div>
+
+    <script>
+      let isSignUp = true;
+
+      function toggleForm() {
+        isSignUp = !isSignUp;
+        document.getElementById("formTitle").innerText = isSignUp
+          ? "Vendor Sign Up"
+          : "Vendor Sign In";
+        document.getElementById("vendorSignup").classList.toggle("hidden");
+        document.getElementById("vendorSignin").classList.toggle("hidden");
+        document.getElementById("toggleText").innerHTML = isSignUp
+          ? `Already have an account? <a href="#" onclick="toggleForm()">Sign In</a>`
+          : `Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a>`;
+      }
+
+      // ✅ Handle Signup
+      document
+        .getElementById("vendorSignup")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const [name, email, password, referredBy] = e.target;
+          const res = await fetch("http://localhost:4000/vendor/signup", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: name.value,
+              email: email.value,
+              password: password.value,
+              referredBy: referredBy.value,
+            }),
+          });
+          const data = await res.json();
+          alert(data.message || data.error);
+          if (data.message) window.location.href = "./vendor-dashboard.html";
+        });
+
+      // ✅ Handle Signin
+      document
+        .getElementById("vendorSignin")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const [email, password] = e.target;
+          const res = await fetch("http://localhost:4000/vendor/signin", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: email.value,
+              password: password.value,
+            }),
+          });
+          const data = await res.json();
+          alert(data.message || data.error);
+          if (data.message) window.location.href = "./vendor-dashboard.html";
+        });
+    </script>
+    <script src="/wishlist.js"></script>
+  </body>
+</html>

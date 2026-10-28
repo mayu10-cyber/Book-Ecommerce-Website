@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Deals | BookNook</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    :root {
+      --primary-color: #E2EFF7;
+      --secondary-color: #5C6BC0;
+      --accent-color: #FF7043;
+      --text-dark: #2D3748;
+      --text-light: #F8FAFC;
+      --background-light: #FFFFFF;
+      --background-medium: #F7FAFC;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --discount-color: #5C6BC0; /* Changed from red to match theme */
+      --success-color: #48BB78;
+      --warning-color: #ED8936;
+      --teal-accent: #26A69A;
+      --purple-accent: #7E57C2;
+      
+      --font-sans: 'Poppins', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333;  
+}
+
+/* Container */
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.main-header {
+  background-color: #E2EFF7;
+  padding: 20px 0;
+  top: 0;
+    padding-right: 50px;
+
+  z-index: 1000;
+}
+
+/* Header Flex (parent layout) */
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Branding styles */
+.branding {
+  display: flex;
+  margin-left: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.site-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.site-tagline {
+  font-size: 16px;
+  color: #585858;
+  margin-top: 4px;
+}
+
+/* Menu */
+.main-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 10px 20px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.1); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.main-menu li a {
+  text-decoration: none;
+  color: #0c0707;
+  font-weight: 500;
+  padding: 6px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.main-menu li a:hover {
+  animation: bounce 0.4s ease;
+  background-color: #5a013f00;
+  color: #0b034bae;
+}
+
+/* Cart Badge */
+.cart-total {
+  background: rgba(220, 20, 60, 0.485);
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: 4px;
+  vertical-align: top;
+}
+
+/* CATEGORY NAVIGATION */
+.category-nav {
+background: radial-gradient(circle,rgba(218, 176, 255, 1) 0%, rgba(107, 132, 255, 1) 100%);
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.category-list {
+  display: flex;
+  list-style: none;
+  gap: 45px;
+  font-size: 16px;
+  padding: 15px 10px;
+  border: 2px solid #d0d0d0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-option {
+  position: relative;
+  padding: 0 8px;
+}
+
+/* Add pipe separator */
+.category-option:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -8px;
+  color: #000000;
+  font-weight: normal;
+}
+
+.category-list li {
+  position: relative;
+}
+
+.category-item {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 540;
+  font-size: 19px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.category-item:hover {
+  background-color: #f6f2ee82;
+}
+/* Genre Dropdown - Enhanced Responsive Version */
+.genre-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.genre-dropdown .category-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+/* Each Genre Section */
+.genre-section {
+  padding: 0 1rem; /* This adds space INSIDE each column */
+  border-right: 1px solid #f0f0f0; /* Visual separator */
+}   
+.genre-dropdown .category-item i {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-size: 14px;
+}
+
+/* Dropdown Panel */
+.genre-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* padding: 1.5rem; */
+  display: none;
+  opacity: 0;
+  z-index: 1000;
+  width: 800px;
+  max-width: 90vw;
+  transform: translateY(15px) scale(0.95);
+  transform-origin: top left;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Show panel on hover */
+.genre-dropdown:hover .genre-panel,
+.genre-dropdown.active .genre-panel {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid Layout */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Section Headers */
+.genre-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Genre Links */
+.genre-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.genre-options li {
+  margin-bottom: 0.75rem;
+}
+
+.genre-options li a {
+  display: block;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  color: #4a5568;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.genre-options li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #fefefe;
+  transition: width 0.3s ease;
+}
+
+.genre-options li a:hover {
+  color: #000000;
+  padding-left: 8px;
+  background: #f8fafc;
+}
+
+.genre-options li a:hover::before {
+  width: 4px;
+}
+/* Mobile styles */
+@media (max-width: 768px) {
+  .genre-panel {
+    position: fixed;
+    top: auto !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    max-height: 60vh;
+    overflow-y: auto;
+    transform: translateY(100%) !important;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .genre-dropdown.active .genre-panel {
+    transform: translateY(0) !important;
+  }
+}
+@media (max-width: 768px) {
+  .genre-panel {
+    position: fixed;
+    top: auto !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 60vh;
+    overflow-y: auto;
+    border-radius: 12px 12px 0 0;
+    transform: translateY(100%) !important;
+    padding: 1rem;
+  }
+  
+  .genre-dropdown:hover .genre-panel {
+    transform: translateY(0) !important;
+  }
+  /* Add this to keep panel open when moving mouse diagonally */
+.genre-dropdown.force-open .genre-panel {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+  
+  .genre-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+  
+  .genre-options li a {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .genre-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .genre-options li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .genre-panel {
+    max-height: 70vh;
+    padding: 0.75rem;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) {
+  .genre-dropdown {
+    position: static;
+  }
+  
+  .genre-panel {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    z-index: 10000;
+  }
+  
+  .genre-dropdown.active .genre-panel {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .genre-dropdown .category-item {
+    pointer-events: auto;
+  }
+}
+
+    /* Deals Page Content */
+    .deals-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+
+    .deals-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 2rem;
+background: radial-gradient(circle,rgb(240, 225, 252) 0%, rgb(222, 226, 247) 100%);
+        border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      animation: slideIn 0.5s ease-out;
+      width: 100%;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .deals-title {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2.5rem;
+      color: #8a4abefe;
+      margin-bottom: 0.5rem;
+    }
+
+    .deals-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .countdown-timer {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--teal-accent);
+      padding: 8px 16px;
+      background-color: rgba(38, 166, 154, 0.1);
+      border-radius: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Filters */
+    .filters-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 2rem;
+      padding: 15px 20px;
+      background-color: var(--background-light);
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .filter-label {
+      font-weight: 500;
+      color: var(--secondary-color);
+    }
+
+    .filter-select {
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: var(--background-light);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-select:hover {
+      border-color: var(--secondary-color);
+    }
+
+    .filter-select:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.2);
+    }
+
+ /* Deals Grid */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 2rem;
+  justify-items: center; /* Changed back to center for better alignment */
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger animations */
+.book-card {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+.book-card:nth-child(1) { animation-delay: 0.1s; }
+.book-card:nth-child(2) { animation-delay: 0.2s; }
+/* Continue your nth-child delays as needed */
+
+.book-card {
+  background: var(--background-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+  max-width: 300px; /* Slightly reduced for better proportions */
+  position: relative;
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Image Container */
+.book-image {
+  height: 420px; /* Slightly taller for better visibility */
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed to contain to show full book cover */
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 20px; /* Gives breathing room around the image */
+}
+
+.book-card:hover .book-image img {
+  transform: scale(1.08);
+}
+
+/* Content Styling */
+.book-details {
+  padding: 20px;
+  background: white;
+}
+
+.book-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.book-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+/* Discount Badge */
+.discount-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--discount-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  z-index: 2;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .deals-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-image {
+    height: 280px;
+  }
+  .book-details {
+    padding: 16px;
+  }
+}
+      
+@media (max-width: 480px) {
+  .deals-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .book-image {
+    height: 240px;
+    padding: 15px;
+  }
+  .book-title {
+    font-size: 1.05rem;
+  }
+}.wishlist-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 5px;
+      margin-left: 10px;
+    }
+
+    .wishlist-btn:hover {
+      color: #ff6b6b;
+      transform: scale(1.1);
+    }
+
+    .wishlist-btn.active {
+      color: #ff0000;
+      background: #000;
+    }
+
+    .book-author {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .stock-info {
+      font-size: 0.8rem;
+      color: #172352;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .book-meta {
+     display: flex;
+    justify-content: space-betwee n;
+    align-items: center;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .quantity-btn {
+      background-color: var(--background-medium);
+      border: none;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .quantity-btn:hover {
+      background-color: var(--border-color);
+    }
+
+    .quantity-input {
+      width: 40px;
+      height: 30px;
+      text-align: center;
+      border: none;
+      border-left: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .price-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .current-price {
+     font-family: "Montserrat", sans-serif;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #3a2e26;
+    }
+
+    .original-price {
+      font-size: 0.9rem;
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .add-to-cart {
+    padding: 14px 0;
+      width: 100%;
+      background-color: #7e92df;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-to-cart:hover {
+   background-color: #3f4e86 ;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(41, 128, 185, 0.3);
+    }
+
+    .add-to-cart:active {
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .deals-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      .genre-panel {
+        min-width: 600px;
+      }
+      
+      .genre-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-flex {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .main-menu {
+        margin-top: 15px;
+      }
+      
+      .deals-title {
+        font-size: 2rem;
+      }
+      
+      .deals-subtitle {
+        font-size: 1rem;
+      }
+      
+      .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-group {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .filter-select {
+        flex-grow: 1;
+      }
+      
+      .genre-panel {
+        min-width: 300px;
+        left: -100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .deals-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .book-image {
+        height: 280px;
+      }
+      
+      .deals-header {
+        padding: 1.5rem;
+      }
+      
+      .deals-title {
+        font-size: 1.8rem;
+      }
+      
+      .main-menu {
+        gap: 10px;
+      }
+      
+      .main-menu li a {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+      }
+      
+      .category-list {
+        gap: 10px;
+      }
+    }
+
+    
+
+/* Footer Styles */
+.page-footer {
+background: radial-gradient(circle,rgba(218, 176, 255, 1) 0%, rgba(107, 132, 255, 1) 100%)
+ !important;
+    color: #000000;
+    padding: 2rem 0;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.footer-content { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 2rem;
+    color: #000000;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section h3 {
+    color: #000000 !important;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-section ul li i {
+    width: 20px;
+    text-align: center;
+}
+
+.footer-section a {
+    color: #000000 !important;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #000000 !important;
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #f9f9f995 !important;
+    color: #000000 !important;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Specific social media brand colors on hover */
+.social-icons a[href*="facebook"]:hover { background: #285ed4 !important; }
+.social-icons a[href*="instagram"]:hover { background: #E1306C !important; }
+.social-icons a[href*="twitter"]:hover { background: #1DA1F2 !important; }
+.social-icons a[href*="pinterest"]:hover { background: #E60023 !important; }
+
+/* Newsletter Form */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.newsletter-form input {
+    padding: 0.8rem;
+    border: 1px solid #ffffff !important;
+    background: white;
+    color: #fefeff;
+    font-size: 0.9rem;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #ffffff !important;
+}
+
+.newsletter-form button {
+    padding: 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.newsletter-form button:hover {
+    background: #5e9ccf !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #92c2ed !important;
+    color: #000000;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+    }
+    
+    .newsletter-form {
+        flex-direction: row;
+    }
+    
+    .newsletter-form input {  
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+.genre-dropdown:hover .category-item i {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.genre-dropdown {
+  position: relative;
+}
+
+.genre-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: none;
+  z-index: 999;
+  min-width: 700px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.genre-dropdown:hover .genre-panel {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid layout */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+/* Section styling */
+.genre-section h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.genre-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #5c4033;
+  border-radius: 3px;
+}
+
+.genre-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.genre-options li {
+  margin-bottom: 0.75rem;
+}
+
+.genre-options li a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: block;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.genre-options li a:hover {
+  color: #5c4033;
+  transform: translateX(5px);
+}
+
+.genre-options li a::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: #5c4033;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.genre-options li a:hover::before {
+  opacity: 1;
+  left: -15px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .genre-panel {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: auto;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 8px 8px 0 0;
+    transform: translateY(100%);
+  }
+  
+  .genre-dropdown:hover .genre-panel {
+    transform: translateY(0);
+  }
+  
+  .genre-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .genre-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .genre-options li a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .dashboard-container {
+    grid-template-columns: 1fr; /* Stack filter panel above books */
+    padding: 0 15px; /* Slightly less padding on smaller screens */
+  }
+
+  .filter-panel {
+    position: static; /* No longer sticky on smaller screens */
+    margin-top: 0; /* Remove top margin */
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(140px, 1fr)
+    ); /* Adjust for smaller screens */
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 150px; /* More padding for header when wrapped */
+  }
+  .page-header {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+  .logo-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .main-navigation {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  .nav-left {
+    width: 100%;
+  }
+  .search-form {
+    width: 100%;
+  }
+
+  .nav-menu {
+    justify-content: space-around; /* Distribute menu items */
+    width: 100%;
+  }
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    gap: 5px;
+  }
+  .auth-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  .sort-options {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .sort-select {
+    width: 100%;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+  .page-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  .page-number {
+    font-size: 1.1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <!-- Category Navigation -->
+  <nav class="category-nav">
+  <ul class="category-list container">
+    <li class="genre-dropdown">
+      <a href="#" class="category-item">Genres <i class="fas fa-chevron-down"></i></a>
+      <div class="genre-panel">
+        <div class="genre-grid">
+          <div class="genre-section">
+            <h3>Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/fiction.html">Fiction Reads</a></li>
+            <li><a href="/Genres/Adventure.html">Adventure</a></li>
+            <li><a href="/Genres/Classic Novels.html">Classic Novels</a></li>
+            <li><a href="/Genres/Mystery .html">Mystery</a></li>
+            <li><a href="/Genres/romance.html">Romance</a></li>
+            <li><a href="/Genres/Science Fiction.html">Science Fiction</a></li>
+            <li><a href="/Genres/History.html">History</li></a>             
+            <li><a href="/Genres/horror.html">Horror</li></a>             
+          </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Non Fiction</h3>
+            <ul class="genre-options">
+            <li><a href="/Genres/biography.html">Biography</a></li>
+            <li><a href="/Genres/Selfhelp.html">Self Help</a></li>
+            <li><a href="/Genres/Philosophy.html">Philosophy</a></li>
+            <li><a href="/Genres/science.html">Science & Nature</a></li>
+            <li><a href="/Genres/travel.html">Travel</a></li>
+            <li><a href="/Genres/sports.html">Sports</li></a> 
+            <li><a href="/Genres/Stock Market.html">Stock Market</li></a> 
+            <li><a href="/Genres/Spiritual.html">Spirituality </li></a>             
+            </ul>
+
+          </div>
+          <div class="genre-section">
+            <h3>Showcase</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/historical.html">History</li></a> 
+              <li><a href="/Genres/sports.html">Sports</li></a> 
+              <li><a href="/Genres/flims.html">Flims & Animations</li></a> 
+              <li><a href="/Genres/travel.html">Travel & Culture</li></a> 
+              <li><a href="/Genres/culture.html">Culture</li></a> 
+              <li><a href="/Genres/health.html">Health</li></a> 
+            </ul>
+          </div>
+         
+          <div class="genre-section">
+            <h3>Comics</h3>
+            <ul class="genre-options">
+              <li><a href="/Genres/Indian Comics.html"> Indian Comics</a></li>
+              <li><a href="/Genres/American Comics.html">American Comics</a></li>
+              <li><a href="/Genres/Manga.html">Manga</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="category-option"><a href="/html/trending.html" class="category-item">Trending</a></li>
+    <li class="category-option"><a href="/html/top.html" class="category-item">Top 20</a></li>
+    <li class="category-option"><a href="/html/kids.html" class="category-item">Kids Books</a></li>
+    <li class="category-option"><a href="/html/stationary.html" class="category-item">Stationery & Gifts</a></li>
+    <!-- <li class="category-option"><a href="/html/audio.html" class="category-item">Audio Books</a></li> -->
+    <li class="category-option"><a href="/html/exclusive_brands.html" class="category-item">Exclusive Brands</a></li>
+    <li class="category-option"><a href="/html/todays.html" class="category-item">Today's Deals</a></li>
+  </ul>
+</nav>
+
+  <!-- Today's Deals Content -->
+  <div class="deals-container">
+    <div class="deals-header">
+      <h1 class="deals-title">Today's Special Deals</h1>
+      <p class="deals-subtitle">Limited time offers - Don't miss out!</p>
+      <div class="countdown-timer" id="countdown">⏳ Ends in 23h 59m 59s</div>
+    </div>
+
+    <div class="filters-container">
+      <div class="filter-group">
+        <span class="filter-label">Sort by:</span>
+        <select class="filter-select" id="sort-select">
+          <option value="">Recommended</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="discount">Discount %</option>
+          <option value="newest">Newest Arrivals</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Filter by:</span>
+        <select class="filter-select" id="genre-filter">
+          <option value="">All Genres</option>
+          <option value="fiction">Fiction</option>
+          <option value="non-fiction">Non-Fiction</option>
+          <option value="biography">Biography</option>
+          <option value="science">Science</option>
+          <option value="history">History</option>
+          <option value="children">Children</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="deals-grid" id="deal-grid">
+      <!-- Fiction Genre Books -->
+      <div class="book-card" data-book-id="1" data-genre="fiction">
+  <div class="book-image">
+    <img src="/assets/books/deals/d1.webp" alt="The Midnight Library">
+    <div class="discount-badge">35% OFF</div>
+  </div>
+  <div class="book-details">
+    <div class="book-header">
+      <h3 class="book-title">The Midnight Library</h3>
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+    </div>
+    <p class="book-author">By Matt Haig</p>
+    <div class="stock-info">Only 5 left in stock!</div>
+    <div class="book-meta">
+      <div class="quantity-selector">
+        <button class="quantity-btn quantity-minus">-</button>
+        <input type="number" class="quantity-input" value="1" min="1" max="5">
+        <button class="quantity-btn quantity-plus">+</button>
+      </div>
+      <div class="price-container">
+        <span class="current-price">₹499</span>
+        <span class="original-price">₹769</span>
+      </div>
+    </div>
+    <button class="add-to-cart" onclick="addToCart('The Midnight Library', 'Matt Haig', 499, getQuantity(this))">
+      <i class="fas fa-shopping-cart"></i> Add to Cart
+    </button>
+  </div>
+</div>
+
+
+      <!-- Book Card -->
+<div class="book-card" data-book-id="2" data-genre="fiction">
+  <div class="book-image">
+    <img src="/assets/books/deals/d2.jpg" alt="The Alchemist">
+    <div class="discount-badge">30% OFF</div>
+  </div>
+  <div class="book-details">
+    <div class="book-header">
+      <h3 class="book-title">The Alchemist</h3>
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+    </div>
+    <p class="book-author">By Paulo Coelho</p>
+    <div class="stock-info">Only 8 left in stock!</div>
+    <div class="book-meta">
+      <div class="quantity-selector">
+        <button class="quantity-btn quantity-minus">-</button>
+        <input type="number" class="quantity-input" value="1" min="1" max="8">
+        <button class="quantity-btn quantity-plus">+</button>
+      </div>
+      <div class="price-container"> 
+        <span class="current-price">₹399</span>
+        <span class="original-price">₹570</span>
+      </div>
+    </div>
+    <button class="add-to-cart">
+      <i class="fas fa-shopping-cart"></i> Add to Cart
+    </button>
+  </div>
+</div>
+
+
+      <div class="book-card" data-book-id="3" data-genre="fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d3.jpg" alt="Where the Crawdads Sing">
+          <div class="discount-badge">25% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Where the Crawdads Sing</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Delia Owens</p>
+          <div class="stock-info">Only 3 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="3">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹449</span>
+              <span class="original-price">₹599</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Where the Crawdads Sing', 'Delia Owens', 449, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="4" data-genre="fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d4.jpg" alt="The Silent Patient">
+          <div class="discount-badge">40% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Silent Patient</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Alex Michaelides</p>
+          <div class="stock-info">Only 6 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="6">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹359</span>
+              <span class="original-price">₹599</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Silent Patient', 'Alex Michaelides', 359, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="5" data-genre="fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d5.jpg" alt="The Vanishing Half">
+          <div class="discount-badge">20% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Vanishing Half</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Brit Bennett</p>
+          <div class="stock-info">Only 4 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="4">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹499</span>
+              <span class="original-price">₹624</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Vanishing Half', 'Brit Bennett', 499, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Non-Fiction Genre Books -->
+      <div class="book-card" data-book-id="6" data-genre="non-fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d6.jpg" alt="Atomic Habits">
+          <div class="discount-badge">35% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Atomic Habits</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By James Clear</p>
+          <div class="stock-info">Only 7 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="7">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹599</span>
+              <span class="original-price">₹920</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Atomic Habits', 'James Clear', 599, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="7" data-genre="non-fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d7.png" alt="Sapiens">
+          <div class="discount-badge">30% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Sapiens</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Yuval Noah Harari</p>
+          <div class="stock-info">Only 5 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="5">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹699</span>
+              <span class="original-price">₹999</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Sapiens', 'Yuval Noah Harari', 699, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="8" data-genre="non-fiction">
+        <div class="book-image">
+          <img src="https://m.media-amazon.com/images/I/81WojUxbbFL._AC_UF1000,1000_QL80_.jpg" alt="Educated">
+          <div class="discount-badge">25% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Educated</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Tara Westover</p>
+          <div class="stock-info">Only 4 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="4">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹599</span>
+              <span class="original-price">₹799</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Educated', 'Tara Westover', 599, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="9" data-genre="non-fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d8.jpg" alt="The Psychology of Money">
+          <div class="discount-badge">20% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">The Psychology of Money</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Morgan Housel</p>
+          <div class="stock-info">Only 6 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="6">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹499</span>
+              <span class="original-price">₹624</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('The Psychology of Money', 'Morgan Housel', 499, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="10" data-genre="non-fiction">
+        <div class="book-image">
+          <img src="/assets/books/deals/d9.jpg" alt="Thinking, Fast and Slow">
+          <div class="discount-badge">15% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Thinking, Fast and Slow</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Daniel Kahneman</p>
+          <div class="stock-info">Only 3 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="3">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹799</span>
+              <span class="original-price">₹940</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Thinking, Fast and Slow', 'Daniel Kahneman', 799, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Biography Genre Books -->
+      <div class="book-card" data-book-id="11" data-genre="biography">
+        <div class="book-image">
+          <img src="/assets/books/deals/d10.jpg" alt="Becoming">
+          <div class="discount-badge">25% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Becoming</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Michelle Obama</p>
+          <div class="stock-info">Only 4 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="4">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹599</span>
+              <span class="original-price">₹799</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Becoming', 'Michelle Obama', 599, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="book-card" data-book-id="12" data-genre="biography">
+        <div class="book-image">
+          <img src="/assets/books/deals/d11.jpg" alt="Steve Jobs">
+          <div class="discount-badge">30% OFF</div>
+        </div>
+        <div class="book-details">
+          <div class="book-header">
+            <h3 class="book-title">Steve Jobs</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+          </div>
+          <p class="book-author">By Walter Isaacson</p>
+          <div class="stock-info">Only 5 left in stock!</div>
+          <div class="book-meta">
+            <div class="quantity-selector">
+              <button class="quantity-btn quantity-minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="5">
+              <button class="quantity-btn quantity-plus">+</button>
+            </div>
+            <div class="price-container">
+              <span class="current-price">₹699</span>
+              <span class="original-price">₹999</span>
+            </div>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('Steve Jobs', 'Walter Isaacson', 699, getQuantity(this))">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+      <footer class="page-footer" style="background: #165A96; color: #fff;">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">BookNook</h3>
+            <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+            <div class="social-icons">
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="background: var(--secondary-brand-color); color: #165A96;"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Quick Links</h3>
+            <ul>
+              <li><a href="#" style="color: #fff;">About Us</a></li>
+              <li><a href="#" style="color: #fff;">Contact</a></li>
+              <li><a href="#" style="color: #fff;">Shipping Policy</a></li>
+              <li><a href="#" style="color: #fff;">Returns & Exchanges</a></li>
+              <li><a href="#" style="color: #fff;">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Customer Service</h3>
+            <ul>
+              <li><i class="fas fa-phone" style="color: #165A96;"></i> +91 9876543210</li>
+              <li><i class="fas fa-envelope" style="color: #165A96"></i> help@booknook.com</li>
+              <li><i class="fas fa-map-marker-alt" style="color: #165A96"></i> Mumbai, India</li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3 style="color: var(--secondary-brand-color);">Newsletter</h3>
+            <p>Subscribe for updates and special offers!</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" style="border-radius: 8px; border: none;">
+              <button type="submit" style="background: var(--secondary-brand-color); color: #165A96; border-radius: 8px; font-weight: bold;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom" style="border-top: 1px solid var(--secondary-brand-color);">
+          <p>&copy; 2023 BookNook. All rights reserved.</p>
+        </div>
+      </footer>
+ 
+  <script src="/wishlist.js"></script>
+  
+
+
+  <style>
+    /* Toast notifications */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .toast.show {
+      opacity: 1;
+      bottom: 30px;
+    }
+    
+    .toast-success {
+      background-color: var(--success-color);
+    }
+    
+    .toast-info {
+      background-color: var(--secondary-color);
+    }
+    
+    /* Animation for genre options */
+    .genre-options li {
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .genre-dropdown:hover .genre-options li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Stagger animation for genre options */
+    .genre-options li:nth-child(1) { transition-delay: 0.1s; }
+    .genre-options li:nth-child(2) { transition-delay: 0.2s; }
+    .genre-options li:nth-child(3) { transition-delay: 0.3s; }
+    .genre-options li:nth-child(4) { transition-delay: 0.4s; }
+    .genre-options li:nth-child(5) { transition-delay: 0.5s; }
+    .genre-options li:nth-child(6) { transition-delay: 0.6s; }
+    .genre-options li:nth-child(7) { transition-delay: 0.7s; }
+    .genre-options li:nth-child(8) { transition-delay: 0.8s; }
+  </style>
+
+  <script>
+  // Helper to get quantity from input near the clicked button
+  function getQuantity(button) {
+    return parseInt(button.closest('.book-details').querySelector('.quantity-input').value);
+  }
+
+  // Add to cart logic
+  function addToCart(title, author, price, quantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const existingIndex = cart.findIndex(item => item.title === title && item.author === author);
+
+    if (existingIndex !== -1) {
+      cart[existingIndex].quantity += quantity;
+    } else {
+      cart.push({ title, author, price, quantity });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${title} added to cart!`);
+  }
+
+  // Event listener for cart buttons
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.add-to-cart')) {
+      const book = e.target.closest('.book-card');
+      const title = book.querySelector('.book-title').textContent;
+      const author = book.querySelector('.book-author').textContent.replace("By ", "");
+      const price = parseInt(book.querySelector('.current-price').textContent.replace("₹", ""));
+      const quantity = getQuantity(e.target);
+
+      addToCart(title, author, price, quantity);
+    }
+  });
+</script>
+<script>
+  // Filter and Sort Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const sortSelect = document.getElementById('sort-select');
+  const genreFilter = document.getElementById('genre-filter');
+  const dealGrid = document.getElementById('deal-grid');
+  const bookCards = Array.from(document.querySelectorAll('.book-card'));
+  
+  // Filter and sort function
+  function updateBooks() {
+    const sortValue = sortSelect.value;
+    const filterValue = genreFilter.value.toLowerCase();
+    
+    // Filter books
+    let filteredBooks = bookCards;
+    if (filterValue) {
+      filteredBooks = bookCards.filter(card => {
+        return card.dataset.genre === filterValue;
+      });
+    }
+    
+    // Hide all books first
+    bookCards.forEach(card => {
+      card.style.display = 'none';
+    });
+    
+    // Show filtered books
+    filteredBooks.forEach(card => {
+      card.style.display = 'block';
+    });
+    
+    // Sort books
+    if (sortValue) {
+      filteredBooks.sort((a, b) => {
+        const priceA = parseInt(a.querySelector('.current-price').textContent.replace('₹', ''));
+        const priceB = parseInt(b.querySelector('.current-price').textContent.replace('₹', ''));
+        const discountA = parseInt(a.querySelector('.discount-badge')?.textContent.replace('% OFF', '') || 0);
+        const discountB = parseInt(b.querySelector('.discount-badge')?.textContent.replace('% OFF', '') || 0);
+        
+        switch(sortValue) {
+          case 'price-low':
+            return priceA - priceB;
+          case 'price-high':
+            return priceB - priceA;
+          case 'discount':
+            return discountB - discountA;
+          case 'newest':
+            return parseInt(b.dataset.bookId) - parseInt(a.dataset.bookId);
+          default:
+            return 0;
+        }
+      });
+      
+      // Re-append sorted books to maintain order
+      filteredBooks.forEach(card => {
+        dealGrid.appendChild(card);
+      });
+    }
+  }
+  
+  // Event listeners
+  sortSelect.addEventListener('change', updateBooks);
+  genreFilter.addEventListener('change', updateBooks);
+  
+  // Initialize countdown timer
+  function updateCountdown() {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 0);
+    
+    const diff = endOfDay - now;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('countdown').textContent = 
+      `⏳ Ends in ${hours}h ${minutes}m ${seconds}s`;
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  
+  // Wishlist functionality
+  document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.classList.toggle('active');
+      const icon = this.querySelector('i');
+      
+      if (this.classList.contains('active')) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        showToast('Added to wishlist!', 'success');
+      } else {
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+        showToast('Removed from wishlist', 'info');
+      }
+    });
+  });
+  
+  // Quantity buttons
+  document.querySelectorAll('.quantity-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const input = this.parentElement.querySelector('.quantity-input');
+      let value = parseInt(input.value);
+      
+      if (this.classList.contains('quantity-minus')) {
+        if (value > 1) input.value = value - 1;
+      } else {
+        const max = parseInt(input.max);
+        if (value < max) input.value = value + 1;
+      }
+    });
+  });
+  
+  // Toast notification
+  function showToast(message, type) {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, 3000);
+  }
+});
+</script>
+</body>
+</html>

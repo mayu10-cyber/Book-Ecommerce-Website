@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Book Details</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{--accent:#d70000;--bg:#fafafa;--card:#fff;--shadow:0 2px 8px rgba(0,0,0,.08);}
+  body{margin:0;background:var(--bg);font-family:Segoe UI,Tahoma,Arial,sans-serif;color:#222;}
+  .wrap{max-width:1000px;margin:auto;padding:1.5rem;}
+  a.back{display:inline-block;margin-bottom:1rem;color:var(--accent);text-decoration:none;}
+  .panel{display:flex;flex-wrap:wrap;gap:2rem;background:var(--card);padding:1.5rem;border-radius:12px;box-shadow:var(--shadow);}
+  .panel img{flex:0 0 300px;height:400px;object-fit:contain;border:1px solid #eee;border-radius:8px;}
+  .info{flex:1 1 240px;}
+  .info h1{margin:.2rem 0;}
+  .price{color:var(--accent);font-size:1.4rem;font-weight:700;}
+  .old{margin-left:.6rem;text-decoration:line-through;color:#888;font-size:1rem;}
+  .badge{background:red;color:#fff;font-size:.75rem;padding:2px 6px;border-radius:4px;margin-left:.4rem;}
+  .buy{margin-top:1rem;padding:.6rem 1.4rem;background:var(--accent);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:1rem;}
+  /* related */
+  .related h3{margin:2.5rem 0 1rem;}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;}
+  .rel-card{background:#fff;padding:.8rem;border-radius:8px;text-align:center;box-shadow:0 1px 5px rgba(0,0,0,.06);text-decoration:none;color:inherit;transition:.15s;}
+  .rel-card:hover{transform:scale(1.04);}
+  .rel-card img{height:140px;object-fit:contain;margin-bottom:.5rem;}
+</style>
+</head>
+<body>
+<div class="wrap" id="root">Loading…</div>
+
+<!-- Same BOOKS data (could be imported via <script src="books.js"></script>) -->
+<script>
+const BOOKS=[
+ {title:"Rafa",author:"John Carlin",genre:"Biography",image:"/assets/img/rafa.png",discount:50,price:1126,oldPrice:2254,desc:"Autobiography of Rafael Nadal."},
+ {title:"Current Medical Diagnosis 2024",author:"Stephen McPhee",genre:"Medical",image:"/assets/img/medical.png",discount:48,price:4184,oldPrice:8046,desc:"Authoritative medical reference."},
+ {title:"God Emperor Of Dune",author:"Frank Herbert",genre:"Sci-Fi",image:"/assets/books/todays/t1.jpg",discount:46,price:704,oldPrice:1303,desc:"Epic science‑fiction saga."},
+ {title:"Inheritance Games Collection",author:"Jennifer Lynn",genre:"Mystery",image:"/assets/books/todays/t2.jpg",discount:46,price:3648,oldPrice:6755,desc:"Thrilling mystery box set."},
+ {title:"Illuminated Playing Card Set",author:"Caitlin Keegan",genre:"Art",image:"/assets/books/todays/t3.jpg",discount:45,price:977,oldPrice:1777,desc:"Beautifully designed card deck."}
+];
+
+const params=new URLSearchParams(location.search);
+const title=params.get('title');
+const book=BOOKS.find(b=>b.title===title)||BOOKS[0];
+const root=document.getElementById('root');
+
+root.innerHTML=`
+  <a href="index.html" class="back"><i class="fa fa-arrow-left"></i> Back to deals</a>
+  <div class="panel">
+    <img src="${book.image}" alt="${book.title}">
+    <div class="info">
+      <h1>${book.title}</h1>
+      <p><em>${book.author}</em></p>
+      <p>${book.desc||''}</p>
+      <p><span class="price">₹${book.price}</span><span class="old">₹${book.oldPrice}</span><span class="badge">${book.discount}% OFF</span></p>
+      <button class="buy">Buy Now</button>
+    </div>
+  </div>`;
+
+/* related */
+const related=BOOKS.filter(b=>b.genre===book.genre&&b.title!==book.title).slice(0,3);
+if(related.length){
+  const relWrap=document.createElement('div');
+  relWrap.className='related';
+  relWrap.innerHTML=`<h3>Related Books</h3>
+    <div class="related-grid">
+      ${related.map(r=>`<a class="rel-card" href="details.html?title=${encodeURIComponent(r.title)}"><img src="${r.image}" alt="${r.title}"><div>${r.title}</div></a>`).join('')}
+    </div>`;
+  root.appendChild(relWrap);
+}
+</script>
+</body>
+</html>

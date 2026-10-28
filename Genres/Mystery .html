@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookNook - Your Literary Haven</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Montserrat:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+      body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    .hero {
+      background: url('https://img.freepik.com/free-photo/vintage-grunge-blue-concrete-texture-studio-wall-background-with-vignette_1258-28387.jpg?semt=ais_hybrid&w=740') center/cover no-repeat;
+      padding: 200px 20px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative;
+      min-height: 300px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-left: 50px;
+    }
+
+    .hero p {
+      font-size: 40px;
+      margin-left:50px;
+      margin-top: 40px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(44, 62, 80, 0.8);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 2;
+    }
+
+    .back-button:hover {
+      background: rgba(26, 37, 47, 0.9);
+    }
+  </style>
+
+</head>
+
+<body>
+<!-- Main Header -->
+  <header class="main-header">
+    <div class="container header-flex">
+      <!-- Branding -->
+      <div class="branding">
+        <a href="/html/index.html" class="brand-link">
+          <h1 class="site-title">BookNook</h1>
+          <span class="site-tagline">Literary Haven</span>
+        </a>
+      </div>
+
+      <!-- Search -->
+      <!-- <form class="book-search">
+        <input type="text" placeholder="Search books, authors..." class="search-field" />
+        <button type="submit" class="search-btn" title="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form> -->
+
+      <!-- Navigation Menu -->
+      <ul class="main-menu">
+        <li><a href="/html/index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/html/deals.html"><i class="fas fa-tag"></i> Deals</a></li>
+        <li><a href="/html/aboutus.html"><i class="fas fa-bookmark"></i> About Us</a></li>
+        <li><a href="/html/publish.html"><i class="fas fa-book"></i> Publish</a></li>
+        <li><a href="/html/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a></li>
+        <li><a href="/html/account.html" id="authControl"><i class="fas fa-user"></i> <span id="authStatus">LOG IN</span></a></li>
+        <li><a href="/html/cart.html"><i class="fas fa-shopping-bag"></i> Cart <span class="cart-total">0</span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <header class="hero">
+    <a href="/html/index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+    <div class="hero-content">
+     <h1>Gripping Mystery Books</h1>
+     <p>Dive into suspenseful whodunits and unravel secrets with every page</p>
+    </div>
+  </header>
+
+  <!-- --------------------Mystery Books ------------------------------------------ -->
+  <section class="fiction-books-section" id="fiction-reads">
+    <div class="section-header">
+      <h2 class="fiction-books-heading">Manga</h2>
+    </div>
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="carousel__content books-grid">
+        
+        <!-- Row 1 -->
+        <!-- Book Card 1 -->
+       <div class="book-card" data-book-id="302" data-book-name="The Silent Witness" data-author="Agatha Christie" data-price="899" data-stock="18">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDFlOTgxNmYtNGRiNy00NzIxLTg0YTItOGUzZmZmNGJkMjYwXkEyXkFqcGc@._V1_.jpg" alt="Mystery Book Cover">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+            <h3 class="book-title">The Silent Witness</h3>
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Agatha Christie</p>
+            <div class="book-meta">
+            <div class="quantity-selector">
+                <button class="quantity-minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1" max="18">
+                <button class="quantity-plus">+</button>
+            </div>
+            <span class="price">¥899</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Silent Witness', 'By Agatha Christie', 899, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 2 -->
+        <div class="book-card" data-book-id="303" data-book-name="Murder on the Orient Express" data-author="Agatha Christie" data-price="950" data-stock="15">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/M/MV5BNTlkYjBlZTctZjg2YS00NDMzLTlkMTMtNWExMGYyOTliMmEzXkEyXkFqcGc@._V1_.jpg" alt="Murder on the Orient Express">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+                <h3 class="book-title">Murder on the Orient Express</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Agatha Christie</p>
+            <div class="book-meta">
+                <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="15">
+                    <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">¥950</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Murder on the Orient Express', 'By Agatha Christie', 950, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 3 -->
+        <div class="book-card" data-book-id="304" data-book-name="Gone Girl" data-author="Gillian Flynn" data-price="850" data-stock="20">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg" alt="Gone Girl">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+                <h3 class="book-title">Gone Girl</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Gillian Flynn</p>
+            <div class="book-meta">
+                <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="20">
+                    <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">¥850</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Gone Girl', 'By Gillian Flynn', 850, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 4 -->
+        <div class="book-card" data-book-id="305" data-book-name="The Girl with the Dragon Tattoo" data-author="Stieg Larsson" data-price="999" data-stock="12">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/M/MV5BMTczNDk4NTQ0OV5BMl5BanBnXkFtZTcwNDAxMDgxNw@@._V1_.jpg" alt="The Girl with the Dragon Tattoo">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+                <h3 class="book-title">The Girl with the Dragon Tattoo</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Stieg Larsson</p>
+            <div class="book-meta">
+                <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="12">
+                    <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">¥999</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Girl with the Dragon Tattoo', 'By Stieg Larsson', 999, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 5 -->
+        <div class="book-card" data-book-id="306" data-book-name="The Hound of the Baskervilles" data-author="Arthur Conan Doyle" data-price="750" data-stock="10">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/I/71eOPYnjACL._UF1000,1000_QL80_.jpg" alt="The Hound of the Baskervilles">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+                <h3 class="book-title">The Hound of the Baskervilles</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Arthur Conan Doyle</p>
+            <div class="book-meta">
+                <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="10">
+                    <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">¥750</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Hound of the Baskervilles', 'By Arthur Conan Doyle', 750, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+        <!-- Book Card 6 -->
+        <div class="book-card" data-book-id="314" data-book-name="The Guest List" data-author="Lucy Foley" data-price="899" data-stock="14">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/I/81QEpeAxCxS._UF1000,1000_QL80_.jpg" alt="The Guest List">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+                <h3 class="book-title">The Guest List</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Lucy Foley</p>
+            <div class="book-meta">
+                <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="14">
+                    <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">¥899</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Guest List', 'By Lucy Foley', 899, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+
+    <div class="carousel__wrapper">
+      <div class="carousel__header">
+        <div></div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow arrow-prev">&lsaquo;</button>
+          <button class="carousel__arrow arrow-next">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="carousel__content books-grid">
+    
+         <!-- Book Card 1 -->
+        
+        <div class="book-card" data-book-id="307" data-book-name="The Da Vinci Code" data-author="Dan Brown" data-price="899" data-stock="22">
+        <div class="book-image">
+            <img src="https://m.media-amazon.com/images/I/71y4X5150dL.jpg" alt="The Da Vinci Code">
+        </div>
+        <div class="book-details">
+            <div class="book-header">
+                <h3 class="book-title">The Da Vinci Code</h3>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <p class="book-author">By Dan Brown</p>
+            <div class="book-meta">
+                <div class="quantity-selector">
+                    <button class="quantity-minus">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1" max="22">
+                    <button class="quantity-plus">+</button>
+                </div>
+                <span class="price">¥899</span>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('The Da Vinci Code', 'By Dan Brown', 899, getQuantity(this))">Add to Cart</button>
+        </div>
+        </div>
+
+            <div class="book-card" data-book-id="308" data-book-name="Sharp Objects" data-author="Gillian Flynn" data-price="799" data-stock="14">
+            <div class="book-image">
+                <img src="https://m.media-amazon.com/images/M/MV5BYTY4OTQ0N2EtMDExMC00NTYzLTk0NmItYTRjNDYxOWU5ZDY3XkEyXkFqcGc@._V1_.jpg" alt="Sharp Objects">
+            </div>
+            <div class="book-details">
+                <div class="book-header">
+                    <h3 class="book-title">Sharp Objects</h3>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Gillian Flynn</p>
+                <div class="book-meta">
+                    <div class="quantity-selector">
+                        <button class="quantity-minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="14">
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <span class="price">¥799</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Sharp Objects', 'By Gillian Flynn', 799, getQuantity(this))">Add to Cart</button>
+            </div>
+            </div>
+
+        <div class="book-card" data-book-id="309" data-book-name="The Silent Patient" data-author="Alex Michaelides" data-price="899" data-stock="18">
+            <div class="book-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRurl4GZO0LSpS6C9NgmWV0xD5Y3jqq-wFCQw&s" alt="The Silent Patient">
+            </div>
+            <div class="book-details">
+                <div class="book-header">
+                    <h3 class="book-title">The Silent Patient</h3>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Alex Michaelides</p>
+                <div class="book-meta">
+                    <div class="quantity-selector">
+                        <button class="quantity-minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="18">
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <span class="price">¥899</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('The Silent Patient', 'By Alex Michaelides', 899, getQuantity(this))">Add to Cart</button>
+            </div>
+            </div>
+
+
+            <div class="book-card" data-book-id="310" data-book-name="And Then There Were None" data-author="Agatha Christie" data-price="850" data-stock="16">
+            <div class="book-image">
+                <img src="https://m.media-amazon.com/images/I/81nChcVy7CL.jpg" alt="And Then There Were None">
+            </div>
+            <div class="book-details">
+                <div class="book-header">
+                    <h3 class="book-title">And Then There Were None</h3>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Agatha Christie</p>
+                <div class="book-meta">
+                    <div class="quantity-selector">
+                        <button class="quantity-minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="16">
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <span class="price">¥850</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('And Then There Were None', 'By Agatha Christie', 850, getQuantity(this))">Add to Cart</button>
+            </div>
+            </div>
+
+
+            <div class="book-card" data-book-id="311" data-book-name="The Woman in the Window" data-author="A.J. Finn" data-price="899" data-stock="12">
+            <div class="book-image">
+                <img src="https://m.media-amazon.com/images/I/7196sTeTolL.jpg" alt="The Woman in the Window">
+            </div>
+            <div class="book-details">
+                <div class="book-header">
+                    <h3 class="book-title">The Woman in the Window</h3>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By A.J. Finn</p>
+                <div class="book-meta">
+                    <div class="quantity-selector">
+                        <button class="quantity-minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="12">
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <span class="price">¥899</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('The Woman in the Window', 'By A.J. Finn', 899, getQuantity(this))">Add to Cart</button>
+            </div>
+            </div>
+
+
+            <div class="book-card" data-book-id="312" data-book-name="Big Little Lies" data-author="Liane Moriarty" data-price="799" data-stock="15">
+            <div class="book-image">
+                <img src="https://m.media-amazon.com/images/M/MV5BY2E3ODNhNWYtYWQ0ZS00ZjdlLTg5NjItMzYwMTlkN2I3YTFjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Big Little Lies">
+            </div>
+            <div class="book-details">
+                <div class="book-header">
+                    <h3 class="book-title">Big Little Lies</h3>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Liane Moriarty</p>
+                <div class="book-meta">
+                    <div class="quantity-selector">
+                        <button class="quantity-minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="15">
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <span class="price">¥799</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Big Little Lies', 'By Liane Moriarty', 799, getQuantity(this))">Add to Cart</button>
+            </div>
+            </div>
+
+
+            <div class="book-card" data-book-id="313" data-book-name="The Girl on the Train" data-author="Paula Hawkins" data-price="849" data-stock="20">
+            <div class="book-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtlKZKjVK-_LK3RtIIO4r1_hMYriA1YKMluA&s" alt="The Girl on the Train">
+            </div>
+            <div class="book-details">
+                <div class="book-header">
+                    <h3 class="book-title">The Girl on the Train</h3>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                <p class="book-author">By Paula Hawkins</p>
+                <div class="book-meta">
+                    <div class="quantity-selector">
+                        <button class="quantity-minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="20">
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <span class="price">¥849</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('The Girl on the Train', 'By Paula Hawkins', 849, getQuantity(this))">Add to Cart</button>
+            </div>
+            </div>
+        
+    
+    
+    
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <button id="chatbot-toggle" class="chatbot-toggle-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z"
+        fill="currentColor" />
+      <path d="M7 9H17V11H7V9ZM7 12H14V14H7V12Z" fill="currentColor" />
+    </svg>
+  </button>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header">
+      Bookheaven Assitant
+      <button id="chatbot-close" class="chatbot-close-btn">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <form class="chatbot-input-bar" id="chatbot-form">
+      <input type="text" id="chatbot-input" placeholder="Ask me about books, recommendations, or anything..."
+        autocomplete="off" required />
+      <button type="submit" id="chatbot-send">Send</button>
+    </form>
+  </div>
+
+ <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>BookNook</h3>
+        <p>Your one-stop shop for books and creative stationery that inspire imagination and learning.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/html/aboutus.html">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><i class="fas fa-phone"></i> +91 9876543210</li>
+          <li><i class="fas fa-envelope"></i> help@booknook.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p>Subscribe for updates and special offers!</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2023 BookNook. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/wishlist.js"></script>
+
+  <script>
+    // Show offer after 3 seconds (simulate new offer)
+    window.addEventListener("load", () => {
+      document.getElementById("dealPopup").classList.add("show");
+    });
+
+    function closePopup() {
+      document.getElementById("dealPopup").classList.remove("show");
+    }
+  </script>
+
+  <script>
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const messages = document.getElementById('chatbot-messages');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+
+    // Chatbot toggle functionality
+    chatbotToggle.addEventListener('click', function () {
+      chatbotContainer.classList.add('open');
+      chatbotToggle.classList.add('hidden');
+      input.focus();
+    });
+
+    chatbotClose.addEventListener('click', function () {
+      chatbotContainer.classList.remove('open');
+      chatbotToggle.classList.remove('hidden');
+    });
+
+    // Close chatbot when clicking outside (optional)
+    document.addEventListener('click', function (e) {
+      if (!chatbotContainer.contains(e.target) &&
+        !chatbotToggle.contains(e.target) &&
+        chatbotContainer.classList.contains('open')) {
+        chatbotContainer.classList.remove('open');
+        chatbotToggle.classList.remove('hidden');
+      }
+    });
+
+    // Improved message creation with optional HTML content
+    function appendMessage(content, sender, isHTML = false) {
+      const div = document.createElement('div');
+      div.className = `chatbot-message ${sender}`;
+
+      if (isHTML) {
+        div.innerHTML = content.replace(/\n/g, '<br>'); // Convert newlines to <br>
+      } else {
+        div.textContent = content;
+      }
+
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+      return div; // Return reference for potential modifications
+    }
+
+    function removeLastBotMessage() {
+      const last = messages.querySelector('.chatbot-message.bot:last-child');
+      if (last && last.textContent === 'Thinking...') {
+        messages.removeChild(last);
+      }
+    }
+
+    // Enhanced submit handler with loading state
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+
+      // Disable input during processing
+      input.disabled = true;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+
+      appendMessage(userMsg, 'user');
+      input.value = '';
+      const thinkingMsg = appendMessage('Thinking...', 'bot');
+
+      try {
+        const res = await fetch('http://localhost:3001/chatbot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMsg })
+        });
+
+        if (!res.ok) {
+          throw new Error(`Server responded with ${res.status}`);
+        }
+
+        const data = await res.json();
+        removeLastBotMessage();
+
+        if (data.reply) {
+          // Handle bullet points and formatting from Gemini
+          appendMessage(data.reply, 'bot', true);
+        } else {
+          appendMessage("I didn't get a response. Please try again.", 'bot');
+        }
+      } catch (err) {
+        removeLastBotMessage();
+        appendMessage('Sorry, something went wrong. Please try again later.', 'bot');
+        console.error('Chatbot error:', err);
+      } finally {
+        // Re-enable input
+        input.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        input.focus();
+      }
+    });
+
+    // Optional: Add input validation or character limit
+    input.addEventListener('input', function () {
+      if (this.value.length > 500) {
+        this.value = this.value.substring(0, 500);
+        // Optionally show a warning
+      }
+    });
+  </script>
+
+  <script>
+    // Initialize wishlist and cart from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    // // 1️⃣ Wishlist functionality
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    //     btn.addEventListener('click', function (e) {
+    //       e.preventDefault();
+    //       const icon = this.querySelector('i');
+    //       this.classList.toggle('active');
+
+    //       const card = this.closest('.book-card');
+    //       const bookId = card?.dataset.bookId;
+    //       const title = card.querySelector('.book-title')?.innerText || "Untitled";
+    //       const author = card.querySelector('.book-author')?.innerText || "Unknown";
+    //       const priceText = card.querySelector('.price')?.innerText || "₹0";
+    //       const price = parseInt(priceText.replace('₹', '')) || 0;
+
+    //       if (!bookId || !title || !author || isNaN(price)) {
+    //         console.warn("Invalid wishlist data", { bookId, title, author, price });
+    //         return;
+    //       }
+
+    //       if (this.classList.contains('active')) {
+    //         icon.classList.remove('far');
+    //         icon.classList.add('fas');
+    //         if (!wishlist.some(b => b.bookId === bookId)) {
+    //           wishlist.push({ bookId, title, author, price });
+    //         }
+    //       } else {
+    //         icon.classList.remove('fas');
+    //         icon.classList.add('far');
+    //         wishlist = wishlist.filter(b => b.bookId !== bookId);
+    //       }
+
+    //       localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    //       const counter = document.querySelector('.wishlist-count');
+    //       if (counter) counter.textContent = wishlist.length;
+    //     });
+    //   });
+    // });
+
+    // 2️⃣ Quantity + / - handlers
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.quantity-plus').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const input = this.previousElementSibling;
+          input.value = Math.min(10, parseInt(input.value) + 1);
+        });
+      });
+
+      document.querySelectorAll('.quantity-minus').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const input = this.nextElementSibling;
+          input.value = Math.max(1, parseInt(input.value) - 1);
+        });
+      });
+    });
+
+    // 3️⃣ Helper to get quantity
+    function getQuantity(button) {
+      const card = button.closest('.book-card');
+      const input = card.querySelector('.quantity-input');
+      return parseInt(input.value) || 1;
+    }
+
+    // 4️⃣ Add to cart with quantity
+    function addToCart(title, author, price, quantity = 1) {
+      let existing = cart.find(item => item.title === title && item.author === author);
+
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ title, author, price, quantity });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${title} added to cart! 🛒 (${quantity})`);
+
+      // Optional: update cart count
+      const counter = document.querySelector('.cart-count');
+      if (counter) counter.textContent = cart.length;
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        const icon = btn.querySelector('i');
+        const card = btn.closest('.book-card');
+        const bookId = card?.dataset.bookId;
+
+        // ✅ Set initial tick if in wishlist
+        if (wishlist.some(b => b.bookId === bookId)) {
+          btn.classList.add('active');
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          icon.innerHTML = '✔️'; // Tick mark
+        }
+
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const card = this.closest('.book-card');
+          const icon = this.querySelector('i');
+
+          const bookId = card?.dataset.bookId;
+          const title = card.querySelector('.book-title')?.innerText || "Untitled";
+          const author = card.querySelector('.book-author')?.innerText || "Unknown";
+          const priceText = card.querySelector('.price')?.innerText || "₹0";
+          const price = parseInt(priceText.replace('₹', '')) || 0;
+
+          if (!bookId || !title || !author || isNaN(price)) {
+            console.warn("Invalid wishlist data", { bookId, title, author, price });
+            return;
+          }
+
+          if (!this.classList.contains('active')) {
+            // ✅ Add to wishlist
+            this.classList.add('active');
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            icon.innerHTML = '✔️';
+
+            if (!wishlist.some(b => b.bookId === bookId)) {
+              wishlist.push({ bookId, title, author, price });
+            }
+
+          } else {
+            // ❌ Remove from wishlist
+            this.classList.remove('active');
+            icon.classList.remove('fas');
+            icon.classList.add('far');
+            icon.innerHTML = ''; // Remove tick
+            wishlist.splice(wishlist.findIndex(b => b.bookId === bookId), 1);
+          }
+
+          localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+          const counter = document.querySelector('.wishlist-count');
+          if (counter) counter.textContent = wishlist.length;
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.book-card').forEach(card => {
+          if (filter === 'All' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    const authBtn = document.getElementById('authBtn');
+    const authText = document.getElementById('authText');
+
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userEmail = localStorage.getItem('loggedInUser');
+
+    if (isLoggedIn && userEmail) {
+      authText.textContent = 'LOG OUT';
+      authBtn.href = '#';
+
+      authBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('loggedInUser');
+        alert('You have been logged out.');
+        window.location.reload();
+      });
+    } else {
+      authText.textContent = 'LOG IN';
+      authBtn.href = '/html/account.html';
+    }
+  </script>
+
+  <script src="/publish.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!--------------- cart ------------------->
+
+
+  <!-- ---------------------------------- -->
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+</body>
+
+</html>
