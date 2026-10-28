@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNook - Your Literary Haven</title>
+  <meta http-equiv="refresh" content="0; url=./html/index.html">
+  <script>
+    const currentPath = window.location.pathname;
+    const target = currentPath.endsWith('/') ? currentPath + 'html/index.html' : currentPath + '/html/index.html';
+    window.location.replace(target);
+  </script>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding-top: 60px; background-color: #f9f5f0; color: #3a2e26;">
+  <h2>📚 Welcome to BookNook</h2>
+  <p>Loading bookstore catalog... If you are not redirected automatically, <a href="./html/index.html" style="color: #6b84ff; font-weight: bold;">click here</a>.</p>
+</body>
+</html>
